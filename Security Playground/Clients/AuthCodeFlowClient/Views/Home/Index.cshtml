@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>IdentityServer4</h1>
+    <h2>Code Flow Sample Client</h2>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <h3>Scopes</h3>
+        @using (Html.BeginForm())
+        {
+            <p>
+                <input type="text" name="scopes" style="width: 200px" value="api1" />
+            </p>
+
+            <button name="OK">OK</button>
+        }
+    </div>
+</div>

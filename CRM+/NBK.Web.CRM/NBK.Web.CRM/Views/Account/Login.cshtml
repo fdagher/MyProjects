@@ -1,0 +1,69 @@
+﻿@using NBK.Web.CRM.Models;
+@model LoginViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CRM | Login</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="~/Content/animate.css" rel="stylesheet">
+    <link href="~/Content/style.css" rel="stylesheet">
+
+ 
+
+</head>
+
+<body class="gray-bg text-black">
+   
+    <div class="middle-box text-center loginscreen  animated fadeInDown">
+        <div>
+            <div>
+                <h1 class="logo-name">CRM</h1>
+
+            </div>
+            <h3>Welcome to CRM+</h3>
+            <p>
+                New generation of CRM proof of concept application.
+            </p>
+        
+           @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "m-t", role = "form" }))
+           {
+         
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.UserID, new { @class = "form-control", @placeholder = "User ID" })
+                    @Html.ValidationMessageFor(m => m.UserID, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                    @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+             }
+            <p class="m-t"> <small>CRM application base on <strong>WebApi, Bootstrap 3 and Angular</strong> &copy; 2016</small> </p>
+        </div>
+    </div>
+
+
+
+
+  
+</body>
+</html>
+<script type="text/javascript">
+    //sessionStorage.Clear();
+</script>
+
+
+
+
+

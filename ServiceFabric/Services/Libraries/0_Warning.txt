@@ -1,0 +1,8 @@
+
+BLOCKED FILE ALERT
+
+A file has been blocked due to the 'NBK File Filtering' rule.
+Context: 'NBK.Common.Foundations.dll'
+Disallowed due to filename
+Ticket Number: '0ff4-5851-0276-0001'
+For further information, contact your system administrator. Copyright 1999-2014 McAfee, Inc.All Rights Reserved.http://www.mcafee.com

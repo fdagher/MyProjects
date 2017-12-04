@@ -1,0 +1,398 @@
+﻿
+@{
+    ViewBag.Title = "IBGSummary";
+}
+
+
+
+<div ng-controller="IBGCustomerController" style="color:#222" ng-cloak>
+    <div ng-hide="loaded">
+        <h1 class="text-center text-navy">
+            Initializing application, Please wait
+        </h1>
+    </div>
+    <section ng-show="loaded">
+        <div class="row wrapper border-bottom white-bg page-heading">
+            <div class="col-lg-10">
+                <h2><i class="fa fa-globe text-info"></i>&nbsp;&nbsp;International Customers</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="index.html">Selected Customer</a>
+                    </li>
+
+                    <li class="active">
+                        <strong>{{customer.CustomerNo}}</strong>
+                    </li>
+                    <li class="active">
+                        <strong>{{customer.FullName}}</strong>
+                    </li>
+                    <li class="active">
+                        <strong>{{customer.CustomerType}}</strong>
+                    </li>
+                    <li class="active">
+                        <strong>{{customer.BranchName}}</strong>
+                    </li>
+                </ol>
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+
+        <div class="row wrapper wrapper-content animated fadeInDown" ng-show="!showHistory">
+            <div class="row">
+                <h2>Customer Details:</h2>
+                <div class="col-sm-4">
+                    <div class="panel panel-default" style="min-height:200px;">
+                        <div class="panel-heading">
+                            <i class="fa fa-user text-navy"></i> &nbsp;Personal Details
+                        </div>
+                        <div class="panel-body text-sm">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>Greeting:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.Greeting}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>First Name:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.FirstName}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>Second Name:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.SecondName}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>Family Name:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.FamilyName}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>BirthDate:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.DateOfBirth}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>Email:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.Email}}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="panel panel-default" style="min-height:200px;">
+                        <div class="panel-heading">
+                            <i class="fa fa-phone text-navy"></i> &nbsp;Contact Details
+                        </div>
+                        <div class="panel-body text-sm">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>Home Phone:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.HomePhone}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>Business Phone:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.BusinessPhone}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>Address1:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.AddressLine1}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>Address2:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.AddressLine2}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>Address3:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.AddressLine3}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>Address4:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.AddressLine4}}
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="panel panel-default" style="min-height:200px;">
+                        <div class="panel-heading">
+                            <i class="fa fa-university text-navy"></i> &nbsp;Banking Details
+                        </div>
+                        <div class="panel-body text-sm">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>Customer Type:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.CustomerType}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>Branch Name:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.BranchName}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>PreferredLanguage:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.PreferredLanguage}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>OfficerCode:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.OfficerCode}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>OfficerName:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.OfficerName}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <strong>Industry:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.Industry}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <p><i class="fa fa-clock-o"></i>&nbsp;<span class="text-danger">Customer Service Call: {{serviceResponse}} (ms)</span> </p>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h2>Customer Portfolio</h2>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            <span style="color:#333; font-size:20px;" ng-hide="productsloaded">
+                                <i class="fa fa-refresh fa-spin"></i> Loading ...
+                            </span>
+                            <table class="footable table table-stripped toggle-arrow-tiny text-sm" ng-show="productsloaded">
+                                <thead>
+                                    <tr>
+                                        <th data-toggle="true">Number</th>
+                                        <th>Description</th>
+                                        <th>Curency</th>
+                                        <th>Current Balance</th>
+                                        <th>Ledger Balance</th>
+                                        <th>Available Balance</th>
+                                        <th>Converted Balance</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="product in products" class="text-black" style="color:#000">
+                                        <td class="text-black">
+                                            <a href="#!" ng-click="showTransactions(product.Number)"><strong>{{product.Number}}</strong></a>
+                                        </td>
+                                        <td class="text-black">
+                                            {{product.Description}}
+                                        </td>
+                                        <td>
+                                            {{product.Currency}}
+                                        </td>
+                                        <td>
+                                            {{product.CurrentBalance}}
+                                        </td>
+
+                                        <td>
+                                            {{product.LedgerBalance}}
+                                        </td>
+                                        <td>
+                                            {{product.AvailableBalance}}
+                                        </td>
+                                       
+                                        <td class="text-navy">
+                                            {{product.ConvertedBalance}}
+                                        </td>
+                                        @*<td>
+                                            <img src="~/Images/Flags/Flag0{{product.CurrencyCode}}.gif" style="vertical-align:middle;">&nbsp;{{product.Balance}}
+                                        </td>*@
+
+                                    </tr>
+
+
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="6">
+                                            <ul class="pagination pull-right"></ul>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+
+
+                        </div>
+                    </div>
+                </div>
+                <p><i class="fa fa-clock-o"></i>&nbsp;<strong class="text-black">Porfolio Service Call: {{portfolioResponse}} (ms)</strong> </p>
+            </div>
+        </div>
+        <br/>
+        <div class="row" ng-show="showHistory">
+            <div class="col-xs-12">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h2>Transaction History</h2>
+                        <div class="ibox-tools">
+                           
+                            <a href="#" ng-click="hideHistory()">
+                                <i class="fa fa-times"></i>
+                            </a>
+                         
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+                        <table class="footable table table-stripped toggle-arrow-tiny text-sm">
+                            <thead>
+                                <tr>
+                                    <th data-toggle="true">PostingDate</th>
+                                    <th data-toggle="true">ValueDate</th>
+                                    <th>DrCrFlag</th>
+                                    <th>Amount</th>
+                                    <th>RunningBalanceStr</th>
+                                    <th>UserReference</th>
+                                    <th>Description</th>
+                                    <th width="150px;">Narratives</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="transaction in transactions" class="text-black" style="color:#000">
+                                     <td class="text-black">
+                                        {{transaction.PostingDate}}
+                                    </td>
+                                    <td class="text-black">
+                                        {{transaction.ValueDate}}
+                                    </td>
+                                    <td>
+                                        {{transaction.DrCrFlag}}
+                                    </td>
+                                    <td>
+                                        {{transaction.AmountStr}}
+                                    </td>
+
+                                    <td>
+                                        {{transaction.RunningBalanceStr}}
+                                    </td>
+                                    <td>
+                                        {{transaction.UserReference}}
+                                    </td>
+                                    <td>
+                                        {{transaction.Description}}
+                                    </td>
+
+                                    <td>
+                                        {{transaction.NarrativeLines}}
+                                    </td>
+                                  
+                                </tr>
+
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6">
+                                        <ul class="pagination pull-right"></ul>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+</div>
+
+
+<div id="pluswrap">
+    <div class="plus">
+        <div class="overlay">
+            <span style="font-size:28px;">
+                <i class="fa fa-refresh fa-spin"></i> Loading ...
+            </span>
+        </div>
+    </div>
+</div>
+
+

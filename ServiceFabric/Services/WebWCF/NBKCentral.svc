@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="NBK.EAI.Services.WebWCF.NBKCentral" CodeBehind="NBKCentral.svc.cs" %>

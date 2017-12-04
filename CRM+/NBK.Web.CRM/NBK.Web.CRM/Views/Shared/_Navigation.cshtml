@@ -1,0 +1,103 @@
+﻿<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse text-sm">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element" ng-controller="UserController" ng-init="getUser()" ng-cloak>
+                    <span>
+                        <img alt="image" class="img-circle" src="~/Images/profile_small.jpg" />
+                    </span>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear">
+                            <span class="block m-t-xs">
+                                <strong class="font-bold">{{user.Name}}</strong>
+                            </span> <span class="text-muted text-xs block">Branch user <b class="caret"></b></span>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a href="@Url.Action("Profile", "AppViews")">Profile</a></li>
+                        <li><a href="@Url.Action("Contacts", "AppViews")">Contacts</a></li>
+                        <li><a href="@Url.Action("Inbox", "Mailbox")">Mailbox</a></li>
+                        <li class="divider"></li>
+                        <li><a href="@Url.Action("Login", "Pages")">Logout</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    CRM
+                </div>
+            </li>
+
+            <li class="@Html.IsSelected(controller: "Dashboards")">
+                <a href="@Url.Action("Dashboard_3", "Dashboards")"><i class="fa fa-th-large"></i> <span class="nav-label" data-i18n="nav.layouts">My Dashboard</span> </a>
+            </li>
+
+            <li class="@Html.IsSelected(controller: "Test")">
+                <a href="@Url.Action("UnderConstruction", "Test")"><i class="fa fa-exchange"></i> <span class="nav-label" data-i18n="nav.layouts">My Worklist</span> </a>
+            </li>
+
+         
+
+            <li class="@Html.IsSelected(controller: "Customer")">
+                <a href="@Url.Action("CustomerSummary", "Customer")"><i class="fa fa-user"></i> <span class="nav-label" data-i18n="nav.dashboard">Customer Management</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse @Html.IsSelected(controller: "Customer", cssClass: "in")">
+                    <li class="@Html.IsSelected(action: "CustomerSummary")"><a href="@Url.Action("CustomerSummary", "Customer")">Customer Summary</a></li>
+                    <li class="@Html.IsSelected(action: "Establish")"><a href="@Url.Action("Establish", "Customer")">Establish Customer</a></li>
+                    <li class="@Html.IsSelected(action: "Transfer")"><a href="@Url.Action("Establish", "Customer")">Transfer</a></li>
+
+                </ul>
+            </li>
+
+            <li class="@Html.IsSelected(controller: "LMS")">
+                <a href="@Url.Action("Dashboard_1", "LMS")"><i class="fa fa-pie-chart"></i> <span class="nav-label" data-i18n="nav.dashboard">Lead Management</span> <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse @Html.IsSelected(controller: "LMS", cssClass: "in")">
+                    <li class="@Html.IsSelected(action: "Dashboard")"><a href="@Url.Action("Dashboard", "LMS")">My LMS Dashboard</a></li>
+                    <li class="@Html.IsSelected(action: "Monitor")"><a href="@Url.Action("Monitor", "LMS")">My Lead Monitor</a></li>
+                   
+                </ul>
+            </li>
+
+            <li class="@Html.IsSelected(controller: "Equation")">
+                <a href="@Url.Action("IBGSummary", "Equation")"><i class="fa fa-globe"></i> <span class="nav-label" data-i18n="nav.layouts">IBG Customers </span> </a>
+            </li>
+
+            <li class="@Html.IsSelected(controller: "Test")">
+                <a href="@Url.Action("UnderConstruction", "Test")"><i class="fa fa-refresh"></i> <span class="nav-label" data-i18n="nav.layouts">Debit Card Status </span> </a>
+            </li>
+           
+            <li class="@Html.IsSelected(controller: "Test")">
+                <a href="@Url.Action("UnderConstruction", "Test")"><i class="fa fa-user"></i> <span class="nav-label" data-i18n="nav.layouts">Customer Audit Trail </span> </a>
+            </li>
+            <li class="@Html.IsSelected(controller: "Test")">
+                <a href="@Url.Action("UnderConstruction", "Test")"><i class="fa fa-pencil"></i> <span class="nav-label" data-i18n="nav.layouts">POA Audit Trail </span> </a>
+            </li>
+
+            <li class="@Html.IsSelected(controller: "Test")">
+                <a href="@Url.Action("UnderConstruction", "Test")"><i class="fa fa-pencil"></i> <span class="nav-label" data-i18n="nav.layouts">Loan Audit Trail </span> </a>
+            </li>
+
+            <li class="@Html.IsSelected(controller: "Test")">
+                <a href="@Url.Action("UnderConstruction", "Test")"><i class="fa fa-pencil text-danger"></i> <span class="nav-label" data-i18n="nav.layouts">Rebooking Audit Trail </span> </a>
+            </li>
+
+            <li class="@Html.IsSelected(controller: "Test")">
+                <a href="@Url.Action("UnderConstruction", "Test")"><i class="fa fa-credit-card"></i> <span class="nav-label" data-i18n="nav.layouts">Credit Card Report </span> </a>
+            </li>
+
+            <li class="@Html.IsSelected(controller: "Test")">
+                <a href="@Url.Action("UnderConstruction", "Test")"><i class="fa fa-search"></i> <span class="nav-label" data-i18n="nav.layouts">Black List Search </span> </a>
+            </li>
+     
+             <li class="special_link @Html.IsSelected(controller: " Test")">
+                <a href="@Url.Action("UnderConstruction", "Test")"><i class="fa fa-star"></i> <span class="nav-label" data-i18n="nav.landing">LOS</span></a>
+            </li>
+            <li class="special_link @Html.IsSelected(controller: " Test")">
+                <a href="@Url.Action("UnderConstruction", "Test")"><i class="fa fa-database"></i> <span class="nav-label">Balance Score Cards</span></a>
+            </li>
+            <li class="special_link @Html.IsSelected(controller: " Test")">
+                <a href="@Url.Action("UnderConstruction", "Test")"><i class="fa fa-plug"></i> <span class="nav-label">Remedy</span></a>
+            </li>
+            <li class="special_link @Html.IsSelected(controller: " Test")">
+                <a href="@Url.Action("UnderConstruction", "Test")"><i class="fa fa-plug"></i> <span class="nav-label">Service Quality</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>

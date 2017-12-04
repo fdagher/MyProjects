@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="ServicesType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="SecureService_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="IdentityServer_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="CachingService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="CachingService_PartitionCount" DefaultValue="1" />
+    <Parameter Name="CachingService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="CustomerProfileService_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="ECTSService_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="CustomerService_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="EAIP1Service_InstanceCount" DefaultValue="-1" />
+  </Parameters>
+  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
+       should match the Name and Version attributes of the ServiceManifest element defined in the 
+       ServiceManifest.xml file. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="SecureServicePkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="IdentityServerPkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="CachingServicePkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="CustomerProfileServicePkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="ECTSServicePkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="CustomerServicePkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="EAIP1ServicePkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <DefaultServices>
+    <!-- The section below creates instances of service types, when an instance of this 
+         application type is created. You can also create one or more instances of service type using the 
+         ServiceFabric PowerShell module.
+         
+         The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
+    <Service Name="SecureService">
+      <StatelessService ServiceTypeName="SecureServiceType" InstanceCount="[SecureService_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="IdentityServer">
+      <StatelessService ServiceTypeName="IdentityServerType" InstanceCount="[IdentityServer_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="CachingService">
+      <StatefulService ServiceTypeName="CachingServiceType" TargetReplicaSetSize="[CachingService_TargetReplicaSetSize]" MinReplicaSetSize="[CachingService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[CachingService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="CustomerProfileService">
+      <StatelessService ServiceTypeName="CustomerProfileServiceType" InstanceCount="[CustomerProfileService_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="ECTSService">
+      <StatelessService ServiceTypeName="ECTSServiceType" InstanceCount="[ECTSService_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="CustomerService">
+      <StatelessService ServiceTypeName="CustomerServiceType" InstanceCount="[CustomerService_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="EAIP1Service">
+      <StatelessService ServiceTypeName="EAIP1ServiceType" InstanceCount="[EAIP1Service_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+  </DefaultServices>
+</ApplicationManifest>

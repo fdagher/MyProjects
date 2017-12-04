@@ -1,0 +1,2248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="AreaID" />
+          </Key>
+          <Property Name="AreaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AreaBranch">
+          <Key>
+            <PropertyRef Name="AreaBranchID" />
+          </Key>
+          <Property Name="AreaBranchID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AreaID" Type="int" Nullable="false" />
+          <Property Name="BranchID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="BranchName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="AreaManager">
+          <Key>
+            <PropertyRef Name="AreaManagerID" />
+          </Key>
+          <Property Name="AreaManagerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AreaID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Campaign">
+          <Key>
+            <PropertyRef Name="CampaignID" />
+          </Key>
+          <Property Name="CampaignID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CampaignName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="UserID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Active" Type="smallint" Nullable="false" />
+          <Property Name="Type" Type="smallint" Nullable="false" />
+          <Property Name="SurveyID" Type="smallint" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="ShowInCRM" Type="int" />
+        </EntityType>
+        <EntityType Name="CampaignContact">
+          <Key>
+            <PropertyRef Name="UniqueID" />
+          </Key>
+          <Property Name="UniqueID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CampaignID" Type="int" Nullable="false" />
+          <Property Name="ContactDefinitionID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CampaignLead">
+          <Key>
+            <PropertyRef Name="LeadID" />
+          </Key>
+          <Property Name="LeadID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CampaignID" Type="int" Nullable="false" />
+          <Property Name="LeadType" Type="smallint" Nullable="false" />
+          <Property Name="ChannelID" Type="smallint" Nullable="false" />
+          <Property Name="Channel" Type="varchar" MaxLength="10" />
+          <Property Name="BranchNo" Type="varchar" MaxLength="10" />
+          <Property Name="CustomerNo" Type="char" MaxLength="9" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Status" Type="smallint" Nullable="false" />
+          <Property Name="AdminID" Type="varchar" MaxLength="10" />
+          <Property Name="DistributorID" Type="varchar" MaxLength="10" />
+          <Property Name="ExecutorID" Type="varchar" MaxLength="10" />
+          <Property Name="AssignDate" Type="datetime" />
+          <Property Name="Contacted" Type="smallint" />
+          <Property Name="Closed" Type="smallint" />
+          <Property Name="ClosedDate" Type="datetime" />
+          <Property Name="TeamName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CampaignLead_History">
+          <Key>
+            <PropertyRef Name="LeadID" />
+          </Key>
+          <Property Name="LeadID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CampaignID" Type="int" Nullable="false" />
+          <Property Name="LeadType" Type="smallint" Nullable="false" />
+          <Property Name="ChannelID" Type="smallint" Nullable="false" />
+          <Property Name="Channel" Type="varchar" MaxLength="10" />
+          <Property Name="BranchNo" Type="varchar" MaxLength="10" />
+          <Property Name="CustomerNo" Type="char" MaxLength="9" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Status" Type="smallint" Nullable="false" />
+          <Property Name="AdminID" Type="varchar" MaxLength="10" />
+          <Property Name="DistributorID" Type="varchar" MaxLength="10" />
+          <Property Name="ExecutorID" Type="varchar" MaxLength="10" />
+          <Property Name="AssignDate" Type="datetime" />
+          <Property Name="Contacted" Type="smallint" />
+          <Property Name="Closed" Type="smallint" />
+          <Property Name="ClosedDate" Type="datetime" />
+          <Property Name="TeamName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Channel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="smallint" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="BranchRelated" Type="smallint" />
+          <Property Name="TeamEnabled" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CustomerNo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactDate" Type="datetime" Nullable="false" />
+          <Property Name="ContactType" Type="varchar" MaxLength="10" />
+          <Property Name="LeadSource" Type="varchar" MaxLength="50" />
+          <Property Name="LeadID" Type="uniqueidentifier" />
+          <Property Name="LeadType" Type="smallint" />
+          <Property Name="Level1" Type="smallint" />
+          <Property Name="Level2" Type="smallint" />
+          <Property Name="Level3" Type="smallint" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Contact_History">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CustomerNo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactDate" Type="datetime" Nullable="false" />
+          <Property Name="ContactType" Type="varchar" MaxLength="10" />
+          <Property Name="LeadSource" Type="varchar" MaxLength="50" />
+          <Property Name="LeadID" Type="uniqueidentifier" />
+          <Property Name="LeadType" Type="smallint" />
+          <Property Name="Level1" Type="smallint" />
+          <Property Name="Level2" Type="smallint" />
+          <Property Name="Level3" Type="smallint" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ContactDefinition">
+          <Key>
+            <PropertyRef Name="ContactItemID" />
+          </Key>
+          <Property Name="ContactItemID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemDescription" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="CloseLeadFlag" Type="int" Nullable="false" />
+          <Property Name="Active" Type="int" />
+          <Property Name="LeadTypeID" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="EmailExclusionList">
+          <Key>
+            <PropertyRef Name="EmailExclusionID" />
+          </Key>
+          <Property Name="EmailExclusionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FunctionRole">
+          <Key>
+            <PropertyRef Name="FunctionRoleID" />
+          </Key>
+          <Property Name="FunctionRoleID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FunctionID" Type="smallint" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="FunctionRoleDef">
+          <Key>
+            <PropertyRef Name="FunctionID" />
+          </Key>
+          <Property Name="FunctionID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Notification" Type="smallint" />
+          <Property Name="TestEmail" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="IndividualCustomer">
+          <Key>
+            <PropertyRef Name="LeadID" />
+          </Key>
+          <Property Name="LeadID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CustomerNo" Type="varchar" MaxLength="10" />
+          <Property Name="EnglishName1" Type="varchar" MaxLength="100" />
+          <Property Name="IDNumber" Type="varchar" MaxLength="50" />
+          <Property Name="IDType" Type="varchar" MaxLength="50" />
+          <Property Name="OpenBranch" Type="varchar" MaxLength="5" />
+          <Property Name="BranchName" Type="varchar" MaxLength="50" />
+          <Property Name="Nationality" Type="varchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Sex" Type="varchar" MaxLength="10" />
+          <Property Name="Phone1" Type="varchar" MaxLength="50" />
+          <Property Name="Phone2" Type="varchar" MaxLength="50" />
+          <Property Name="Phone3" Type="varchar" MaxLength="50" />
+          <Property Name="Phone4" Type="varchar" MaxLength="50" />
+          <Property Name="DateOpen" Type="varchar" MaxLength="20" />
+          <Property Name="SellerID" Type="varchar" MaxLength="50" />
+          <Property Name="SalarySellerID" Type="varchar" MaxLength="50" />
+          <Property Name="SalaryAmount" Type="float" />
+          <Property Name="SalaryRange" Type="varchar" MaxLength="20" />
+          <Property Name="LastSalaryDt" Type="varchar" MaxLength="20" />
+          <Property Name="SalaryTransfer" Type="varchar" MaxLength="20" />
+          <Property Name="MarketingSegment" Type="varchar" MaxLength="50" />
+          <Property Name="Package" Type="varchar" MaxLength="50" />
+          <Property Name="Firm" Type="varchar" MaxLength="10" />
+          <Property Name="FirmName" Type="varchar" MaxLength="200" />
+          <Property Name="AvailableLimitAmt" Type="float" />
+          <Property Name="AvailableDBR" Type="float" />
+          <Property Name="CreditCardUtilization" Type="float" />
+          <Property Name="CustomerType" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerOfficer" Type="varchar" MaxLength="50" />
+          <Property Name="AvgBenchMarkRevenue" Type="varchar" MaxLength="10" />
+          <Property Name="BenchMarkCost" Type="varchar" MaxLength="5" />
+          <Property Name="Profitability" Type="varchar" MaxLength="10" />
+          <Property Name="Profitable" Type="varchar" MaxLength="10" />
+          <Property Name="PotentialVal" Type="varchar" MaxLength="10" />
+          <Property Name="PotentialToGrow" Type="varchar" MaxLength="10" />
+          <Property Name="ExtremeValue" Type="varchar" MaxLength="10" />
+          <Property Name="IsCustomerWithWOL" Type="varchar" MaxLength="1" />
+          <Property Name="IsCustomerWithMobileB" Type="varchar" MaxLength="1" />
+          <Property Name="HasPOS" Type="varchar" MaxLength="1" />
+          <Property Name="ProcessSalary" Type="varchar" MaxLength="1" />
+          <Property Name="NumberOfEmployees" Type="varchar" MaxLength="10" />
+          <Property Name="TotalDeposit6Month" Type="varchar" MaxLength="10" />
+          <Property Name="CountDeposits6Months" Type="varchar" MaxLength="10" />
+          <Property Name="CreditCardType" Type="varchar" MaxLength="20" />
+          <Property Name="CreditCardNo" Type="varchar" MaxLength="20" />
+          <Property Name="SuggestedCard" Type="varchar" MaxLength="20" />
+          <Property Name="Area" Type="varchar" MaxLength="50" />
+          <Property Name="Zone" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="IndividualCustomer_History">
+          <Key>
+            <PropertyRef Name="LeadID" />
+          </Key>
+          <Property Name="LeadID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CustomerNo" Type="varchar" MaxLength="10" />
+          <Property Name="EnglishName1" Type="varchar" MaxLength="100" />
+          <Property Name="IDNumber" Type="varchar" MaxLength="50" />
+          <Property Name="IDType" Type="varchar" MaxLength="50" />
+          <Property Name="OpenBranch" Type="varchar" MaxLength="5" />
+          <Property Name="BranchName" Type="varchar" MaxLength="50" />
+          <Property Name="Nationality" Type="varchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Sex" Type="varchar" MaxLength="10" />
+          <Property Name="Phone1" Type="varchar" MaxLength="50" />
+          <Property Name="Phone2" Type="varchar" MaxLength="50" />
+          <Property Name="Phone3" Type="varchar" MaxLength="50" />
+          <Property Name="Phone4" Type="varchar" MaxLength="50" />
+          <Property Name="DateOpen" Type="varchar" MaxLength="20" />
+          <Property Name="SellerID" Type="varchar" MaxLength="50" />
+          <Property Name="SalarySellerID" Type="varchar" MaxLength="50" />
+          <Property Name="SalaryAmount" Type="float" />
+          <Property Name="SalaryRange" Type="varchar" MaxLength="20" />
+          <Property Name="LastSalaryDt" Type="varchar" MaxLength="20" />
+          <Property Name="SalaryTransfer" Type="varchar" MaxLength="20" />
+          <Property Name="MarketingSegment" Type="varchar" MaxLength="50" />
+          <Property Name="Package" Type="varchar" MaxLength="50" />
+          <Property Name="Firm" Type="varchar" MaxLength="10" />
+          <Property Name="FirmName" Type="varchar" MaxLength="200" />
+          <Property Name="AvailableLimitAmt" Type="float" />
+          <Property Name="AvailableDBR" Type="float" />
+          <Property Name="CreditCardUtilization" Type="float" />
+          <Property Name="CustomerType" Type="varchar" MaxLength="50" />
+          <Property Name="CustomerOfficer" Type="varchar" MaxLength="50" />
+          <Property Name="AvgBenchMarkRevenue" Type="varchar" MaxLength="10" />
+          <Property Name="BenchMarkCost" Type="varchar" MaxLength="5" />
+          <Property Name="Profitability" Type="varchar" MaxLength="10" />
+          <Property Name="Profitable" Type="varchar" MaxLength="10" />
+          <Property Name="PotentialVal" Type="varchar" MaxLength="10" />
+          <Property Name="PotentialToGrow" Type="varchar" MaxLength="10" />
+          <Property Name="ExtremeValue" Type="varchar" MaxLength="10" />
+          <Property Name="IsCustomerWithWOL" Type="varchar" MaxLength="1" />
+          <Property Name="IsCustomerWithMobileB" Type="varchar" MaxLength="1" />
+          <Property Name="HasPOS" Type="varchar" MaxLength="1" />
+          <Property Name="ProcessSalary" Type="varchar" MaxLength="1" />
+          <Property Name="NumberOfEmployees" Type="varchar" MaxLength="10" />
+          <Property Name="TotalDeposit6Month" Type="varchar" MaxLength="10" />
+          <Property Name="CountDeposits6Months" Type="varchar" MaxLength="10" />
+          <Property Name="CreditCardType" Type="varchar" MaxLength="20" />
+          <Property Name="CreditCardNo" Type="varchar" MaxLength="20" />
+          <Property Name="SuggestedCard" Type="varchar" MaxLength="20" />
+          <Property Name="Area" Type="varchar" MaxLength="50" />
+          <Property Name="Zone" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="InstantLead">
+          <Key>
+            <PropertyRef Name="LeadID" />
+          </Key>
+          <Property Name="LeadID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TypeID" Type="int" Nullable="false" />
+          <Property Name="Channel" Type="varchar" MaxLength="10" />
+          <Property Name="BranchNo" Type="varchar" MaxLength="10" />
+          <Property Name="CustomerNo" Type="char" MaxLength="9" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="100" />
+          <Property Name="AdminID" Type="varchar" MaxLength="10" />
+          <Property Name="DistributorID" Type="varchar" MaxLength="10" />
+          <Property Name="ExecutorID" Type="varchar" MaxLength="10" />
+          <Property Name="AssignDate" Type="datetime" />
+          <Property Name="Contacted" Type="smallint" />
+          <Property Name="Closed" Type="smallint" />
+          <Property Name="ClosedDate" Type="datetime" />
+          <Property Name="OriginatorID" Type="varchar" MaxLength="10" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="LeadSource" Type="varchar" MaxLength="50" />
+          <Property Name="Transfered" Type="smallint" />
+          <Property Name="MappingQuestion" Type="nvarchar" MaxLength="100" />
+          <Property Name="MapValue" Type="nvarchar" MaxLength="100" />
+          <Property Name="ParentTypeID" Type="int" />
+        </EntityType>
+        <EntityType Name="InstantLead_History">
+          <Key>
+            <PropertyRef Name="LeadID" />
+          </Key>
+          <Property Name="LeadID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TypeID" Type="int" Nullable="false" />
+          <Property Name="Channel" Type="varchar" MaxLength="10" />
+          <Property Name="BranchNo" Type="varchar" MaxLength="10" />
+          <Property Name="CustomerNo" Type="char" MaxLength="9" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="100" />
+          <Property Name="AdminID" Type="varchar" MaxLength="10" />
+          <Property Name="DistributorID" Type="varchar" MaxLength="10" />
+          <Property Name="ExecutorID" Type="varchar" MaxLength="10" />
+          <Property Name="AssignDate" Type="datetime" />
+          <Property Name="Contacted" Type="smallint" />
+          <Property Name="Closed" Type="smallint" />
+          <Property Name="ClosedDate" Type="datetime" />
+          <Property Name="OriginatorID" Type="varchar" MaxLength="10" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="LeadSource" Type="varchar" MaxLength="50" />
+          <Property Name="Transfered" Type="smallint" />
+          <Property Name="MappingQuestion" Type="nvarchar" MaxLength="100" />
+          <Property Name="MapValue" Type="nvarchar" MaxLength="100" />
+          <Property Name="ParentTypeID" Type="int" />
+        </EntityType>
+        <EntityType Name="InstantLeadChannel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeID" Type="int" Nullable="false" />
+          <Property Name="ChannelID" Type="smallint" Nullable="false" />
+          <Property Name="Teams" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="InstantLeadData">
+          <Key>
+            <PropertyRef Name="FieldDataID" />
+          </Key>
+          <Property Name="FieldDataID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LeadID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FieldID" Type="int" Nullable="false" />
+          <Property Name="FieldData" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="InstantLeadData_History">
+          <Key>
+            <PropertyRef Name="FieldDataID" />
+          </Key>
+          <Property Name="FieldDataID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LeadID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FieldID" Type="int" Nullable="false" />
+          <Property Name="FieldData" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="InstantLeadField">
+          <Key>
+            <PropertyRef Name="FieldID" />
+          </Key>
+          <Property Name="FieldID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FieldName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FieldType" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="TypeID" Type="int" Nullable="false" />
+          <Property Name="ListOptions" Type="nvarchar(max)" />
+          <Property Name="Mandatory" Type="int" />
+          <Property Name="FieldNo" Type="int" />
+        </EntityType>
+        <EntityType Name="InstantLeadMap">
+          <Key>
+            <PropertyRef Name="MapID" />
+          </Key>
+          <Property Name="MapID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeID" Type="int" Nullable="false" />
+          <Property Name="MapValue" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Map2TypeID" Type="int" />
+        </EntityType>
+        <EntityType Name="InstantLeadNASRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeID" Type="int" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InstantLeadTransferChannel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeID" Type="int" Nullable="false" />
+          <Property Name="ChannelID" Type="smallint" Nullable="false" />
+          <Property Name="Teams" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="InstantLeadType">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="NotificationFlag" Type="smallint" Nullable="false" />
+          <Property Name="SLA" Type="int" />
+          <Property Name="AllowTransfer" Type="smallint" />
+          <Property Name="AllowBulkLoad" Type="int" />
+          <Property Name="CustomOutcome" Type="int" />
+          <Property Name="CustomOutcomeType" Type="int" />
+          <Property Name="SurveyID" Type="int" />
+          <Property Name="Active" Type="int" />
+          <Property Name="ShowInCRM" Type="int" />
+          <Property Name="NASFlag" Type="int" />
+          <Property Name="ComposedFlag" Type="int" />
+          <Property Name="MappingQuestion" Type="nvarchar" MaxLength="100" />
+          <Property Name="ChildFlag" Type="int" />
+          <Property Name="SharedFlag" Type="int" />
+        </EntityType>
+        <EntityType Name="LeadTransferHistory">
+          <Key>
+            <PropertyRef Name="LeadHistoryID" />
+          </Key>
+          <Property Name="LeadHistoryID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LeadID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssignedTo" Type="varchar" MaxLength="10" />
+          <Property Name="AssignedBy" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="AssignedByRole" Type="varchar" MaxLength="20" />
+          <Property Name="AssignDate" Type="datetime" Nullable="false" />
+          <Property Name="Channel" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="BranchNo" Type="varchar" MaxLength="10" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="NotificationID" />
+          </Key>
+          <Property Name="NotificationID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Type" Type="smallint" Nullable="false" />
+          <Property Name="NotificationText" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Survey">
+          <Key>
+            <PropertyRef Name="SurveyID" />
+          </Key>
+          <Property Name="SurveyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SurveyName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="250" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="Active" Type="int" />
+        </EntityType>
+        <EntityType Name="SurveyAnswer">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+          </Key>
+          <Property Name="AnswerID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ContactID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="Answer" Type="nvarchar(max)" />
+          <Property Name="AnswerNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="SurveyAnswer_History">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+          </Key>
+          <Property Name="AnswerID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ContactID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="Answer" Type="nvarchar(max)" />
+          <Property Name="AnswerNumber" Type="int" />
+        </EntityType>
+        <EntityType Name="SurveyQuestion">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionText" Type="nvarchar(max)" />
+          <Property Name="QuestionType" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SurveyID" Type="int" Nullable="false" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="ListOptions" Type="nvarchar(max)" />
+          <Property Name="QuestionNumber" Type="int" />
+          <Property Name="Mandatory" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="TeamID" />
+          </Key>
+          <Property Name="TeamID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TeamName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ChannelID" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TeamMember">
+          <Key>
+            <PropertyRef Name="TeamMemberID" />
+          </Key>
+          <Property Name="TeamMemberID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TeamID" Type="smallint" Nullable="false" />
+          <Property Name="UserID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="TeamLeader" Type="smallint" Nullable="false" />
+          <Property Name="PartyId" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_AreaBranch_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="1" />
+          <End Role="AreaBranch" Type="Self.AreaBranch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="AreaID" />
+            </Principal>
+            <Dependent Role="AreaBranch">
+              <PropertyRef Name="AreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AreaManager_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="1" />
+          <End Role="AreaManager" Type="Self.AreaManager" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="AreaID" />
+            </Principal>
+            <Dependent Role="AreaManager">
+              <PropertyRef Name="AreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CampaignContact_Campaign">
+          <End Role="Campaign" Type="Self.Campaign" Multiplicity="1" />
+          <End Role="CampaignContact" Type="Self.CampaignContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="CampaignID" />
+            </Principal>
+            <Dependent Role="CampaignContact">
+              <PropertyRef Name="CampaignID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FunctionRole_FunctionRoleDef">
+          <End Role="FunctionRoleDef" Type="Self.FunctionRoleDef" Multiplicity="1" />
+          <End Role="FunctionRole" Type="Self.FunctionRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FunctionRoleDef">
+              <PropertyRef Name="FunctionID" />
+            </Principal>
+            <Dependent Role="FunctionRole">
+              <PropertyRef Name="FunctionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstantLead_InstantLeadType">
+          <End Role="InstantLeadType" Type="Self.InstantLeadType" Multiplicity="1" />
+          <End Role="InstantLead" Type="Self.InstantLead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstantLeadType">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="InstantLead">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstantLeadChannel_InstantLeadType">
+          <End Role="InstantLeadType" Type="Self.InstantLeadType" Multiplicity="1" />
+          <End Role="InstantLeadChannel" Type="Self.InstantLeadChannel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstantLeadType">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="InstantLeadChannel">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstantLeadData_InstantLead">
+          <End Role="InstantLead" Type="Self.InstantLead" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="InstantLeadData" Type="Self.InstantLeadData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstantLead">
+              <PropertyRef Name="LeadID" />
+            </Principal>
+            <Dependent Role="InstantLeadData">
+              <PropertyRef Name="LeadID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstantLeadField_InstantLeadType">
+          <End Role="InstantLeadType" Type="Self.InstantLeadType" Multiplicity="1" />
+          <End Role="InstantLeadField" Type="Self.InstantLeadField" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstantLeadType">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="InstantLeadField">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstantLeadMap_InstantLeadType">
+          <End Role="InstantLeadType" Type="Self.InstantLeadType" Multiplicity="1" />
+          <End Role="InstantLeadMap" Type="Self.InstantLeadMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstantLeadType">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="InstantLeadMap">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstantLeadTransferChannel_InstantLeadType">
+          <End Role="InstantLeadType" Type="Self.InstantLeadType" Multiplicity="1" />
+          <End Role="InstantLeadTransferChannel" Type="Self.InstantLeadTransferChannel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstantLeadType">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="InstantLeadTransferChannel">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lead_Campaign">
+          <End Role="Campaign" Type="Self.Campaign" Multiplicity="1" />
+          <End Role="CampaignLead" Type="Self.CampaignLead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="CampaignID" />
+            </Principal>
+            <Dependent Role="CampaignLead">
+              <PropertyRef Name="CampaignID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lead_Channel">
+          <End Role="Channel" Type="Self.Channel" Multiplicity="1" />
+          <End Role="CampaignLead" Type="Self.CampaignLead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Channel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CampaignLead">
+              <PropertyRef Name="ChannelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LeadTransferHistory_InstantLead">
+          <End Role="InstantLead" Type="Self.InstantLead" Multiplicity="1" />
+          <End Role="LeadTransferHistory" Type="Self.LeadTransferHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstantLead">
+              <PropertyRef Name="LeadID" />
+            </Principal>
+            <Dependent Role="LeadTransferHistory">
+              <PropertyRef Name="LeadID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SurveyAnswer_SurveyQuestion">
+          <End Role="SurveyQuestion" Type="Self.SurveyQuestion" Multiplicity="1" />
+          <End Role="SurveyAnswer" Type="Self.SurveyAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SurveyQuestion">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="SurveyAnswer">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SurveyQuestion_Survey">
+          <End Role="Survey" Type="Self.Survey" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SurveyQuestion" Type="Self.SurveyQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Survey">
+              <PropertyRef Name="SurveyID" />
+            </Principal>
+            <Dependent Role="SurveyQuestion">
+              <PropertyRef Name="SurveyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamMember_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="TeamMember" Type="Self.TeamMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="TeamID" />
+            </Principal>
+            <Dependent Role="TeamMember">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LMSModelStoreContainer">
+          <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AreaBranch" EntityType="Self.AreaBranch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AreaManager" EntityType="Self.AreaManager" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Campaign" EntityType="Self.Campaign" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CampaignContact" EntityType="Self.CampaignContact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CampaignLead" EntityType="Self.CampaignLead" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CampaignLead_History" EntityType="Self.CampaignLead_History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Channel" EntityType="Self.Channel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact_History" EntityType="Self.Contact_History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactDefinition" EntityType="Self.ContactDefinition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailExclusionList" EntityType="Self.EmailExclusionList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FunctionRole" EntityType="Self.FunctionRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FunctionRoleDef" EntityType="Self.FunctionRoleDef" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IndividualCustomer" EntityType="Self.IndividualCustomer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IndividualCustomer_History" EntityType="Self.IndividualCustomer_History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InstantLead" EntityType="Self.InstantLead" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InstantLead_History" EntityType="Self.InstantLead_History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InstantLeadChannel" EntityType="Self.InstantLeadChannel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InstantLeadData" EntityType="Self.InstantLeadData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InstantLeadData_History" EntityType="Self.InstantLeadData_History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InstantLeadField" EntityType="Self.InstantLeadField" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InstantLeadMap" EntityType="Self.InstantLeadMap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InstantLeadNASRole" EntityType="Self.InstantLeadNASRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InstantLeadTransferChannel" EntityType="Self.InstantLeadTransferChannel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InstantLeadType" EntityType="Self.InstantLeadType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LeadTransferHistory" EntityType="Self.LeadTransferHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Survey" EntityType="Self.Survey" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SurveyAnswer" EntityType="Self.SurveyAnswer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SurveyAnswer_History" EntityType="Self.SurveyAnswer_History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SurveyQuestion" EntityType="Self.SurveyQuestion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeamMember" EntityType="Self.TeamMember" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AreaBranch_Area" Association="Self.FK_AreaBranch_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="AreaBranch" EntitySet="AreaBranch" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AreaManager_Area" Association="Self.FK_AreaManager_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="AreaManager" EntitySet="AreaManager" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CampaignContact_Campaign" Association="Self.FK_CampaignContact_Campaign">
+            <End Role="Campaign" EntitySet="Campaign" />
+            <End Role="CampaignContact" EntitySet="CampaignContact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FunctionRole_FunctionRoleDef" Association="Self.FK_FunctionRole_FunctionRoleDef">
+            <End Role="FunctionRoleDef" EntitySet="FunctionRoleDef" />
+            <End Role="FunctionRole" EntitySet="FunctionRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstantLead_InstantLeadType" Association="Self.FK_InstantLead_InstantLeadType">
+            <End Role="InstantLeadType" EntitySet="InstantLeadType" />
+            <End Role="InstantLead" EntitySet="InstantLead" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstantLeadChannel_InstantLeadType" Association="Self.FK_InstantLeadChannel_InstantLeadType">
+            <End Role="InstantLeadType" EntitySet="InstantLeadType" />
+            <End Role="InstantLeadChannel" EntitySet="InstantLeadChannel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstantLeadData_InstantLead" Association="Self.FK_InstantLeadData_InstantLead">
+            <End Role="InstantLead" EntitySet="InstantLead" />
+            <End Role="InstantLeadData" EntitySet="InstantLeadData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstantLeadField_InstantLeadType" Association="Self.FK_InstantLeadField_InstantLeadType">
+            <End Role="InstantLeadType" EntitySet="InstantLeadType" />
+            <End Role="InstantLeadField" EntitySet="InstantLeadField" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstantLeadMap_InstantLeadType" Association="Self.FK_InstantLeadMap_InstantLeadType">
+            <End Role="InstantLeadType" EntitySet="InstantLeadType" />
+            <End Role="InstantLeadMap" EntitySet="InstantLeadMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstantLeadTransferChannel_InstantLeadType" Association="Self.FK_InstantLeadTransferChannel_InstantLeadType">
+            <End Role="InstantLeadType" EntitySet="InstantLeadType" />
+            <End Role="InstantLeadTransferChannel" EntitySet="InstantLeadTransferChannel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lead_Campaign" Association="Self.FK_Lead_Campaign">
+            <End Role="Campaign" EntitySet="Campaign" />
+            <End Role="CampaignLead" EntitySet="CampaignLead" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lead_Channel" Association="Self.FK_Lead_Channel">
+            <End Role="Channel" EntitySet="Channel" />
+            <End Role="CampaignLead" EntitySet="CampaignLead" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LeadTransferHistory_InstantLead" Association="Self.FK_LeadTransferHistory_InstantLead">
+            <End Role="InstantLead" EntitySet="InstantLead" />
+            <End Role="LeadTransferHistory" EntitySet="LeadTransferHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SurveyAnswer_SurveyQuestion" Association="Self.FK_SurveyAnswer_SurveyQuestion">
+            <End Role="SurveyQuestion" EntitySet="SurveyQuestion" />
+            <End Role="SurveyAnswer" EntitySet="SurveyAnswer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SurveyQuestion_Survey" Association="Self.FK_SurveyQuestion_Survey">
+            <End Role="Survey" EntitySet="Survey" />
+            <End Role="SurveyQuestion" EntitySet="SurveyQuestion" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamMember_Team" Association="Self.FK_TeamMember_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="TeamMember" EntitySet="TeamMember" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="AreaID" />
+          </Key>
+          <Property Name="AreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AreaBranches" Relationship="Self.FK_AreaBranch_Area" FromRole="Area" ToRole="AreaBranch" />
+          <NavigationProperty Name="AreaManagers" Relationship="Self.FK_AreaManager_Area" FromRole="Area" ToRole="AreaManager" />
+        </EntityType>
+        <EntityType Name="AreaBranch">
+          <Key>
+            <PropertyRef Name="AreaBranchID" />
+          </Key>
+          <Property Name="AreaBranchID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AreaID" Type="Int32" Nullable="false" />
+          <Property Name="BranchID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="BranchName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Area" Relationship="Self.FK_AreaBranch_Area" FromRole="AreaBranch" ToRole="Area" />
+        </EntityType>
+        <EntityType Name="AreaManager">
+          <Key>
+            <PropertyRef Name="AreaManagerID" />
+          </Key>
+          <Property Name="AreaManagerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AreaID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Area" Relationship="Self.FK_AreaManager_Area" FromRole="AreaManager" ToRole="Area" />
+        </EntityType>
+        <EntityType Name="Campaign">
+          <Key>
+            <PropertyRef Name="CampaignID" />
+          </Key>
+          <Property Name="CampaignID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CampaignName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Active" Type="Int16" Nullable="false" />
+          <Property Name="Type" Type="Int16" Nullable="false" />
+          <Property Name="SurveyID" Type="Int16" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ShowInCRM" Type="Int32" />
+          <NavigationProperty Name="CampaignContacts" Relationship="Self.FK_CampaignContact_Campaign" FromRole="Campaign" ToRole="CampaignContact" />
+          <NavigationProperty Name="CampaignLeads" Relationship="LMSModel.FK_Lead_Campaign" FromRole="Campaign" ToRole="CampaignLead" />
+        </EntityType>
+        <EntityType Name="CampaignContact">
+          <Key>
+            <PropertyRef Name="UniqueID" />
+          </Key>
+          <Property Name="UniqueID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CampaignID" Type="Int32" Nullable="false" />
+          <Property Name="ContactDefinitionID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Campaign" Relationship="Self.FK_CampaignContact_Campaign" FromRole="CampaignContact" ToRole="Campaign" />
+        </EntityType>
+        <EntityType Name="CampaignLead_History">
+          <Key>
+            <PropertyRef Name="LeadID" />
+          </Key>
+          <Property Name="LeadID" Type="Guid" Nullable="false" />
+          <Property Name="CampaignID" Type="Int32" Nullable="false" />
+          <Property Name="LeadType" Type="Int16" Nullable="false" />
+          <Property Name="ChannelID" Type="Int16" Nullable="false" />
+          <Property Name="Channel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BranchNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerNo" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int16" Nullable="false" />
+          <Property Name="AdminID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DistributorID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ExecutorID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AssignDate" Type="DateTime" Precision="3" />
+          <Property Name="Contacted" Type="Int16" />
+          <Property Name="Closed" Type="Int16" />
+          <Property Name="ClosedDate" Type="DateTime" Precision="3" />
+          <Property Name="TeamName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Channel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int16" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BranchRelated" Type="Int16" />
+          <Property Name="TeamEnabled" Type="Int16" />
+          <NavigationProperty Name="CampaignLeads" Relationship="LMSModel.FK_Lead_Channel" FromRole="Channel" ToRole="CampaignLead" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="Guid" Nullable="false" />
+          <Property Name="CustomerNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ContactType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LeadSource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LeadID" Type="Guid" />
+          <Property Name="LeadType" Type="Int16" />
+          <Property Name="Level1" Type="Int16" />
+          <Property Name="Level2" Type="Int16" />
+          <Property Name="Level3" Type="Int16" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Contact_History">
+          <Key>
+            <PropertyRef Name="ContactID" />
+          </Key>
+          <Property Name="ContactID" Type="Guid" Nullable="false" />
+          <Property Name="CustomerNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ContactType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LeadSource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LeadID" Type="Guid" />
+          <Property Name="LeadType" Type="Int16" />
+          <Property Name="Level1" Type="Int16" />
+          <Property Name="Level2" Type="Int16" />
+          <Property Name="Level3" Type="Int16" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ContactDefinition">
+          <Key>
+            <PropertyRef Name="ContactItemID" />
+          </Key>
+          <Property Name="ContactItemID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="CloseLeadFlag" Type="Int32" Nullable="false" />
+          <Property Name="Active" Type="Int32" />
+          <Property Name="LeadTypeID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EmailExclusionList">
+          <Key>
+            <PropertyRef Name="EmailExclusionID" />
+          </Key>
+          <Property Name="EmailExclusionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FunctionRole">
+          <Key>
+            <PropertyRef Name="FunctionRoleID" />
+          </Key>
+          <Property Name="FunctionRoleID" Type="Guid" Nullable="false" />
+          <Property Name="FunctionID" Type="Int16" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FunctionRoleDef" Relationship="Self.FK_FunctionRole_FunctionRoleDef" FromRole="FunctionRole" ToRole="FunctionRoleDef" />
+        </EntityType>
+        <EntityType Name="FunctionRoleDef">
+          <Key>
+            <PropertyRef Name="FunctionID" />
+          </Key>
+          <Property Name="FunctionID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Notification" Type="Int16" />
+          <Property Name="TestEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FunctionRoles" Relationship="Self.FK_FunctionRole_FunctionRoleDef" FromRole="FunctionRoleDef" ToRole="FunctionRole" />
+        </EntityType>
+        <EntityType Name="IndividualCustomer">
+          <Key>
+            <PropertyRef Name="LeadID" />
+          </Key>
+          <Property Name="LeadID" Type="Guid" Nullable="false" />
+          <Property Name="CustomerNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EnglishName1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IDNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OpenBranch" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Phone1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateOpen" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SellerID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalarySellerID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalaryAmount" Type="Double" />
+          <Property Name="SalaryRange" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LastSalaryDt" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SalaryTransfer" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MarketingSegment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Package" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Firm" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FirmName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AvailableLimitAmt" Type="Double" />
+          <Property Name="AvailableDBR" Type="Double" />
+          <Property Name="CreditCardUtilization" Type="Double" />
+          <Property Name="CustomerType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerOfficer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AvgBenchMarkRevenue" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BenchMarkCost" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Profitability" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Profitable" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PotentialVal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PotentialToGrow" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ExtremeValue" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IsCustomerWithWOL" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="IsCustomerWithMobileB" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="HasPOS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ProcessSalary" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="NumberOfEmployees" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TotalDeposit6Month" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CountDeposits6Months" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CreditCardType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreditCardNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SuggestedCard" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Zone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="IndividualCustomer_History">
+          <Key>
+            <PropertyRef Name="LeadID" />
+          </Key>
+          <Property Name="LeadID" Type="Guid" Nullable="false" />
+          <Property Name="CustomerNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="EnglishName1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IDNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="OpenBranch" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="BranchName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Phone1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phone4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateOpen" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SellerID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalarySellerID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalaryAmount" Type="Double" />
+          <Property Name="SalaryRange" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LastSalaryDt" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SalaryTransfer" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MarketingSegment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Package" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Firm" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FirmName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AvailableLimitAmt" Type="Double" />
+          <Property Name="AvailableDBR" Type="Double" />
+          <Property Name="CreditCardUtilization" Type="Double" />
+          <Property Name="CustomerType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerOfficer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AvgBenchMarkRevenue" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BenchMarkCost" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Profitability" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Profitable" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PotentialVal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PotentialToGrow" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ExtremeValue" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IsCustomerWithWOL" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="IsCustomerWithMobileB" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="HasPOS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ProcessSalary" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="NumberOfEmployees" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TotalDeposit6Month" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CountDeposits6Months" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CreditCardType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreditCardNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SuggestedCard" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Zone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="InstantLead">
+          <Key>
+            <PropertyRef Name="LeadID" />
+          </Key>
+          <Property Name="LeadID" Type="Guid" Nullable="false" />
+          <Property Name="TypeID" Type="Int32" Nullable="false" />
+          <Property Name="Channel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BranchNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerNo" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AdminID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DistributorID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ExecutorID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AssignDate" Type="DateTime" Precision="3" />
+          <Property Name="Contacted" Type="Int16" />
+          <Property Name="Closed" Type="Int16" />
+          <Property Name="ClosedDate" Type="DateTime" Precision="3" />
+          <Property Name="OriginatorID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="LeadSource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Int16" />
+          <Property Name="MappingQuestion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MapValue" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ParentTypeID" Type="Int32" />
+          <NavigationProperty Name="InstantLeadType" Relationship="Self.FK_InstantLead_InstantLeadType" FromRole="InstantLead" ToRole="InstantLeadType" />
+          <NavigationProperty Name="InstantLeadDatas" Relationship="Self.FK_InstantLeadData_InstantLead" FromRole="InstantLead" ToRole="InstantLeadData" />
+          <NavigationProperty Name="LeadTransferHistories" Relationship="Self.FK_LeadTransferHistory_InstantLead" FromRole="InstantLead" ToRole="LeadTransferHistory" />
+        </EntityType>
+        <EntityType Name="InstantLead_History">
+          <Key>
+            <PropertyRef Name="LeadID" />
+          </Key>
+          <Property Name="LeadID" Type="Guid" Nullable="false" />
+          <Property Name="TypeID" Type="Int32" Nullable="false" />
+          <Property Name="Channel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BranchNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerNo" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AdminID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DistributorID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ExecutorID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AssignDate" Type="DateTime" Precision="3" />
+          <Property Name="Contacted" Type="Int16" />
+          <Property Name="Closed" Type="Int16" />
+          <Property Name="ClosedDate" Type="DateTime" Precision="3" />
+          <Property Name="OriginatorID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="LeadSource" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Transfered" Type="Int16" />
+          <Property Name="MappingQuestion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MapValue" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ParentTypeID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="InstantLeadChannel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeID" Type="Int32" Nullable="false" />
+          <Property Name="ChannelID" Type="Int16" Nullable="false" />
+          <Property Name="Teams" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="InstantLeadType" Relationship="Self.FK_InstantLeadChannel_InstantLeadType" FromRole="InstantLeadChannel" ToRole="InstantLeadType" />
+        </EntityType>
+        <EntityType Name="InstantLeadData">
+          <Key>
+            <PropertyRef Name="FieldDataID" />
+          </Key>
+          <Property Name="FieldDataID" Type="Guid" Nullable="false" />
+          <Property Name="LeadID" Type="Guid" Nullable="false" />
+          <Property Name="FieldID" Type="Int32" Nullable="false" />
+          <Property Name="FieldData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="InstantLead" Relationship="Self.FK_InstantLeadData_InstantLead" FromRole="InstantLeadData" ToRole="InstantLead" />
+        </EntityType>
+        <EntityType Name="InstantLeadData_History">
+          <Key>
+            <PropertyRef Name="FieldDataID" />
+          </Key>
+          <Property Name="FieldDataID" Type="Guid" Nullable="false" />
+          <Property Name="LeadID" Type="Guid" Nullable="false" />
+          <Property Name="FieldID" Type="Int32" Nullable="false" />
+          <Property Name="FieldData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="InstantLeadField">
+          <Key>
+            <PropertyRef Name="FieldID" />
+          </Key>
+          <Property Name="FieldID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FieldName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FieldType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TypeID" Type="Int32" Nullable="false" />
+          <Property Name="ListOptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mandatory" Type="Int32" />
+          <Property Name="FieldNo" Type="Int32" />
+          <NavigationProperty Name="InstantLeadType" Relationship="Self.FK_InstantLeadField_InstantLeadType" FromRole="InstantLeadField" ToRole="InstantLeadType" />
+        </EntityType>
+        <EntityType Name="InstantLeadMap">
+          <Key>
+            <PropertyRef Name="MapID" />
+          </Key>
+          <Property Name="MapID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeID" Type="Int32" Nullable="false" />
+          <Property Name="MapValue" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Map2TypeID" Type="Int32" />
+          <NavigationProperty Name="InstantLeadType" Relationship="Self.FK_InstantLeadMap_InstantLeadType" FromRole="InstantLeadMap" ToRole="InstantLeadType" />
+        </EntityType>
+        <EntityType Name="InstantLeadNASRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeID" Type="Int32" Nullable="false" />
+          <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InstantLeadTransferChannel">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeID" Type="Int32" Nullable="false" />
+          <Property Name="ChannelID" Type="Int16" Nullable="false" />
+          <Property Name="Teams" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="InstantLeadType" Relationship="Self.FK_InstantLeadTransferChannel_InstantLeadType" FromRole="InstantLeadTransferChannel" ToRole="InstantLeadType" />
+        </EntityType>
+        <EntityType Name="InstantLeadType">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NotificationFlag" Type="Int16" Nullable="false" />
+          <Property Name="SLA" Type="Int32" />
+          <Property Name="AllowTransfer" Type="Int16" />
+          <Property Name="AllowBulkLoad" Type="Int32" />
+          <Property Name="CustomOutcome" Type="Int32" />
+          <Property Name="CustomOutcomeType" Type="Int32" />
+          <Property Name="SurveyID" Type="Int32" />
+          <Property Name="Active" Type="Int32" />
+          <Property Name="ShowInCRM" Type="Int32" />
+          <Property Name="NASFlag" Type="Int32" />
+          <Property Name="ComposedFlag" Type="Int32" />
+          <Property Name="MappingQuestion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ChildFlag" Type="Int32" />
+          <Property Name="SharedFlag" Type="Int32" />
+          <NavigationProperty Name="InstantLeadChannels" Relationship="Self.FK_InstantLeadChannel_InstantLeadType" FromRole="InstantLeadType" ToRole="InstantLeadChannel" />
+          <NavigationProperty Name="InstantLeadFields" Relationship="Self.FK_InstantLeadField_InstantLeadType" FromRole="InstantLeadType" ToRole="InstantLeadField" />
+          <NavigationProperty Name="InstantLeadMaps" Relationship="Self.FK_InstantLeadMap_InstantLeadType" FromRole="InstantLeadType" ToRole="InstantLeadMap" />
+          <NavigationProperty Name="InstantLeadTransferChannels" Relationship="Self.FK_InstantLeadTransferChannel_InstantLeadType" FromRole="InstantLeadType" ToRole="InstantLeadTransferChannel" />
+        </EntityType>
+        <EntityType Name="LeadTransferHistory">
+          <Key>
+            <PropertyRef Name="LeadHistoryID" />
+          </Key>
+          <Property Name="LeadHistoryID" Type="Guid" Nullable="false" />
+          <Property Name="LeadID" Type="Guid" Nullable="false" />
+          <Property Name="AssignedTo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AssignedBy" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AssignedByRole" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AssignDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Channel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BranchNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Comments" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="InstantLead" Relationship="Self.FK_LeadTransferHistory_InstantLead" FromRole="LeadTransferHistory" ToRole="InstantLead" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="NotificationID" />
+          </Key>
+          <Property Name="NotificationID" Type="Guid" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Type" Type="Int16" Nullable="false" />
+          <Property Name="NotificationText" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Survey">
+          <Key>
+            <PropertyRef Name="SurveyID" />
+          </Key>
+          <Property Name="SurveyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SurveyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="Int32" />
+          <NavigationProperty Name="SurveyQuestions" Relationship="Self.FK_SurveyQuestion_Survey" FromRole="Survey" ToRole="SurveyQuestion" />
+        </EntityType>
+        <EntityType Name="SurveyAnswer">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+          </Key>
+          <Property Name="AnswerID" Type="Guid" Nullable="false" />
+          <Property Name="ContactID" Type="Guid" Nullable="false" />
+          <Property Name="QuestionID" Type="Int32" Nullable="false" />
+          <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AnswerNumber" Type="Int32" />
+          <NavigationProperty Name="SurveyQuestion" Relationship="Self.FK_SurveyAnswer_SurveyQuestion" FromRole="SurveyAnswer" ToRole="SurveyQuestion" />
+        </EntityType>
+        <EntityType Name="SurveyAnswer_History">
+          <Key>
+            <PropertyRef Name="AnswerID" />
+          </Key>
+          <Property Name="AnswerID" Type="Guid" Nullable="false" />
+          <Property Name="ContactID" Type="Guid" Nullable="false" />
+          <Property Name="QuestionID" Type="Int32" Nullable="false" />
+          <Property Name="Answer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AnswerNumber" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SurveyQuestion">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QuestionType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SurveyID" Type="Int32" Nullable="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="ListOptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QuestionNumber" Type="Int32" />
+          <Property Name="Mandatory" Type="Int32" />
+          <NavigationProperty Name="Survey" Relationship="Self.FK_SurveyQuestion_Survey" FromRole="SurveyQuestion" ToRole="Survey" />
+          <NavigationProperty Name="SurveyAnswers" Relationship="Self.FK_SurveyAnswer_SurveyQuestion" FromRole="SurveyQuestion" ToRole="SurveyAnswer" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="TeamID" />
+          </Key>
+          <Property Name="TeamID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TeamName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ChannelID" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="TeamMembers" Relationship="Self.FK_TeamMember_Team" FromRole="Team" ToRole="TeamMember" />
+        </EntityType>
+        <EntityType Name="TeamMember">
+          <Key>
+            <PropertyRef Name="TeamMemberID" />
+          </Key>
+          <Property Name="TeamMemberID" Type="Guid" Nullable="false" />
+          <Property Name="TeamID" Type="Int16" Nullable="false" />
+          <Property Name="UserID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TeamLeader" Type="Int16" Nullable="false" />
+          <Property Name="PartyId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Team" Relationship="Self.FK_TeamMember_Team" FromRole="TeamMember" ToRole="Team" />
+        </EntityType>
+        <Association Name="FK_AreaBranch_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="1" />
+          <End Role="AreaBranch" Type="Self.AreaBranch" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="AreaID" />
+            </Principal>
+            <Dependent Role="AreaBranch">
+              <PropertyRef Name="AreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AreaManager_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="1" />
+          <End Role="AreaManager" Type="Self.AreaManager" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="AreaID" />
+            </Principal>
+            <Dependent Role="AreaManager">
+              <PropertyRef Name="AreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CampaignContact_Campaign">
+          <End Role="Campaign" Type="Self.Campaign" Multiplicity="1" />
+          <End Role="CampaignContact" Type="Self.CampaignContact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="CampaignID" />
+            </Principal>
+            <Dependent Role="CampaignContact">
+              <PropertyRef Name="CampaignID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FunctionRole_FunctionRoleDef">
+          <End Role="FunctionRoleDef" Type="Self.FunctionRoleDef" Multiplicity="1" />
+          <End Role="FunctionRole" Type="Self.FunctionRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FunctionRoleDef">
+              <PropertyRef Name="FunctionID" />
+            </Principal>
+            <Dependent Role="FunctionRole">
+              <PropertyRef Name="FunctionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstantLead_InstantLeadType">
+          <End Role="InstantLeadType" Type="Self.InstantLeadType" Multiplicity="1" />
+          <End Role="InstantLead" Type="Self.InstantLead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstantLeadType">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="InstantLead">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstantLeadData_InstantLead">
+          <End Role="InstantLead" Type="Self.InstantLead" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="InstantLeadData" Type="Self.InstantLeadData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstantLead">
+              <PropertyRef Name="LeadID" />
+            </Principal>
+            <Dependent Role="InstantLeadData">
+              <PropertyRef Name="LeadID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LeadTransferHistory_InstantLead">
+          <End Role="InstantLead" Type="Self.InstantLead" Multiplicity="1" />
+          <End Role="LeadTransferHistory" Type="Self.LeadTransferHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstantLead">
+              <PropertyRef Name="LeadID" />
+            </Principal>
+            <Dependent Role="LeadTransferHistory">
+              <PropertyRef Name="LeadID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstantLeadChannel_InstantLeadType">
+          <End Role="InstantLeadType" Type="Self.InstantLeadType" Multiplicity="1" />
+          <End Role="InstantLeadChannel" Type="Self.InstantLeadChannel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstantLeadType">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="InstantLeadChannel">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstantLeadField_InstantLeadType">
+          <End Role="InstantLeadType" Type="Self.InstantLeadType" Multiplicity="1" />
+          <End Role="InstantLeadField" Type="Self.InstantLeadField" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstantLeadType">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="InstantLeadField">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstantLeadMap_InstantLeadType">
+          <End Role="InstantLeadType" Type="Self.InstantLeadType" Multiplicity="1" />
+          <End Role="InstantLeadMap" Type="Self.InstantLeadMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstantLeadType">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="InstantLeadMap">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstantLeadTransferChannel_InstantLeadType">
+          <End Role="InstantLeadType" Type="Self.InstantLeadType" Multiplicity="1" />
+          <End Role="InstantLeadTransferChannel" Type="Self.InstantLeadTransferChannel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstantLeadType">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="InstantLeadTransferChannel">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SurveyQuestion_Survey">
+          <End Role="Survey" Type="Self.Survey" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SurveyQuestion" Type="Self.SurveyQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Survey">
+              <PropertyRef Name="SurveyID" />
+            </Principal>
+            <Dependent Role="SurveyQuestion">
+              <PropertyRef Name="SurveyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SurveyAnswer_SurveyQuestion">
+          <End Role="SurveyQuestion" Type="Self.SurveyQuestion" Multiplicity="1" />
+          <End Role="SurveyAnswer" Type="Self.SurveyAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SurveyQuestion">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="SurveyAnswer">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TeamMember_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="TeamMember" Type="Self.TeamMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="TeamID" />
+            </Principal>
+            <Dependent Role="TeamMember">
+              <PropertyRef Name="TeamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LMSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Areas" EntityType="Self.Area" />
+          <EntitySet Name="AreaBranches" EntityType="Self.AreaBranch" />
+          <EntitySet Name="AreaManagers" EntityType="Self.AreaManager" />
+          <EntitySet Name="Campaigns" EntityType="Self.Campaign" />
+          <EntitySet Name="CampaignContacts" EntityType="Self.CampaignContact" />
+          <EntitySet Name="CampaignLead_History" EntityType="Self.CampaignLead_History" />
+          <EntitySet Name="Channels" EntityType="Self.Channel" />
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="Contact_History" EntityType="Self.Contact_History" />
+          <EntitySet Name="ContactDefinitions" EntityType="Self.ContactDefinition" />
+          <EntitySet Name="EmailExclusionLists" EntityType="Self.EmailExclusionList" />
+          <EntitySet Name="FunctionRoles" EntityType="Self.FunctionRole" />
+          <EntitySet Name="FunctionRoleDefs" EntityType="Self.FunctionRoleDef" />
+          <EntitySet Name="IndividualCustomers" EntityType="Self.IndividualCustomer" />
+          <EntitySet Name="IndividualCustomer_History" EntityType="Self.IndividualCustomer_History" />
+          <EntitySet Name="InstantLeads" EntityType="Self.InstantLead" />
+          <EntitySet Name="InstantLead_History" EntityType="Self.InstantLead_History" />
+          <EntitySet Name="InstantLeadChannels" EntityType="Self.InstantLeadChannel" />
+          <EntitySet Name="InstantLeadDatas" EntityType="Self.InstantLeadData" />
+          <EntitySet Name="InstantLeadData_History" EntityType="Self.InstantLeadData_History" />
+          <EntitySet Name="InstantLeadFields" EntityType="Self.InstantLeadField" />
+          <EntitySet Name="InstantLeadMaps" EntityType="Self.InstantLeadMap" />
+          <EntitySet Name="InstantLeadNASRoles" EntityType="Self.InstantLeadNASRole" />
+          <EntitySet Name="InstantLeadTransferChannels" EntityType="Self.InstantLeadTransferChannel" />
+          <EntitySet Name="InstantLeadTypes" EntityType="Self.InstantLeadType" />
+          <EntitySet Name="LeadTransferHistories" EntityType="Self.LeadTransferHistory" />
+          <EntitySet Name="Notifications" EntityType="Self.Notification" />
+          <EntitySet Name="Surveys" EntityType="Self.Survey" />
+          <EntitySet Name="SurveyAnswers" EntityType="Self.SurveyAnswer" />
+          <EntitySet Name="SurveyAnswer_History" EntityType="Self.SurveyAnswer_History" />
+          <EntitySet Name="SurveyQuestions" EntityType="Self.SurveyQuestion" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Teams" EntityType="Self.Team" />
+          <EntitySet Name="TeamMembers" EntityType="Self.TeamMember" />
+          <AssociationSet Name="FK_AreaBranch_Area" Association="Self.FK_AreaBranch_Area">
+            <End Role="Area" EntitySet="Areas" />
+            <End Role="AreaBranch" EntitySet="AreaBranches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AreaManager_Area" Association="Self.FK_AreaManager_Area">
+            <End Role="Area" EntitySet="Areas" />
+            <End Role="AreaManager" EntitySet="AreaManagers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CampaignContact_Campaign" Association="Self.FK_CampaignContact_Campaign">
+            <End Role="Campaign" EntitySet="Campaigns" />
+            <End Role="CampaignContact" EntitySet="CampaignContacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FunctionRole_FunctionRoleDef" Association="Self.FK_FunctionRole_FunctionRoleDef">
+            <End Role="FunctionRoleDef" EntitySet="FunctionRoleDefs" />
+            <End Role="FunctionRole" EntitySet="FunctionRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstantLead_InstantLeadType" Association="Self.FK_InstantLead_InstantLeadType">
+            <End Role="InstantLeadType" EntitySet="InstantLeadTypes" />
+            <End Role="InstantLead" EntitySet="InstantLeads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstantLeadData_InstantLead" Association="Self.FK_InstantLeadData_InstantLead">
+            <End Role="InstantLead" EntitySet="InstantLeads" />
+            <End Role="InstantLeadData" EntitySet="InstantLeadDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LeadTransferHistory_InstantLead" Association="Self.FK_LeadTransferHistory_InstantLead">
+            <End Role="InstantLead" EntitySet="InstantLeads" />
+            <End Role="LeadTransferHistory" EntitySet="LeadTransferHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstantLeadChannel_InstantLeadType" Association="Self.FK_InstantLeadChannel_InstantLeadType">
+            <End Role="InstantLeadType" EntitySet="InstantLeadTypes" />
+            <End Role="InstantLeadChannel" EntitySet="InstantLeadChannels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstantLeadField_InstantLeadType" Association="Self.FK_InstantLeadField_InstantLeadType">
+            <End Role="InstantLeadType" EntitySet="InstantLeadTypes" />
+            <End Role="InstantLeadField" EntitySet="InstantLeadFields" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstantLeadMap_InstantLeadType" Association="Self.FK_InstantLeadMap_InstantLeadType">
+            <End Role="InstantLeadType" EntitySet="InstantLeadTypes" />
+            <End Role="InstantLeadMap" EntitySet="InstantLeadMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstantLeadTransferChannel_InstantLeadType" Association="Self.FK_InstantLeadTransferChannel_InstantLeadType">
+            <End Role="InstantLeadType" EntitySet="InstantLeadTypes" />
+            <End Role="InstantLeadTransferChannel" EntitySet="InstantLeadTransferChannels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SurveyQuestion_Survey" Association="Self.FK_SurveyQuestion_Survey">
+            <End Role="Survey" EntitySet="Surveys" />
+            <End Role="SurveyQuestion" EntitySet="SurveyQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SurveyAnswer_SurveyQuestion" Association="Self.FK_SurveyAnswer_SurveyQuestion">
+            <End Role="SurveyQuestion" EntitySet="SurveyQuestions" />
+            <End Role="SurveyAnswer" EntitySet="SurveyAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TeamMember_Team" Association="Self.FK_TeamMember_Team">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="TeamMember" EntitySet="TeamMembers" />
+          </AssociationSet>
+          <EntitySet Name="CampaignLeads" EntityType="LMSModel.CampaignLead" />
+          <AssociationSet Name="FK_Lead_Campaign" Association="LMSModel.FK_Lead_Campaign">
+            <End Role="Campaign" EntitySet="Campaigns" />
+            <End Role="CampaignLead" EntitySet="CampaignLeads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lead_Channel" Association="LMSModel.FK_Lead_Channel">
+            <End Role="Channel" EntitySet="Channels" />
+            <End Role="CampaignLead" EntitySet="CampaignLeads" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CampaignLead">
+          <Key>
+            <PropertyRef Name="LeadID" />
+          </Key>
+          <Property Name="LeadID" Type="Guid" Nullable="false" />
+          <Property Name="CampaignID" Type="Int32" Nullable="false" />
+          <Property Name="LeadType" Type="Int16" Nullable="false" />
+          <Property Name="ChannelID" Type="Int16" Nullable="false" />
+          <Property Name="Channel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BranchNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerNo" Type="String" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int16" Nullable="false" />
+          <Property Name="AdminID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DistributorID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ExecutorID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AssignDate" Type="DateTime" Precision="3" />
+          <Property Name="Contacted" Type="Int16" />
+          <Property Name="Closed" Type="Int16" />
+          <Property Name="ClosedDate" Type="DateTime" Precision="3" />
+          <Property Name="TeamName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Channel1" Relationship="LMSModel.FK_Lead_Channel" FromRole="CampaignLead" ToRole="Channel" />
+        </EntityType>
+        <Association Name="FK_Lead_Campaign">
+          <End Type="LMSModel.Campaign" Role="Campaign" Multiplicity="1" />
+          <End Type="LMSModel.CampaignLead" Role="CampaignLead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Campaign">
+              <PropertyRef Name="CampaignID" />
+            </Principal>
+            <Dependent Role="CampaignLead">
+              <PropertyRef Name="CampaignID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lead_Channel">
+          <End Type="LMSModel.Channel" Role="Channel" Multiplicity="1" />
+          <End Type="LMSModel.CampaignLead" Role="CampaignLead" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Channel">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CampaignLead">
+              <PropertyRef Name="ChannelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LMSModelStoreContainer" CdmEntityContainer="LMSEntities">
+          <EntitySetMapping Name="Areas">
+            <EntityTypeMapping TypeName="LMSModel.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AreaBranches">
+            <EntityTypeMapping TypeName="LMSModel.AreaBranch">
+              <MappingFragment StoreEntitySet="AreaBranch">
+                <ScalarProperty Name="AreaBranchID" ColumnName="AreaBranchID" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="BranchID" ColumnName="BranchID" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AreaManagers">
+            <EntityTypeMapping TypeName="LMSModel.AreaManager">
+              <MappingFragment StoreEntitySet="AreaManager">
+                <ScalarProperty Name="AreaManagerID" ColumnName="AreaManagerID" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Campaigns">
+            <EntityTypeMapping TypeName="LMSModel.Campaign">
+              <MappingFragment StoreEntitySet="Campaign">
+                <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+                <ScalarProperty Name="CampaignName" ColumnName="CampaignName" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ShowInCRM" ColumnName="ShowInCRM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CampaignContacts">
+            <EntityTypeMapping TypeName="LMSModel.CampaignContact">
+              <MappingFragment StoreEntitySet="CampaignContact">
+                <ScalarProperty Name="UniqueID" ColumnName="UniqueID" />
+                <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+                <ScalarProperty Name="ContactDefinitionID" ColumnName="ContactDefinitionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CampaignLead_History">
+            <EntityTypeMapping TypeName="LMSModel.CampaignLead_History">
+              <MappingFragment StoreEntitySet="CampaignLead_History">
+                <ScalarProperty Name="LeadID" ColumnName="LeadID" />
+                <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+                <ScalarProperty Name="LeadType" ColumnName="LeadType" />
+                <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+                <ScalarProperty Name="Channel" ColumnName="Channel" />
+                <ScalarProperty Name="BranchNo" ColumnName="BranchNo" />
+                <ScalarProperty Name="CustomerNo" ColumnName="CustomerNo" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="DistributorID" ColumnName="DistributorID" />
+                <ScalarProperty Name="ExecutorID" ColumnName="ExecutorID" />
+                <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
+                <ScalarProperty Name="Contacted" ColumnName="Contacted" />
+                <ScalarProperty Name="Closed" ColumnName="Closed" />
+                <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+                <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Channels">
+            <EntityTypeMapping TypeName="LMSModel.Channel">
+              <MappingFragment StoreEntitySet="Channel">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BranchRelated" ColumnName="BranchRelated" />
+                <ScalarProperty Name="TeamEnabled" ColumnName="TeamEnabled" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="LMSModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="CustomerNo" ColumnName="CustomerNo" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ContactDate" ColumnName="ContactDate" />
+                <ScalarProperty Name="ContactType" ColumnName="ContactType" />
+                <ScalarProperty Name="LeadSource" ColumnName="LeadSource" />
+                <ScalarProperty Name="LeadID" ColumnName="LeadID" />
+                <ScalarProperty Name="LeadType" ColumnName="LeadType" />
+                <ScalarProperty Name="Level1" ColumnName="Level1" />
+                <ScalarProperty Name="Level2" ColumnName="Level2" />
+                <ScalarProperty Name="Level3" ColumnName="Level3" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contact_History">
+            <EntityTypeMapping TypeName="LMSModel.Contact_History">
+              <MappingFragment StoreEntitySet="Contact_History">
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="CustomerNo" ColumnName="CustomerNo" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ContactDate" ColumnName="ContactDate" />
+                <ScalarProperty Name="ContactType" ColumnName="ContactType" />
+                <ScalarProperty Name="LeadSource" ColumnName="LeadSource" />
+                <ScalarProperty Name="LeadID" ColumnName="LeadID" />
+                <ScalarProperty Name="LeadType" ColumnName="LeadType" />
+                <ScalarProperty Name="Level1" ColumnName="Level1" />
+                <ScalarProperty Name="Level2" ColumnName="Level2" />
+                <ScalarProperty Name="Level3" ColumnName="Level3" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactDefinitions">
+            <EntityTypeMapping TypeName="LMSModel.ContactDefinition">
+              <MappingFragment StoreEntitySet="ContactDefinition">
+                <ScalarProperty Name="ContactItemID" ColumnName="ContactItemID" />
+                <ScalarProperty Name="ItemDescription" ColumnName="ItemDescription" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="CloseLeadFlag" ColumnName="CloseLeadFlag" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LeadTypeID" ColumnName="LeadTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailExclusionLists">
+            <EntityTypeMapping TypeName="LMSModel.EmailExclusionList">
+              <MappingFragment StoreEntitySet="EmailExclusionList">
+                <ScalarProperty Name="EmailExclusionID" ColumnName="EmailExclusionID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FunctionRoles">
+            <EntityTypeMapping TypeName="LMSModel.FunctionRole">
+              <MappingFragment StoreEntitySet="FunctionRole">
+                <ScalarProperty Name="FunctionRoleID" ColumnName="FunctionRoleID" />
+                <ScalarProperty Name="FunctionID" ColumnName="FunctionID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FunctionRoleDefs">
+            <EntityTypeMapping TypeName="LMSModel.FunctionRoleDef">
+              <MappingFragment StoreEntitySet="FunctionRoleDef">
+                <ScalarProperty Name="FunctionID" ColumnName="FunctionID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Notification" ColumnName="Notification" />
+                <ScalarProperty Name="TestEmail" ColumnName="TestEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IndividualCustomers">
+            <EntityTypeMapping TypeName="LMSModel.IndividualCustomer">
+              <MappingFragment StoreEntitySet="IndividualCustomer">
+                <ScalarProperty Name="LeadID" ColumnName="LeadID" />
+                <ScalarProperty Name="CustomerNo" ColumnName="CustomerNo" />
+                <ScalarProperty Name="EnglishName1" ColumnName="EnglishName1" />
+                <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
+                <ScalarProperty Name="IDType" ColumnName="IDType" />
+                <ScalarProperty Name="OpenBranch" ColumnName="OpenBranch" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Phone3" ColumnName="Phone3" />
+                <ScalarProperty Name="Phone4" ColumnName="Phone4" />
+                <ScalarProperty Name="DateOpen" ColumnName="DateOpen" />
+                <ScalarProperty Name="SellerID" ColumnName="SellerID" />
+                <ScalarProperty Name="SalarySellerID" ColumnName="SalarySellerID" />
+                <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
+                <ScalarProperty Name="SalaryRange" ColumnName="SalaryRange" />
+                <ScalarProperty Name="LastSalaryDt" ColumnName="LastSalaryDt" />
+                <ScalarProperty Name="SalaryTransfer" ColumnName="SalaryTransfer" />
+                <ScalarProperty Name="MarketingSegment" ColumnName="MarketingSegment" />
+                <ScalarProperty Name="Package" ColumnName="Package" />
+                <ScalarProperty Name="Firm" ColumnName="Firm" />
+                <ScalarProperty Name="FirmName" ColumnName="FirmName" />
+                <ScalarProperty Name="AvailableLimitAmt" ColumnName="AvailableLimitAmt" />
+                <ScalarProperty Name="AvailableDBR" ColumnName="AvailableDBR" />
+                <ScalarProperty Name="CreditCardUtilization" ColumnName="CreditCardUtilization" />
+                <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
+                <ScalarProperty Name="CustomerOfficer" ColumnName="CustomerOfficer" />
+                <ScalarProperty Name="AvgBenchMarkRevenue" ColumnName="AvgBenchMarkRevenue" />
+                <ScalarProperty Name="BenchMarkCost" ColumnName="BenchMarkCost" />
+                <ScalarProperty Name="Profitability" ColumnName="Profitability" />
+                <ScalarProperty Name="Profitable" ColumnName="Profitable" />
+                <ScalarProperty Name="PotentialVal" ColumnName="PotentialVal" />
+                <ScalarProperty Name="PotentialToGrow" ColumnName="PotentialToGrow" />
+                <ScalarProperty Name="ExtremeValue" ColumnName="ExtremeValue" />
+                <ScalarProperty Name="IsCustomerWithWOL" ColumnName="IsCustomerWithWOL" />
+                <ScalarProperty Name="IsCustomerWithMobileB" ColumnName="IsCustomerWithMobileB" />
+                <ScalarProperty Name="HasPOS" ColumnName="HasPOS" />
+                <ScalarProperty Name="ProcessSalary" ColumnName="ProcessSalary" />
+                <ScalarProperty Name="NumberOfEmployees" ColumnName="NumberOfEmployees" />
+                <ScalarProperty Name="TotalDeposit6Month" ColumnName="TotalDeposit6Month" />
+                <ScalarProperty Name="CountDeposits6Months" ColumnName="CountDeposits6Months" />
+                <ScalarProperty Name="CreditCardType" ColumnName="CreditCardType" />
+                <ScalarProperty Name="CreditCardNo" ColumnName="CreditCardNo" />
+                <ScalarProperty Name="SuggestedCard" ColumnName="SuggestedCard" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IndividualCustomer_History">
+            <EntityTypeMapping TypeName="LMSModel.IndividualCustomer_History">
+              <MappingFragment StoreEntitySet="IndividualCustomer_History">
+                <ScalarProperty Name="LeadID" ColumnName="LeadID" />
+                <ScalarProperty Name="CustomerNo" ColumnName="CustomerNo" />
+                <ScalarProperty Name="EnglishName1" ColumnName="EnglishName1" />
+                <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
+                <ScalarProperty Name="IDType" ColumnName="IDType" />
+                <ScalarProperty Name="OpenBranch" ColumnName="OpenBranch" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="Phone3" ColumnName="Phone3" />
+                <ScalarProperty Name="Phone4" ColumnName="Phone4" />
+                <ScalarProperty Name="DateOpen" ColumnName="DateOpen" />
+                <ScalarProperty Name="SellerID" ColumnName="SellerID" />
+                <ScalarProperty Name="SalarySellerID" ColumnName="SalarySellerID" />
+                <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
+                <ScalarProperty Name="SalaryRange" ColumnName="SalaryRange" />
+                <ScalarProperty Name="LastSalaryDt" ColumnName="LastSalaryDt" />
+                <ScalarProperty Name="SalaryTransfer" ColumnName="SalaryTransfer" />
+                <ScalarProperty Name="MarketingSegment" ColumnName="MarketingSegment" />
+                <ScalarProperty Name="Package" ColumnName="Package" />
+                <ScalarProperty Name="Firm" ColumnName="Firm" />
+                <ScalarProperty Name="FirmName" ColumnName="FirmName" />
+                <ScalarProperty Name="AvailableLimitAmt" ColumnName="AvailableLimitAmt" />
+                <ScalarProperty Name="AvailableDBR" ColumnName="AvailableDBR" />
+                <ScalarProperty Name="CreditCardUtilization" ColumnName="CreditCardUtilization" />
+                <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
+                <ScalarProperty Name="CustomerOfficer" ColumnName="CustomerOfficer" />
+                <ScalarProperty Name="AvgBenchMarkRevenue" ColumnName="AvgBenchMarkRevenue" />
+                <ScalarProperty Name="BenchMarkCost" ColumnName="BenchMarkCost" />
+                <ScalarProperty Name="Profitability" ColumnName="Profitability" />
+                <ScalarProperty Name="Profitable" ColumnName="Profitable" />
+                <ScalarProperty Name="PotentialVal" ColumnName="PotentialVal" />
+                <ScalarProperty Name="PotentialToGrow" ColumnName="PotentialToGrow" />
+                <ScalarProperty Name="ExtremeValue" ColumnName="ExtremeValue" />
+                <ScalarProperty Name="IsCustomerWithWOL" ColumnName="IsCustomerWithWOL" />
+                <ScalarProperty Name="IsCustomerWithMobileB" ColumnName="IsCustomerWithMobileB" />
+                <ScalarProperty Name="HasPOS" ColumnName="HasPOS" />
+                <ScalarProperty Name="ProcessSalary" ColumnName="ProcessSalary" />
+                <ScalarProperty Name="NumberOfEmployees" ColumnName="NumberOfEmployees" />
+                <ScalarProperty Name="TotalDeposit6Month" ColumnName="TotalDeposit6Month" />
+                <ScalarProperty Name="CountDeposits6Months" ColumnName="CountDeposits6Months" />
+                <ScalarProperty Name="CreditCardType" ColumnName="CreditCardType" />
+                <ScalarProperty Name="CreditCardNo" ColumnName="CreditCardNo" />
+                <ScalarProperty Name="SuggestedCard" ColumnName="SuggestedCard" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Zone" ColumnName="Zone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstantLeads">
+            <EntityTypeMapping TypeName="LMSModel.InstantLead">
+              <MappingFragment StoreEntitySet="InstantLead">
+                <ScalarProperty Name="LeadID" ColumnName="LeadID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="Channel" ColumnName="Channel" />
+                <ScalarProperty Name="BranchNo" ColumnName="BranchNo" />
+                <ScalarProperty Name="CustomerNo" ColumnName="CustomerNo" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="DistributorID" ColumnName="DistributorID" />
+                <ScalarProperty Name="ExecutorID" ColumnName="ExecutorID" />
+                <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
+                <ScalarProperty Name="Contacted" ColumnName="Contacted" />
+                <ScalarProperty Name="Closed" ColumnName="Closed" />
+                <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+                <ScalarProperty Name="OriginatorID" ColumnName="OriginatorID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="LeadSource" ColumnName="LeadSource" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="MappingQuestion" ColumnName="MappingQuestion" />
+                <ScalarProperty Name="MapValue" ColumnName="MapValue" />
+                <ScalarProperty Name="ParentTypeID" ColumnName="ParentTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstantLead_History">
+            <EntityTypeMapping TypeName="LMSModel.InstantLead_History">
+              <MappingFragment StoreEntitySet="InstantLead_History">
+                <ScalarProperty Name="LeadID" ColumnName="LeadID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="Channel" ColumnName="Channel" />
+                <ScalarProperty Name="BranchNo" ColumnName="BranchNo" />
+                <ScalarProperty Name="CustomerNo" ColumnName="CustomerNo" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="DistributorID" ColumnName="DistributorID" />
+                <ScalarProperty Name="ExecutorID" ColumnName="ExecutorID" />
+                <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
+                <ScalarProperty Name="Contacted" ColumnName="Contacted" />
+                <ScalarProperty Name="Closed" ColumnName="Closed" />
+                <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+                <ScalarProperty Name="OriginatorID" ColumnName="OriginatorID" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="LeadSource" ColumnName="LeadSource" />
+                <ScalarProperty Name="Transfered" ColumnName="Transfered" />
+                <ScalarProperty Name="MappingQuestion" ColumnName="MappingQuestion" />
+                <ScalarProperty Name="MapValue" ColumnName="MapValue" />
+                <ScalarProperty Name="ParentTypeID" ColumnName="ParentTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstantLeadChannels">
+            <EntityTypeMapping TypeName="LMSModel.InstantLeadChannel">
+              <MappingFragment StoreEntitySet="InstantLeadChannel">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+                <ScalarProperty Name="Teams" ColumnName="Teams" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstantLeadDatas">
+            <EntityTypeMapping TypeName="LMSModel.InstantLeadData">
+              <MappingFragment StoreEntitySet="InstantLeadData">
+                <ScalarProperty Name="FieldDataID" ColumnName="FieldDataID" />
+                <ScalarProperty Name="LeadID" ColumnName="LeadID" />
+                <ScalarProperty Name="FieldID" ColumnName="FieldID" />
+                <ScalarProperty Name="FieldData" ColumnName="FieldData" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstantLeadData_History">
+            <EntityTypeMapping TypeName="LMSModel.InstantLeadData_History">
+              <MappingFragment StoreEntitySet="InstantLeadData_History">
+                <ScalarProperty Name="FieldDataID" ColumnName="FieldDataID" />
+                <ScalarProperty Name="LeadID" ColumnName="LeadID" />
+                <ScalarProperty Name="FieldID" ColumnName="FieldID" />
+                <ScalarProperty Name="FieldData" ColumnName="FieldData" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstantLeadFields">
+            <EntityTypeMapping TypeName="LMSModel.InstantLeadField">
+              <MappingFragment StoreEntitySet="InstantLeadField">
+                <ScalarProperty Name="FieldID" ColumnName="FieldID" />
+                <ScalarProperty Name="FieldName" ColumnName="FieldName" />
+                <ScalarProperty Name="FieldType" ColumnName="FieldType" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="ListOptions" ColumnName="ListOptions" />
+                <ScalarProperty Name="Mandatory" ColumnName="Mandatory" />
+                <ScalarProperty Name="FieldNo" ColumnName="FieldNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstantLeadMaps">
+            <EntityTypeMapping TypeName="LMSModel.InstantLeadMap">
+              <MappingFragment StoreEntitySet="InstantLeadMap">
+                <ScalarProperty Name="MapID" ColumnName="MapID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="MapValue" ColumnName="MapValue" />
+                <ScalarProperty Name="Map2TypeID" ColumnName="Map2TypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstantLeadNASRoles">
+            <EntityTypeMapping TypeName="LMSModel.InstantLeadNASRole">
+              <MappingFragment StoreEntitySet="InstantLeadNASRole">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstantLeadTransferChannels">
+            <EntityTypeMapping TypeName="LMSModel.InstantLeadTransferChannel">
+              <MappingFragment StoreEntitySet="InstantLeadTransferChannel">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+                <ScalarProperty Name="Teams" ColumnName="Teams" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InstantLeadTypes">
+            <EntityTypeMapping TypeName="LMSModel.InstantLeadType">
+              <MappingFragment StoreEntitySet="InstantLeadType">
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NotificationFlag" ColumnName="NotificationFlag" />
+                <ScalarProperty Name="SLA" ColumnName="SLA" />
+                <ScalarProperty Name="AllowTransfer" ColumnName="AllowTransfer" />
+                <ScalarProperty Name="AllowBulkLoad" ColumnName="AllowBulkLoad" />
+                <ScalarProperty Name="CustomOutcome" ColumnName="CustomOutcome" />
+                <ScalarProperty Name="CustomOutcomeType" ColumnName="CustomOutcomeType" />
+                <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ShowInCRM" ColumnName="ShowInCRM" />
+                <ScalarProperty Name="NASFlag" ColumnName="NASFlag" />
+                <ScalarProperty Name="ComposedFlag" ColumnName="ComposedFlag" />
+                <ScalarProperty Name="MappingQuestion" ColumnName="MappingQuestion" />
+                <ScalarProperty Name="ChildFlag" ColumnName="ChildFlag" />
+                <ScalarProperty Name="SharedFlag" ColumnName="SharedFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LeadTransferHistories">
+            <EntityTypeMapping TypeName="LMSModel.LeadTransferHistory">
+              <MappingFragment StoreEntitySet="LeadTransferHistory">
+                <ScalarProperty Name="LeadHistoryID" ColumnName="LeadHistoryID" />
+                <ScalarProperty Name="LeadID" ColumnName="LeadID" />
+                <ScalarProperty Name="AssignedTo" ColumnName="AssignedTo" />
+                <ScalarProperty Name="AssignedBy" ColumnName="AssignedBy" />
+                <ScalarProperty Name="AssignedByRole" ColumnName="AssignedByRole" />
+                <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
+                <ScalarProperty Name="Channel" ColumnName="Channel" />
+                <ScalarProperty Name="BranchNo" ColumnName="BranchNo" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notifications">
+            <EntityTypeMapping TypeName="LMSModel.Notification">
+              <MappingFragment StoreEntitySet="Notification">
+                <ScalarProperty Name="NotificationID" ColumnName="NotificationID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="NotificationText" ColumnName="NotificationText" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Surveys">
+            <EntityTypeMapping TypeName="LMSModel.Survey">
+              <MappingFragment StoreEntitySet="Survey">
+                <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+                <ScalarProperty Name="SurveyName" ColumnName="SurveyName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SurveyAnswers">
+            <EntityTypeMapping TypeName="LMSModel.SurveyAnswer">
+              <MappingFragment StoreEntitySet="SurveyAnswer">
+                <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="AnswerNumber" ColumnName="AnswerNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SurveyAnswer_History">
+            <EntityTypeMapping TypeName="LMSModel.SurveyAnswer_History">
+              <MappingFragment StoreEntitySet="SurveyAnswer_History">
+                <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+                <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="Answer" ColumnName="Answer" />
+                <ScalarProperty Name="AnswerNumber" ColumnName="AnswerNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SurveyQuestions">
+            <EntityTypeMapping TypeName="LMSModel.SurveyQuestion">
+              <MappingFragment StoreEntitySet="SurveyQuestion">
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="QuestionType" ColumnName="QuestionType" />
+                <ScalarProperty Name="SurveyID" ColumnName="SurveyID" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="ListOptions" ColumnName="ListOptions" />
+                <ScalarProperty Name="QuestionNumber" ColumnName="QuestionNumber" />
+                <ScalarProperty Name="Mandatory" ColumnName="Mandatory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="LMSModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teams">
+            <EntityTypeMapping TypeName="LMSModel.Team">
+              <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+                <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeamMembers">
+            <EntityTypeMapping TypeName="LMSModel.TeamMember">
+              <MappingFragment StoreEntitySet="TeamMember">
+                <ScalarProperty Name="TeamMemberID" ColumnName="TeamMemberID" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="TeamLeader" ColumnName="TeamLeader" />
+                <ScalarProperty Name="PartyId" ColumnName="PartyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CampaignLeads">
+            <EntityTypeMapping TypeName="LMSModel.CampaignLead">
+              <MappingFragment StoreEntitySet="CampaignLead">
+                <ScalarProperty Name="TeamName" ColumnName="TeamName" />
+                <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+                <ScalarProperty Name="Closed" ColumnName="Closed" />
+                <ScalarProperty Name="Contacted" ColumnName="Contacted" />
+                <ScalarProperty Name="AssignDate" ColumnName="AssignDate" />
+                <ScalarProperty Name="ExecutorID" ColumnName="ExecutorID" />
+                <ScalarProperty Name="DistributorID" ColumnName="DistributorID" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerNo" ColumnName="CustomerNo" />
+                <ScalarProperty Name="BranchNo" ColumnName="BranchNo" />
+                <ScalarProperty Name="Channel" ColumnName="Channel" />
+                <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+                <ScalarProperty Name="LeadType" ColumnName="LeadType" />
+                <ScalarProperty Name="CampaignID" ColumnName="CampaignID" />
+                <ScalarProperty Name="LeadID" ColumnName="LeadID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

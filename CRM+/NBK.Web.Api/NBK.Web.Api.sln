@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBK.Web.Api", "NBK.Web.Api\NBK.Web.Api.csproj", "{BF4F7DC8-FC04-469F-842F-4B33773642D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NBK.Web.Api.Models", "..\NBK.Web.Api.Models\NBK.Web.Api.Models.csproj", "{F9646ED3-1F2B-40C6-8AFB-FA7DD41CEE9F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF4F7DC8-FC04-469F-842F-4B33773642D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF4F7DC8-FC04-469F-842F-4B33773642D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF4F7DC8-FC04-469F-842F-4B33773642D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF4F7DC8-FC04-469F-842F-4B33773642D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9646ED3-1F2B-40C6-8AFB-FA7DD41CEE9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9646ED3-1F2B-40C6-8AFB-FA7DD41CEE9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9646ED3-1F2B-40C6-8AFB-FA7DD41CEE9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9646ED3-1F2B-40C6-8AFB-FA7DD41CEE9F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

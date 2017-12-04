@@ -1,0 +1,23 @@
+﻿<Mappings>
+  <Property Name="CountryOfBirthCode" BusinessTermName="NationalityCode" PropertyName="Nationality" />
+  <Property Name="OriginCountryCode" BusinessTermName="NationalityCode" PropertyName="Nationality" />
+  <Property Name="SalaryRangeCode" BusinessTermName="SalaryRangeCode" PropertyName="SalaryRangeCode" />
+  <Property Name="IncomeSourceCode" BusinessTermName="IncomeType" PropertyName="IncomeType" />
+  <Property Name="EducationCode" BusinessTermName="EducationCode" PropertyName="EducationCode" />
+  <Property Name="JobRankCode" BusinessTermName="RolePositionCode" PropertyName="RolePositionCode" />
+  <Property Name="WorkplaceCode" BusinessTermName="EmployerCode" PropertyName="EmployerCode" />
+  <Property Name="GenderCode" BusinessTermName="CustomerGenderCode" PropertyName="CustomerGenderCode" />
+  <Property Name="MaritalStatusCode" BusinessTermName="MaritalStatus" PropertyName="MaritalStatus" />
+  <Property Name="NationalityCode" BusinessTermName="NationalityCode" PropertyName="Nationality" />
+  <Property Name="OccupationCode" BusinessTermName="Occupation" PropertyName="Occupation" />
+  <Property Name="PackageCode" BusinessTermName="PackageTypeCode" PropertyName="PackageTypeCode" />
+  <Property Name="ResidencyStatusCode" BusinessTermName="ResidenceStatus" PropertyName="ResidenceStatus" />
+  <Property Name="IdentTypeCode" BusinessTermName="IDType" PropertyName="IDType" />
+  <Property Name="IdIssuePlaceCode" BusinessTermName="NationalityCode" PropertyName="Nationality" />
+  <Property Name="CustTypeCode" BusinessTermName="CustType" PropertyName="CustType" />
+  <Property Name="StatusCode" BusinessTermName="CustStatus" PropertyName="CustStatus" />
+  <Property Name="LanguageCode" BusinessTermName="Language" PropertyName="Language" />
+  <Property Name="TitleCode" BusinessTermName="Title" PropertyName="Title" />
+  <Property Name="HomeAreaCode" BusinessTermName="AreaCode" PropertyName="AreaCode" />
+  <Property Name="WorkAreaCode" BusinessTermName="AreaCode" PropertyName="AreaCode" />
+</Mappings>

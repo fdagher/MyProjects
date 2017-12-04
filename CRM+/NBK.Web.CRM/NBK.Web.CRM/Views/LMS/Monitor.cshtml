@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "Monitor";
+}
+
+ <section  ng-controller="LeadMonitorController" style="color:#222" ng-init="getMonitor()" ng-cloak>
+     <div class="row wrapper border-bottom white-bg page-heading">
+         <div class="col-lg-12">
+             <h2>Instant Leads Monitor</h2>
+             <ol class="breadcrumb">
+                 <li>
+                     <a href="index.html">Leads Initiated by</a>
+                 </li>
+
+                 <li class="active">
+                     <strong>{{user.Name}}</strong>
+                 </li>
+             </ol>
+         </div>
+       
+     </div>
+
+     <br/>
+     <div class="row">
+         <div class="col-xs-12">
+             <div class="ibox">
+                 <div class="ibox-title">
+                     <h2>All Leads</h2>
+                     <div class="ibox-tools">
+                         <button class="btn btn-default btn-circle" type="button" ng-click="filterByStatus(1)">
+                             <i class="fa fa-check text-navy"></i>
+                         </button>
+                         <button class="btn btn-default btn-circle" type="button" ng-click="filterByStatus(3)">
+                             <i class="fa fa-check text-danger"></i>
+                         </button>
+                         <button class="btn btn-default btn-circle" type="button" ng-click="filterByStatus(0)">
+                             <i class="fa fa-refresh"></i>
+                         </button>
+                         <input class="text-sm" type="text" placeholder=" Search leads ..." ng-model="search.$"/>
+                         <a class="collapse-link">
+                             <i class="fa fa-chevron-up"></i>
+                         </a>
+                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                             <i class="fa fa-wrench"></i>
+                         </a>
+                         <ul class="dropdown-menu dropdown-user">
+                             <li>
+                                 <a href="#" ng-click="filterByStatus(1)">Show Contacted</a>
+                                 <a href="#" ng-click="filterByStatus(2)">Show Not Contacted</a>
+                                 <a href="#" ng-click="filterByStatus(3)">Show Closed</a>
+                                 <a href="#" ng-click="filterByStatus(4)">Show Not Closed</a>
+                                 <a href="#" ng-click="filterByStatus(0)">Show All</a>
+                             </li>
+                             
+                         </ul>
+                     </div>
+                 </div>
+
+                 <div class="ibox-content">
+                     <table class="footable table table-stripped toggle-arrow-tiny text-sm" >
+                         <thead>
+                             <tr>
+                                 <th data-toggle="true">Lead Type</th>
+                                 <th>CMNO</th>
+                                 <th>Customer Name</th>
+                                 <th>Channel</th>
+                                 <th>Branch</th>
+                                 <th>Create Date</th>
+                                 <th>Contacted</th>
+                                 <th>Closed</th>
+                                 <th width="120px">SLA</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <tr ng-repeat="lead in leads | filter : search" class="text-black" style="color:#000">
+                                 <td class="text-black">
+                                     <a href="#!"><strong>{{lead.InstantLeadName}}</strong></a>
+                                 </td>
+                                 <td class="text-black">
+                                     {{lead.CustomerNo}}
+                                 </td>
+                                 <td>
+                                     {{lead.CustomerName}}
+                                 </td>
+
+                                 <td>
+                                     {{lead.Channel}}
+                                 </td>
+                                 <td>
+                                     {{lead.Branch}}
+                                 </td>
+                                 <td>
+                                     {{lead.CreateDate}}
+                                 </td>
+                                 <td>
+                                     <i class="fa fa-check text-navy" ng-show="lead.Contacted == 1"></i>
+                                    
+                                 </td>
+                                 <td>
+                                     <i class="fa fa-check text-danger" ng-show="lead.Closed == 1"></i>
+                                 </td>
+                                 <td>
+                                     <div class="progress progress-mini">
+                                         <div style="width: 100%;" class="progress-bar progress-bar-danger" ng-show="lead.PercentRemain < 0"></div>
+                                         <div style="width: {{lead.PercentRemain}}%;" class="progress-bar progress-bar-warning" ng-show="lead.PercentRemain > 50"></div>
+                                     </div>
+                                 </td>
+
+                             </tr>
+
+
+                         </tbody>
+                        
+                     </table>
+                 </div>
+             </div>
+         </div>
+      </div>
+</section>

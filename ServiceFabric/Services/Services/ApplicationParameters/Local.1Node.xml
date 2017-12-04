@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="fabric:/Services" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="SecureService_InstanceCount" Value="1" />
+    <Parameter Name="IdentityServer_InstanceCount" Value="1" />
+    <Parameter Name="CachingService_PartitionCount" Value="1" />
+    <Parameter Name="CachingService_MinReplicaSetSize" Value="1" />
+    <Parameter Name="CachingService_TargetReplicaSetSize" Value="1" />
+    <Parameter Name="CustomerProfileService_InstanceCount" Value="1" />
+    <Parameter Name="ECTSService_InstanceCount" Value="1" />
+    <Parameter Name="CustomerService_InstanceCount" Value="1" />
+    <Parameter Name="EAIP1Service_InstanceCount" Value="1" />
+  </Parameters>
+</Application>

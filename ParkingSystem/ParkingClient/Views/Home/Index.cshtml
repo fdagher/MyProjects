@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Welcome";
+}
+
+<style>
+    table, tr, td, th {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+    }
+</style>
+<h2>Welcome to the Parking System Manager</h2>
+
+<body data-ng-app="APIModule">
+    <div id="tblUsers" ng-controller="APIController" ng-cloak>
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Parking Today</th>
+                <th>Parking Slot</th>
+                <th>X</th>
+            </tr>
+            <tbody data-ng-repeat="user in users">
+                <tr>
+                    <td>{{user.Id}}</td>
+                    <td>{{user.Date}}</td>
+                    <td contenteditable="true" ng-blur="updateUser(user,$event,1)" ng-dblclick="makeEditable($event)">{{user.Name}}</td> 
+                    <td><div ng-blur="updateUser(user,$event,2)" ng-dblclick="makeEditable($event)">{{user.Email}}</div></td> 
+                    <td ng-blur="updateUser(user,$event,3)" ng-dblclick="makeEditable($event)">{{user.Mobile}}</td> 
+                    <td ng-blur="updateUser(user,$event,4)" ng-dblclick="makeEditable($event)">{{user.ParkingToday}}</td>
+                    <td ng-blur="updateUser(user,$event,5)" ng-dblclick="makeEditable($event)">{{user.ParkingSlot}}</td>
+                    <td> <input type="button" id="Delete" value="Delete" data-ng-click="deleteUser(user.Id)" /> </td>  
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Add a User Parking Subscription Here</h3>
+        <div class="form-group">
+            <label for="date">Enter the Date</label>
+            <input type="date" class="form-control" id="date" placeholder="Enter date" [required="date" ] data-ng-model="dateid" />
+            
+            <label for="name">Enter the Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter name" [required="string" ] data-ng-model="nameid" />
+            
+            <label for="email">Enter the Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" [required="string" ] data-ng-model="emailid" />
+
+            <label for="mobile">Enter the Mobile</label>
+            <input type="text" class="form-control" id="mobile" placeholder="Enter mobile" data-ng-model="mobileid" />
+
+            <label for="parkingtoday">Parking Slot for this Day?</label>
+            <input type="checkbox" class="form-control" id="parkingtoday" placeholder="Parking slot today?" data-ng-model="parkingtodayid" />
+
+            <label for="pslot">Parking Slot</label>
+            <input type="text" class="form-control" maxlength="1" id="pslot" placeholder="Parking slot" data-ng-model="pslotid" />
+        </div>
+
+        <button type="button" class="btn btn-default" data-ng-click="saveUser();">Submit</button> 
+    </div>
+</body>
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/angular-route.js"></script>
+<script src="~/Scripts/APIScripts/Module.js"></script>
+<script src="~/Scripts/APIScripts/Service.js"></script>
+<script src="~/Scripts/APIScripts/Controller.js"></script>

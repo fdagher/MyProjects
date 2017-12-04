@@ -1,0 +1,611 @@
+﻿
+@{
+    ViewBag.Title = "Customer Summary";
+}
+
+
+<div ng-controller="CustomerController" style="color:#222" ng-cloak>
+    <div ng-hide="loaded">
+        <h1 class="text-center text-navy">
+            Initializing application, Please wait
+        </h1>
+    </div>
+    <section ng-show="loaded">
+        <div class="row wrapper border-bottom white-bg page-heading" >
+            <div class="col-lg-10">
+                <h2>Customer Summary</h2>
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="index.html">Selected Customer</a>
+                    </li>
+                   
+                    <li class="active">
+                        <strong>{{customer.CustomerNumber}}</strong>
+                    </li>
+                    <li class="active">
+                        <strong>{{customer.FullNameEnglish}}</strong>
+                    </li>
+                    <li class="active">
+                        <strong>{{customer.CustType}}</strong>
+                    </li>
+                    <li class="active">
+                        <strong>{{customer.Status}}</strong>
+                    </li>
+                    <li>
+                        <strong>{{customer.Package}}</strong>
+                    </li>
+                   
+                </ol>
+            </div>
+            <div class="col-lg-2">
+
+            </div>
+        </div>
+
+        <div class="wrapper wrapper-content">
+         <div class="row m-b-lg m-t-lg">
+                <div class="col-xs-6">
+                    <div class="profile-image">
+                        <img src="~/Images/{{customer.Image}}" class="img-circle circle-border m-b-md" alt="profile">
+                    </div>
+                    <div class="profile-info">
+                        <div>
+                            <div>
+                                <h2>
+                                    {{customer.Title}}  {{customer.FullNameEnglish}}
+                                </h2>
+                                <h4>{{customer.Nationality}}, {{customer.Gender}}</h4>
+                                <div class="text-sm">
+                                    <p>
+                                        Joined NBK on <span class="text-navy">{{customer.EstablishDate}}</span> and has opened account in <span class="text-navy">{{customer.BranchName}}</span>
+                                    </p>
+                                    <p>Customer is <span class="text-primary text-uppercase"><strong>{{customer.ResidencyStatus}}</strong></span></p>
+                                    <p>Customer prefer to communicate in <span class="text-primary text-uppercase"><strong>{{customer.Language}}</strong></span> language</p>
+                                    <button class="btn btn-primary text-sm" type="button" ng-click="simulateUpdate()">
+                                        <i class="fa fa-refresh"></i> Simulate Update
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-5 col-xs-offset-1">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <h2> Financial Profile &nbsp; <i class="fa fa-line-chart text-navy"></i></h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4" ng-repeat="entry in financialProfile">
+                            <small ng-class="entry.Type == 2 ? 'stats-label text-danger' : 'stats-label'">{{entry.Name}}</small>
+                            <p><strong>{{entry.Value}}</strong></p>
+                        </div>
+                    </div>
+             </div>
+            </div>
+
+           
+
+        <div class="row">
+                <h2>Brief Details:</h2>
+                <div class="col-sm-3">
+                    <div class="panel panel-primary" style="min-height:200px;">
+                        <div class="panel-heading">
+                            Personal Details
+                        </div>
+                        <div class="panel-body text-sm">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-calendar-o text-navy"></i>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong>BirthDate:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.BirthDate}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-circle-o text-navy"></i>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong>Marital:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.MaritalStatus}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-circle-o text-navy"></i>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong>Kids:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    2
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-circle-o text-navy"></i>
+                                </div>
+                                <div class="col-sm-4 y">
+                                    <strong>Birth Place:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.CountryOfBirth}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-globe text-navy"></i>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong>Country Orig:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.OriginCountry}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-book text-navy"></i>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong>Education:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.Education}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="panel panel-primary" style="min-height:200px;">
+                        <div class="panel-heading">
+                            Contact Details
+                        </div>
+                        <div class="panel-body text-sm">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-phone text-navy"></i>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong>Home:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.HomePhone}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-mobile text-navy"></i>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong>Mobile:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.Mobile}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-envelope text-navy"></i>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong>Email:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.Email}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-home text-navy"></i>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong>Home Address:</strong>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-11 col-sm-offset-1">
+                                    {{customer.HomeAddress.Area}}, Block:{{customer.HomeAddress.Block}}, Street: {{customer.HomeAddress.Street}}, Avenue: {{customer.HomeAddress.Avenue}}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="panel panel-primary" style="min-height:200px;">
+                        <div class="panel-heading">
+                            Identification Details
+                        </div>
+                        <div class="panel-body text-sm">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-home text-navy"></i>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong>Residency:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.ResidencyStatus}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-tag text-navy"></i>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong>ID Type:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.IdentType}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-envelope text-navy"></i>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong>ID Number:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.IdentNumber}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-calendar-o text-danger"></i>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong>Expiry Date:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.IdentExpiryDate}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-home text-navy"></i>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong>Issue Place:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.IdIssuePlace}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="panel panel-primary" style="min-height:200px;">
+                        <div class="panel-heading">
+                            Occupation / Income Details
+                        </div>
+                        <div class="panel-body text-sm">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-circle-o text-navy"></i>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong>Workplace:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.Workplace}}
+                                </div>
+                            </div>
+                     
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-circle-o text-navy"></i>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong>Job Rank:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.JobRank}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-circle-o text-navy"></i>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong>Job Rank:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.IncomeSource}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-circle-o text-navy"></i>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong>SalaryRange:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.SalaryRange}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    <i class="fa fa-circle-o text-navy"></i>
+                                </div>
+                                <div class="col-sm-4">
+                                    <strong>Salary:</strong>
+                                </div>
+                                <div class="col-sm-7">
+                                    {{customer.Salary}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <p><i class="fa fa-clock-o"></i>&nbsp;<strong class="text-danger">Service Call: {{serviceResponse}} (ms)</strong>  -----  <strong>UI Rendering: {{renderTime}} (ms)</strong></p>
+
+        <div class="row">
+            <div class="col-xs-9">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h2>Active Products</h2>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-wrench"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li>
+                                    <a href="#">Establish new Account</a>
+                                </li>
+                                <li>
+                                    <a href="#">Establish a Loan</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="ibox-content">
+                        <span style="color:#333; font-size:20px;" ng-hide="productsloaded">
+                            <i class="fa fa-refresh fa-spin"></i> Loading ...
+                        </span>
+                        <table class="footable table table-stripped toggle-arrow-tiny text-sm" ng-show="productsloaded">
+                            <thead>
+                                <tr>
+                                    <th data-toggle="true">Product Name</th>
+                                    <th>Number</th>
+                                    <th>Category</th>
+                                    <th>Status</th>
+                                    <th>Curency</th>
+                                    <th>Balance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="product in products" class="text-black" style="color:#000">
+                                    <td class="text-black">
+                                        <a href="#!" ng-click="productDetails(product)"><strong>{{product.ProductName}}</strong></a>
+                                    </td>
+                                    <td class="text-black">
+                                        {{product.ProductNumber}}
+                                    </td>
+                                    <td>
+                                        {{product.ProductCategory}}
+                                    </td>
+
+                                    <td>
+                                        {{product.AccountStatus}}
+                                    </td>
+                                    <td>
+                                        {{product.CurrencyCode}}
+                                    </td>
+                                    <td>
+                                        <img src="~/Images/Flags/Flag0{{product.CurrencyCode}}.gif" style="vertical-align:middle;">&nbsp;{{product.Balance}}
+                                    </td>
+                                   
+                                </tr>
+
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6">
+                                        <ul class="pagination pull-right"></ul>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div id="vertical-timeline" class="vertical-container light-timeline no-margins text-sm">
+                    <div class="vertical-timeline-block">
+                        <div class="vertical-timeline-icon yellow-bg">
+                            <i class="fa fa-bell"></i>
+                        </div>
+
+                        <div class="vertical-timeline-content">
+                            <h2>Customer Alerts </h2>
+                            <ul>
+                                <li ng-repeat="alert in alerts">
+                                    <p><strong>{{alert.Type}}</strong></p>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <div class="vertical-timeline-block">
+                        <div class="vertical-timeline-icon navy-bg">
+                            <i class="fa fa-file-text"></i>
+                        </div>
+
+                        <div class="vertical-timeline-content">
+                            <h2>Active Campaign Leads </h2>
+                            <div ng-repeat="lead in leads">
+                                <a href="#!">{{lead.CampaignName}}</a>
+                            </div>
+                            @*<ol>
+                                    <li class="text-black text-sm" ng-repeat="lead in leads">
+                                        <div><span>{{lead.CampaignName}}</span></div>
+                                    </li>
+                                </ol>*@
+                        </div>
+                    </div>
+
+                    <div class="vertical-timeline-block">
+                        <div class="vertical-timeline-icon yellow-bg">
+                            <i class="fa fa-phone"></i>
+                        </div>
+
+                        <div class="vertical-timeline-content">
+                            <h2 class="text-thin" ">Contact History (Last 10)</h2>
+                            <span class="vertical-date">Yesterday <br><small>Dec 23</small></span>
+                        </div>
+                    </div>
+
+                    <div class="vertical-timeline-block">
+                        <div class="vertical-timeline-icon navy-bg">
+                            <i class="fa fa-comments"></i>
+                        </div>
+
+                        <div class="vertical-timeline-content">
+                            <h2 class="text-thin">Instant Leads (Last 10)</h2>
+                            <span class="vertical-date">Yesterday <br><small>Dec 23</small></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       </div>
+    </section>
+
+
+    <section>
+        <!-- Modal -->
+        <div class="modal" id="accountDialog" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Account Details</h4>
+                    </div>
+                    <div class="modal-body text-sm">
+                      <h2 class="text-navy">General Details</h2>
+                        <div class="row">
+                            <div class="col-sm-5 col-sm-offset-1">
+                                <strong>Account Number:</strong>
+                            </div>
+                            <div class="col-sm-6">
+                                {{account.AccountNo}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5 col-sm-offset-1">
+                                <strong>Account Currency:</strong>
+                            </div>
+                            <div class="col-sm-6">
+                              {{account.Currency}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5 col-sm-offset-1">
+                                <strong>Type:</strong>
+                            </div>
+                            <div class="col-sm-6">
+                                {{account.Type}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5 col-sm-offset-1">
+                                <strong>Language:</strong>
+                            </div>
+                            <div class="col-sm-6">
+                                {{account.Language}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5 col-sm-offset-1">
+                                <strong>Statement Cycle:</strong>
+                            </div>
+                            <div class="col-sm-6">
+                                {{account.StatementCycle}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5 col-sm-offset-1">
+                                <strong>Account Stopped:</strong>
+                            </div>
+                            <div class="col-sm-6">
+                                {{account.StopIndicator}}
+                            </div>
+                        </div>
+                        <h2 class="text-navy">Balance Information</h2>
+                        <br/>
+                        <div class="row">
+                            <div class="col-sm-5 col-sm-offset-1">
+                                <strong>Current Balance:</strong>
+                            </div>
+                            <div class="col-sm-6">
+                                {{account.CurrentBalance}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5 col-sm-offset-1">
+                                <strong>Available Balance:</strong>
+                            </div>
+                            <div class="col-sm-6">
+                                {{account.AvailableBalance}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5 col-sm-offset-1">
+                                <strong>Effective Balance:</strong>
+                            </div>
+                            <div class="col-sm-6">
+                                {{account.EffectiveBalance}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5 col-sm-offset-1">
+                                <strong>Hold Amount:</strong>
+                            </div>
+                            <div class="col-sm-6">
+                                {{account.HoldAmount}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  </div>
+
+
+<div id="pluswrap">
+    <div class="plus">
+        <div class="overlay">
+            <span style="font-size:28px;">
+                <i class="fa fa-refresh fa-spin"></i> Loading ...
+            </span>
+        </div>
+    </div>
+</div>
+

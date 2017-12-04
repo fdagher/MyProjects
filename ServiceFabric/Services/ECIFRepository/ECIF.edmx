@@ -1,0 +1,721 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ECIFModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="CustomerID" Type="bigint" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="PigeonHole" Type="nvarchar" MaxLength="6" />
+          <Property Name="VPStaff" Type="nvarchar" MaxLength="6" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Area" Type="nvarchar" MaxLength="30" />
+          <Property Name="LanguageCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="AddressTypeCode" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="BlockNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="City" Type="nvarchar" MaxLength="64" />
+          <Property Name="Province" Type="nvarchar" MaxLength="64" />
+          <Property Name="CountryCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="POBox" Type="nvarchar" MaxLength="20" />
+          <Property Name="FloorNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="UnitNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="AddressCategory" Type="nvarchar" MaxLength="1" />
+          <Property Name="BuildingPlot" Type="nvarchar" MaxLength="64" />
+          <Property Name="Street" Type="nvarchar" MaxLength="128" />
+          <Property Name="UnitTypeCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="AvenueNo" Type="nvarchar" MaxLength="20" />
+          <Property Name="UpdateDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdateUserID" Type="int" Nullable="false" />
+          <Property Name="AddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AddressExtendedInfo">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="int" Nullable="false" />
+          <Property Name="AddressLine1" Type="nvarchar" MaxLength="128" />
+          <Property Name="AddressLine2" Type="nvarchar" MaxLength="128" />
+          <Property Name="AddressLine3" Type="nvarchar" MaxLength="128" />
+          <Property Name="AddressLine4" Type="nvarchar" MaxLength="128" />
+          <Property Name="UpdateDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdateUserID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerNumber" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="AdditionalDocRequestDate" Type="datetime" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="CBKCustomerSubTypeCode" Type="nvarchar" MaxLength="2" />
+          <Property Name="CBKCustomerTypeCode" Type="nvarchar" MaxLength="2" />
+          <Property Name="CBKGroupCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="CentralBankNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="ChanmberOfCommerce" Type="nvarchar" MaxLength="20" />
+          <Property Name="CivilID" Type="nvarchar" MaxLength="20" />
+          <Property Name="CompanyEstablishDate" Type="datetime" />
+          <Property Name="CountryOfBirth" Type="nvarchar" MaxLength="2" />
+          <Property Name="CountryOriginCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="CurrentMarketingSegmenrCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="CustomerGroup" Type="nvarchar" MaxLength="2" />
+          <Property Name="CustomerIncomeRangeID" Type="int" />
+          <Property Name="CustomerIncomeTypeID" Type="int" />
+          <Property Name="CustomerProfileType" Type="int" />
+          <Property Name="CustomerSummaryInfo" Type="nvarchar" MaxLength="256" />
+          <Property Name="CustPrefAgreementName" Type="nvarchar" MaxLength="35" />
+          <Property Name="DRFIND" Type="nvarchar" MaxLength="1" />
+          <Property Name="EducationCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmergencyContactName" Type="nvarchar" MaxLength="128" />
+          <Property Name="EmergencyContactNumber" Type="nvarchar" MaxLength="15" />
+          <Property Name="EmployeeTierID" Type="nvarchar" MaxLength="222" />
+          <Property Name="EmployerCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="EmployerIDNUmber" Type="nvarchar" MaxLength="25" />
+          <Property Name="FamilyFundApplicationNo" Type="nvarchar" MaxLength="128" />
+          <Property Name="FamilyFundApplicationStatus" Type="nvarchar" MaxLength="4" />
+          <Property Name="FirmNumber" Type="nvarchar" MaxLength="10" />
+          <Property Name="FullNameArabic" Type="nvarchar" MaxLength="128" />
+          <Property Name="RefinedFullNameArabic" Type="nvarchar" MaxLength="128" />
+          <Property Name="FullNameEnglish" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="GenderCode" Type="nvarchar" MaxLength="1" />
+          <Property Name="GeographicsStructureID" Type="nvarchar" MaxLength="222" />
+          <Property Name="IndustryClassID" Type="nvarchar" MaxLength="222" />
+          <Property Name="KCCRefNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="LastKYCDate" Type="datetime" />
+          <Property Name="LastTransferSalaryAmount" Type="money" />
+          <Property Name="LoyalityID" Type="nvarchar" MaxLength="2" />
+          <Property Name="MailReferenceID" Type="nvarchar" MaxLength="20" />
+          <Property Name="MailToAddressTypeCode" Type="nvarchar" MaxLength="2" />
+          <Property Name="ManagementStructureID" Type="nvarchar" MaxLength="222" />
+          <Property Name="MaritalStatusCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="NationalityCode" Type="nvarchar" MaxLength="2" />
+          <Property Name="NumberOfChildren" Type="int" />
+          <Property Name="OccupationCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="OtherAssets" Type="money" />
+          <Property Name="OtherNationality" Type="nvarchar" MaxLength="2" />
+          <Property Name="OtherNationality1" Type="nvarchar" MaxLength="2" />
+          <Property Name="OtherNationality2" Type="nvarchar" MaxLength="2" />
+          <Property Name="OtherNationality3" Type="nvarchar" MaxLength="2" />
+          <Property Name="PackageEstablishDate" Type="datetime" />
+          <Property Name="PackageLastUpdateDate" Type="datetime" />
+          <Property Name="PackageTypeCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="PercentRevenue" Type="int" />
+          <Property Name="PoliticalExposeType" Type="nvarchar" MaxLength="222" />
+          <Property Name="PrefDeclaredAddressTypeCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="ProspectMarketingSegmentCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="ProspectMarketingSegmentUpdate" Type="datetime" />
+          <Property Name="Quoted" Type="nvarchar" MaxLength="1" />
+          <Property Name="RecalcitrantFlag" Type="nvarchar" MaxLength="1" />
+          <Property Name="ReferrerID" Type="nvarchar" MaxLength="9" />
+          <Property Name="RelativePoliticalExposeTypeID" Type="nvarchar" MaxLength="222" />
+          <Property Name="RelativePoliticalName" Type="nvarchar" MaxLength="128" />
+          <Property Name="RequestDateForAdditionalInfo" Type="datetime" />
+          <Property Name="ResidencyStatusCode" Type="nvarchar" MaxLength="1" />
+          <Property Name="RiskRating" Type="nvarchar" MaxLength="4" />
+          <Property Name="RiskRatingCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="Role_PositionCode" Type="nvarchar" MaxLength="2" />
+          <Property Name="SalaryAccountNumber" Type="bigint" />
+          <Property Name="SalaryAmount" Type="money" />
+          <Property Name="SalaryRangeCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="128" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="URLAddress" Type="nvarchar" MaxLength="256" />
+          <Property Name="USOwnershipTenPercentOrMore" Type="nvarchar" MaxLength="1" />
+          <Property Name="ValueOfAssets" Type="money" />
+          <Property Name="WBBENEWaiverStatus" Type="nvarchar" MaxLength="1" />
+          <Property Name="IDTypeCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="IDNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="IDNationalityCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="IDExpiryDate" Type="datetime" />
+          <Property Name="FatcaStatus" Type="nvarchar" MaxLength="1" />
+          <Property Name="AdditionalDocCollected" Type="nvarchar" MaxLength="1" />
+          <Property Name="ClassificationQuestion1" Type="nvarchar" MaxLength="1" />
+          <Property Name="ClassificationQuestion2" Type="nvarchar" MaxLength="1" />
+          <Property Name="ClassificationQuestion3" Type="nvarchar" MaxLength="1" />
+          <Property Name="ClassificationQuestion4" Type="nvarchar" MaxLength="1" />
+          <Property Name="RecalcitrantDate" Type="datetime" />
+          <Property Name="WithHoldingCertificate" Type="nvarchar" MaxLength="2" />
+          <Property Name="EntityCategoryType" Type="nvarchar" MaxLength="5" />
+          <Property Name="StudentAllowance" Type="bit" />
+          <Property Name="CollegeName" Type="nvarchar" MaxLength="3" />
+          <Property Name="GraduationDate" Type="datetime" />
+          <Property Name="SchoolType" Type="nvarchar" MaxLength="3" />
+          <Property Name="FirstJobberFlag" Type="nvarchar" MaxLength="3" />
+          <Property Name="AnnualTurnOver" Type="nvarchar" MaxLength="3" />
+          <Property Name="DCRNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="LegalReason" Type="nvarchar" MaxLength="256" />
+          <Property Name="UpdateDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdateUserID" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LastSalaryTransferDate" Type="datetime" />
+          <Property Name="AllowanceFirmNumber" Type="nvarchar" MaxLength="10" />
+          <Property Name="AllowanceAmount" Type="money" />
+          <Property Name="AllowanceLastTransferDate" Type="datetime" />
+          <Property Name="BalanceProtector" Type="bit" />
+          <Property Name="CBNStatus" Type="nvarchar" MaxLength="2" />
+          <Property Name="CBNDate" Type="datetime" />
+          <Property Name="IndustrialCode" Type="int" />
+          <Property Name="StockExchName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegisNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="SponsorEntity" Type="nvarchar" MaxLength="25" />
+          <Property Name="NBKCustomerType" Type="varchar" MaxLength="10" />
+          <Property Name="CustomerStatus" Type="varchar" MaxLength="10" />
+          <Property Name="PrimaryOfficer" Type="int" />
+          <Property Name="BranchNumber" Type="varchar" MaxLength="10" />
+          <Property Name="ChargeExemptionProfileCode" Type="char" MaxLength="4" />
+          <Property Name="TaxFileIndicator" Type="varchar" MaxLength="10" />
+          <Property Name="CustomerGroupClassCode" Type="varchar" MaxLength="4" />
+          <Property Name="BusinessSectorCode" Type="int" />
+          <Property Name="CustomerSegmentCode" Type="char" MaxLength="4" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="AccountHolderIndicator" Type="bit" />
+          <Property Name="DPSAllowedIndicator" Type="char" MaxLength="4" />
+          <Property Name="LanguageCode" Type="char" MaxLength="1" />
+          <Property Name="CorporateGroupCode" Type="char" MaxLength="4" />
+          <Property Name="Title" Type="varchar" MaxLength="2" />
+        </EntityType>
+        <EntityType Name="Phone">
+          <Key>
+            <PropertyRef Name="PhoneID" />
+          </Key>
+          <Property Name="CustomerID" Type="bigint" Nullable="false" />
+          <Property Name="PhoneExtendedInfo" Type="nvarchar" MaxLength="10" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" />
+          <Property Name="PhoneTypeID" Type="nvarchar" MaxLength="222" />
+          <Property Name="PhoneCountryCode" Type="nvarchar" MaxLength="4" />
+          <Property Name="UpdateDateTime" Type="datetime" Nullable="false" />
+          <Property Name="UpdateUserID" Type="int" Nullable="false" />
+          <Property Name="PhoneID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Address_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AddressExtendedInfo_AddressExtendedInfo1">
+          <End Role="Address" Type="Self.Address" Multiplicity="1" />
+          <End Role="AddressExtendedInfo" Type="Self.AddressExtendedInfo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="AddressExtendedInfo">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Phone_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Phone" Type="Self.Phone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Phone">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ECIFModelStoreContainer">
+          <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AddressExtendedInfo" EntityType="Self.AddressExtendedInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Phone" EntityType="Self.Phone" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Address_Customer" Association="Self.FK_Address_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AddressExtendedInfo_AddressExtendedInfo1" Association="Self.FK_AddressExtendedInfo_AddressExtendedInfo1">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="AddressExtendedInfo" EntitySet="AddressExtendedInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Phone_Customer" Association="Self.FK_Phone_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Phone" EntitySet="Phone" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ECIFModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int64" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="PigeonHole" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="VPStaff" Type="String" MaxLength="6" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Area" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="LanguageCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="AddressTypeCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BlockNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Province" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="CountryCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="POBox" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="FloorNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UnitNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="AddressCategory" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="BuildingPlot" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Street" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UnitTypeCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="AvenueNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateUserID" Type="Int32" Nullable="false" />
+          <Property Name="AddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Address_Customer" FromRole="Address" ToRole="Customer" />
+          <NavigationProperty Name="AddressExtendedInfo" Relationship="Self.FK_AddressExtendedInfo_AddressExtendedInfo1" FromRole="Address" ToRole="AddressExtendedInfo" />
+        </EntityType>
+        <EntityType Name="AddressExtendedInfo">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="Int32" Nullable="false" />
+          <Property Name="AddressLine1" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine2" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine3" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="AddressLine4" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateUserID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Address" Relationship="Self.FK_AddressExtendedInfo_AddressExtendedInfo1" FromRole="AddressExtendedInfo" ToRole="Address" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdditionalDocRequestDate" Type="DateTime" Precision="3" />
+          <Property Name="BirthDate" Type="DateTime" Precision="3" />
+          <Property Name="CBKCustomerSubTypeCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="CBKCustomerTypeCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="CBKGroupCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CentralBankNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ChanmberOfCommerce" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CivilID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyEstablishDate" Type="DateTime" Precision="3" />
+          <Property Name="CountryOfBirth" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="CountryOriginCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CurrentMarketingSegmenrCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerGroup" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerIncomeRangeID" Type="Int32" />
+          <Property Name="CustomerIncomeTypeID" Type="Int32" />
+          <Property Name="CustomerProfileType" Type="Int32" />
+          <Property Name="CustomerSummaryInfo" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="CustPrefAgreementName" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Name="DRFIND" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="EducationCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmergencyContactName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="EmergencyContactNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeTierID" Type="String" MaxLength="222" FixedLength="false" Unicode="true" />
+          <Property Name="EmployerCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="EmployerIDNUmber" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="FamilyFundApplicationNo" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="FamilyFundApplicationStatus" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="FirmNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FullNameArabic" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="RefinedFullNameArabic" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="FullNameEnglish" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GenderCode" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="GeographicsStructureID" Type="String" MaxLength="222" FixedLength="false" Unicode="true" />
+          <Property Name="IndustryClassID" Type="String" MaxLength="222" FixedLength="false" Unicode="true" />
+          <Property Name="KCCRefNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LastKYCDate" Type="DateTime" Precision="3" />
+          <Property Name="LastTransferSalaryAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="LoyalityID" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="MailReferenceID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MailToAddressTypeCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="ManagementStructureID" Type="String" MaxLength="222" FixedLength="false" Unicode="true" />
+          <Property Name="MaritalStatusCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="NationalityCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="NumberOfChildren" Type="Int32" />
+          <Property Name="OccupationCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="OtherAssets" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="OtherNationality" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="OtherNationality1" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="OtherNationality2" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="OtherNationality3" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="PackageEstablishDate" Type="DateTime" Precision="3" />
+          <Property Name="PackageLastUpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="PackageTypeCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="PercentRevenue" Type="Int32" />
+          <Property Name="PoliticalExposeType" Type="String" MaxLength="222" FixedLength="false" Unicode="true" />
+          <Property Name="PrefDeclaredAddressTypeCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="ProspectMarketingSegmentCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="ProspectMarketingSegmentUpdate" Type="DateTime" Precision="3" />
+          <Property Name="Quoted" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="RecalcitrantFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ReferrerID" Type="String" MaxLength="9" FixedLength="false" Unicode="true" />
+          <Property Name="RelativePoliticalExposeTypeID" Type="String" MaxLength="222" FixedLength="false" Unicode="true" />
+          <Property Name="RelativePoliticalName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="RequestDateForAdditionalInfo" Type="DateTime" Precision="3" />
+          <Property Name="ResidencyStatusCode" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="RiskRating" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="RiskRatingCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Role_PositionCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="SalaryAccountNumber" Type="Int64" />
+          <Property Name="SalaryAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SalaryRangeCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="ShortName" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="URLAddress" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="USOwnershipTenPercentOrMore" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ValueOfAssets" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="WBBENEWaiverStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="IDTypeCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="IDNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IDNationalityCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="IDExpiryDate" Type="DateTime" Precision="3" />
+          <Property Name="FatcaStatus" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="AdditionalDocCollected" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ClassificationQuestion1" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ClassificationQuestion2" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ClassificationQuestion3" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ClassificationQuestion4" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="RecalcitrantDate" Type="DateTime" Precision="3" />
+          <Property Name="WithHoldingCertificate" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="EntityCategoryType" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="StudentAllowance" Type="Boolean" />
+          <Property Name="CollegeName" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="GraduationDate" Type="DateTime" Precision="3" />
+          <Property Name="SchoolType" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="FirstJobberFlag" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="AnnualTurnOver" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="DCRNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LegalReason" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateUserID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LastSalaryTransferDate" Type="DateTime" Precision="3" />
+          <Property Name="AllowanceFirmNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AllowanceAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AllowanceLastTransferDate" Type="DateTime" Precision="3" />
+          <Property Name="BalanceProtector" Type="Boolean" />
+          <Property Name="CBNStatus" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="CBNDate" Type="DateTime" Precision="3" />
+          <Property Name="IndustrialCode" Type="Int32" />
+          <Property Name="StockExchName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RegisNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SponsorEntity" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="NBKCustomerType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PrimaryOfficer" Type="Int32" />
+          <Property Name="BranchNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ChargeExemptionProfileCode" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="TaxFileIndicator" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerGroupClassCode" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="BusinessSectorCode" Type="Int32" />
+          <Property Name="CustomerSegmentCode" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="AccountHolderIndicator" Type="Boolean" />
+          <Property Name="DPSAllowedIndicator" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="LanguageCode" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="CorporateGroupCode" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Addresses" Relationship="Self.FK_Address_Customer" FromRole="Customer" ToRole="Address" />
+          <NavigationProperty Name="Phones" Relationship="Self.FK_Phone_Customer" FromRole="Customer" ToRole="Phone" />
+        </EntityType>
+        <EntityType Name="Phone">
+          <Key>
+            <PropertyRef Name="PhoneID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int64" Nullable="false" />
+          <Property Name="PhoneExtendedInfo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneTypeID" Type="String" MaxLength="222" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneCountryCode" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateUserID" Type="Int32" Nullable="false" />
+          <Property Name="PhoneID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Phone_Customer" FromRole="Phone" ToRole="Customer" />
+        </EntityType>
+        <Association Name="FK_Address_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Address" Type="Self.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AddressExtendedInfo_AddressExtendedInfo1">
+          <End Role="Address" Type="Self.Address" Multiplicity="1" />
+          <End Role="AddressExtendedInfo" Type="Self.AddressExtendedInfo" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="AddressExtendedInfo">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Phone_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Phone" Type="Self.Phone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="CustomerID" />
+            </Principal>
+            <Dependent Role="Phone">
+              <PropertyRef Name="CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ECIFEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Addresses" EntityType="Self.Address" />
+          <EntitySet Name="AddressExtendedInfoes" EntityType="Self.AddressExtendedInfo" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Phones" EntityType="Self.Phone" />
+          <AssociationSet Name="FK_Address_Customer" Association="Self.FK_Address_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AddressExtendedInfo_AddressExtendedInfo1" Association="Self.FK_AddressExtendedInfo_AddressExtendedInfo1">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="AddressExtendedInfo" EntitySet="AddressExtendedInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Phone_Customer" Association="Self.FK_Phone_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Phone" EntitySet="Phones" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ECIFModelStoreContainer" CdmEntityContainer="ECIFEntities">
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="ECIFModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="PigeonHole" ColumnName="PigeonHole" />
+                <ScalarProperty Name="VPStaff" ColumnName="VPStaff" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="LanguageCode" ColumnName="LanguageCode" />
+                <ScalarProperty Name="AddressTypeCode" ColumnName="AddressTypeCode" />
+                <ScalarProperty Name="BlockNumber" ColumnName="BlockNumber" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Province" ColumnName="Province" />
+                <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+                <ScalarProperty Name="POBox" ColumnName="POBox" />
+                <ScalarProperty Name="FloorNumber" ColumnName="FloorNumber" />
+                <ScalarProperty Name="UnitNumber" ColumnName="UnitNumber" />
+                <ScalarProperty Name="AddressCategory" ColumnName="AddressCategory" />
+                <ScalarProperty Name="BuildingPlot" ColumnName="BuildingPlot" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="UnitTypeCode" ColumnName="UnitTypeCode" />
+                <ScalarProperty Name="AvenueNo" ColumnName="AvenueNo" />
+                <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AddressExtendedInfoes">
+            <EntityTypeMapping TypeName="ECIFModel.AddressExtendedInfo">
+              <MappingFragment StoreEntitySet="AddressExtendedInfo">
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="AddressLine3" ColumnName="AddressLine3" />
+                <ScalarProperty Name="AddressLine4" ColumnName="AddressLine4" />
+                <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="ECIFModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustomerNumber" ColumnName="CustomerNumber" />
+                <ScalarProperty Name="AdditionalDocRequestDate" ColumnName="AdditionalDocRequestDate" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="CBKCustomerSubTypeCode" ColumnName="CBKCustomerSubTypeCode" />
+                <ScalarProperty Name="CBKCustomerTypeCode" ColumnName="CBKCustomerTypeCode" />
+                <ScalarProperty Name="CBKGroupCode" ColumnName="CBKGroupCode" />
+                <ScalarProperty Name="CentralBankNumber" ColumnName="CentralBankNumber" />
+                <ScalarProperty Name="ChanmberOfCommerce" ColumnName="ChanmberOfCommerce" />
+                <ScalarProperty Name="CivilID" ColumnName="CivilID" />
+                <ScalarProperty Name="CompanyEstablishDate" ColumnName="CompanyEstablishDate" />
+                <ScalarProperty Name="CountryOfBirth" ColumnName="CountryOfBirth" />
+                <ScalarProperty Name="CountryOriginCode" ColumnName="CountryOriginCode" />
+                <ScalarProperty Name="CurrentMarketingSegmenrCode" ColumnName="CurrentMarketingSegmenrCode" />
+                <ScalarProperty Name="CustomerGroup" ColumnName="CustomerGroup" />
+                <ScalarProperty Name="CustomerIncomeRangeID" ColumnName="CustomerIncomeRangeID" />
+                <ScalarProperty Name="CustomerIncomeTypeID" ColumnName="CustomerIncomeTypeID" />
+                <ScalarProperty Name="CustomerProfileType" ColumnName="CustomerProfileType" />
+                <ScalarProperty Name="CustomerSummaryInfo" ColumnName="CustomerSummaryInfo" />
+                <ScalarProperty Name="CustPrefAgreementName" ColumnName="CustPrefAgreementName" />
+                <ScalarProperty Name="DRFIND" ColumnName="DRFIND" />
+                <ScalarProperty Name="EducationCode" ColumnName="EducationCode" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmergencyContactName" ColumnName="EmergencyContactName" />
+                <ScalarProperty Name="EmergencyContactNumber" ColumnName="EmergencyContactNumber" />
+                <ScalarProperty Name="EmployeeTierID" ColumnName="EmployeeTierID" />
+                <ScalarProperty Name="EmployerCode" ColumnName="EmployerCode" />
+                <ScalarProperty Name="EmployerIDNUmber" ColumnName="EmployerIDNUmber" />
+                <ScalarProperty Name="FamilyFundApplicationNo" ColumnName="FamilyFundApplicationNo" />
+                <ScalarProperty Name="FamilyFundApplicationStatus" ColumnName="FamilyFundApplicationStatus" />
+                <ScalarProperty Name="FirmNumber" ColumnName="FirmNumber" />
+                <ScalarProperty Name="FullNameArabic" ColumnName="FullNameArabic" />
+                <ScalarProperty Name="RefinedFullNameArabic" ColumnName="RefinedFullNameArabic" />
+                <ScalarProperty Name="FullNameEnglish" ColumnName="FullNameEnglish" />
+                <ScalarProperty Name="GenderCode" ColumnName="GenderCode" />
+                <ScalarProperty Name="GeographicsStructureID" ColumnName="GeographicsStructureID" />
+                <ScalarProperty Name="IndustryClassID" ColumnName="IndustryClassID" />
+                <ScalarProperty Name="KCCRefNumber" ColumnName="KCCRefNumber" />
+                <ScalarProperty Name="LastKYCDate" ColumnName="LastKYCDate" />
+                <ScalarProperty Name="LastTransferSalaryAmount" ColumnName="LastTransferSalaryAmount" />
+                <ScalarProperty Name="LoyalityID" ColumnName="LoyalityID" />
+                <ScalarProperty Name="MailReferenceID" ColumnName="MailReferenceID" />
+                <ScalarProperty Name="MailToAddressTypeCode" ColumnName="MailToAddressTypeCode" />
+                <ScalarProperty Name="ManagementStructureID" ColumnName="ManagementStructureID" />
+                <ScalarProperty Name="MaritalStatusCode" ColumnName="MaritalStatusCode" />
+                <ScalarProperty Name="NationalityCode" ColumnName="NationalityCode" />
+                <ScalarProperty Name="NumberOfChildren" ColumnName="NumberOfChildren" />
+                <ScalarProperty Name="OccupationCode" ColumnName="OccupationCode" />
+                <ScalarProperty Name="OtherAssets" ColumnName="OtherAssets" />
+                <ScalarProperty Name="OtherNationality" ColumnName="OtherNationality" />
+                <ScalarProperty Name="OtherNationality1" ColumnName="OtherNationality1" />
+                <ScalarProperty Name="OtherNationality2" ColumnName="OtherNationality2" />
+                <ScalarProperty Name="OtherNationality3" ColumnName="OtherNationality3" />
+                <ScalarProperty Name="PackageEstablishDate" ColumnName="PackageEstablishDate" />
+                <ScalarProperty Name="PackageLastUpdateDate" ColumnName="PackageLastUpdateDate" />
+                <ScalarProperty Name="PackageTypeCode" ColumnName="PackageTypeCode" />
+                <ScalarProperty Name="PercentRevenue" ColumnName="PercentRevenue" />
+                <ScalarProperty Name="PoliticalExposeType" ColumnName="PoliticalExposeType" />
+                <ScalarProperty Name="PrefDeclaredAddressTypeCode" ColumnName="PrefDeclaredAddressTypeCode" />
+                <ScalarProperty Name="ProspectMarketingSegmentCode" ColumnName="ProspectMarketingSegmentCode" />
+                <ScalarProperty Name="ProspectMarketingSegmentUpdate" ColumnName="ProspectMarketingSegmentUpdate" />
+                <ScalarProperty Name="Quoted" ColumnName="Quoted" />
+                <ScalarProperty Name="RecalcitrantFlag" ColumnName="RecalcitrantFlag" />
+                <ScalarProperty Name="ReferrerID" ColumnName="ReferrerID" />
+                <ScalarProperty Name="RelativePoliticalExposeTypeID" ColumnName="RelativePoliticalExposeTypeID" />
+                <ScalarProperty Name="RelativePoliticalName" ColumnName="RelativePoliticalName" />
+                <ScalarProperty Name="RequestDateForAdditionalInfo" ColumnName="RequestDateForAdditionalInfo" />
+                <ScalarProperty Name="ResidencyStatusCode" ColumnName="ResidencyStatusCode" />
+                <ScalarProperty Name="RiskRating" ColumnName="RiskRating" />
+                <ScalarProperty Name="RiskRatingCode" ColumnName="RiskRatingCode" />
+                <ScalarProperty Name="Role_PositionCode" ColumnName="Role_PositionCode" />
+                <ScalarProperty Name="SalaryAccountNumber" ColumnName="SalaryAccountNumber" />
+                <ScalarProperty Name="SalaryAmount" ColumnName="SalaryAmount" />
+                <ScalarProperty Name="SalaryRangeCode" ColumnName="SalaryRangeCode" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="URLAddress" ColumnName="URLAddress" />
+                <ScalarProperty Name="USOwnershipTenPercentOrMore" ColumnName="USOwnershipTenPercentOrMore" />
+                <ScalarProperty Name="ValueOfAssets" ColumnName="ValueOfAssets" />
+                <ScalarProperty Name="WBBENEWaiverStatus" ColumnName="WBBENEWaiverStatus" />
+                <ScalarProperty Name="IDTypeCode" ColumnName="IDTypeCode" />
+                <ScalarProperty Name="IDNumber" ColumnName="IDNumber" />
+                <ScalarProperty Name="IDNationalityCode" ColumnName="IDNationalityCode" />
+                <ScalarProperty Name="IDExpiryDate" ColumnName="IDExpiryDate" />
+                <ScalarProperty Name="FatcaStatus" ColumnName="FatcaStatus" />
+                <ScalarProperty Name="AdditionalDocCollected" ColumnName="AdditionalDocCollected" />
+                <ScalarProperty Name="ClassificationQuestion1" ColumnName="ClassificationQuestion1" />
+                <ScalarProperty Name="ClassificationQuestion2" ColumnName="ClassificationQuestion2" />
+                <ScalarProperty Name="ClassificationQuestion3" ColumnName="ClassificationQuestion3" />
+                <ScalarProperty Name="ClassificationQuestion4" ColumnName="ClassificationQuestion4" />
+                <ScalarProperty Name="RecalcitrantDate" ColumnName="RecalcitrantDate" />
+                <ScalarProperty Name="WithHoldingCertificate" ColumnName="WithHoldingCertificate" />
+                <ScalarProperty Name="EntityCategoryType" ColumnName="EntityCategoryType" />
+                <ScalarProperty Name="StudentAllowance" ColumnName="StudentAllowance" />
+                <ScalarProperty Name="CollegeName" ColumnName="CollegeName" />
+                <ScalarProperty Name="GraduationDate" ColumnName="GraduationDate" />
+                <ScalarProperty Name="SchoolType" ColumnName="SchoolType" />
+                <ScalarProperty Name="FirstJobberFlag" ColumnName="FirstJobberFlag" />
+                <ScalarProperty Name="AnnualTurnOver" ColumnName="AnnualTurnOver" />
+                <ScalarProperty Name="DCRNumber" ColumnName="DCRNumber" />
+                <ScalarProperty Name="LegalReason" ColumnName="LegalReason" />
+                <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="LastSalaryTransferDate" ColumnName="LastSalaryTransferDate" />
+                <ScalarProperty Name="AllowanceFirmNumber" ColumnName="AllowanceFirmNumber" />
+                <ScalarProperty Name="AllowanceAmount" ColumnName="AllowanceAmount" />
+                <ScalarProperty Name="AllowanceLastTransferDate" ColumnName="AllowanceLastTransferDate" />
+                <ScalarProperty Name="BalanceProtector" ColumnName="BalanceProtector" />
+                <ScalarProperty Name="CBNStatus" ColumnName="CBNStatus" />
+                <ScalarProperty Name="CBNDate" ColumnName="CBNDate" />
+                <ScalarProperty Name="IndustrialCode" ColumnName="IndustrialCode" />
+                <ScalarProperty Name="StockExchName" ColumnName="StockExchName" />
+                <ScalarProperty Name="RegisNumber" ColumnName="RegisNumber" />
+                <ScalarProperty Name="SponsorEntity" ColumnName="SponsorEntity" />
+                <ScalarProperty Name="NBKCustomerType" ColumnName="NBKCustomerType" />
+                <ScalarProperty Name="CustomerStatus" ColumnName="CustomerStatus" />
+                <ScalarProperty Name="PrimaryOfficer" ColumnName="PrimaryOfficer" />
+                <ScalarProperty Name="BranchNumber" ColumnName="BranchNumber" />
+                <ScalarProperty Name="ChargeExemptionProfileCode" ColumnName="ChargeExemptionProfileCode" />
+                <ScalarProperty Name="TaxFileIndicator" ColumnName="TaxFileIndicator" />
+                <ScalarProperty Name="CustomerGroupClassCode" ColumnName="CustomerGroupClassCode" />
+                <ScalarProperty Name="BusinessSectorCode" ColumnName="BusinessSectorCode" />
+                <ScalarProperty Name="CustomerSegmentCode" ColumnName="CustomerSegmentCode" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="AccountHolderIndicator" ColumnName="AccountHolderIndicator" />
+                <ScalarProperty Name="DPSAllowedIndicator" ColumnName="DPSAllowedIndicator" />
+                <ScalarProperty Name="LanguageCode" ColumnName="LanguageCode" />
+                <ScalarProperty Name="CorporateGroupCode" ColumnName="CorporateGroupCode" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Phones">
+            <EntityTypeMapping TypeName="ECIFModel.Phone">
+              <MappingFragment StoreEntitySet="Phone">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="PhoneExtendedInfo" ColumnName="PhoneExtendedInfo" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneTypeID" ColumnName="PhoneTypeID" />
+                <ScalarProperty Name="PhoneCountryCode" ColumnName="PhoneCountryCode" />
+                <ScalarProperty Name="UpdateDateTime" ColumnName="UpdateDateTime" />
+                <ScalarProperty Name="UpdateUserID" ColumnName="UpdateUserID" />
+                <ScalarProperty Name="PhoneID" ColumnName="PhoneID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

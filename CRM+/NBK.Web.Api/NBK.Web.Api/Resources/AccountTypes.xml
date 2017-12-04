@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AccountTypes>
+  <item key="CA" country="JO">Current Account</item>
+  <item key="CB" country="JO">Current Account - Interest Bearing</item>
+  <item key="CJ" country="JO">Credit Card</item>
+  <item key="CK" country="JO">Credit Card Due</item>
+  <item key="EE" country="JO">Fixed Deposit</item>
+  <item key="CE" country="JO">Overdrawn Account</item>
+  <item key="EA" country="JO">Saving Account</item>
+  <item key="EC" country="JO">Staff Salary Account</item>
+  <item key="EP" country="JO">Watani Premier Account</item>
+  <item key="ES" country="JO">Watani Student Account</item>
+  <item key="ER" country="JO">WEKALA Investment Account</item>
+  <item key="KD" country="JO">Loan</item>
+  <item key="LF" country="JO">Loan</item>
+  <item key="LE" country="JO">Line of Credit</item>
+  <item key="LD" country="JO">Loan</item>
+  <item key="LC" country="JO">Home Equity</item>
+
+  <item key="CA" country="BH">Current Account</item>
+  <item key="CB" country="BH">CURRENT A/CS - NON-INT</item>
+  <item key="EA" country="BH">Savings</item>
+  <item key="EC" country="BH">Call Account</item>
+  <item key="EE" country="BH">Fixed Deposit</item>
+  <item key="ER" country="BH">WEKALA Investment Account</item>
+  <item key="ES" country="BH">Watani Super Accounts</item>
+  <item key="KD" country="BH">Commercial Loan Floating</item>
+  <item key="LC" country="BH">Medium/Long Term Loan-Fixed</item>
+  <item key="LD" country="BH">Medium/Long Term Loan-Variable</item>
+  <item key="LE" country="BH">Short Term Loan-Fixed</item>
+  <item key="LF" country="BH">Short Term Loan-Variable</item>
+  <item key="RX" country="BH">Customer Contingent Post Dated A/C</item>
+  <item key="LJ" country="BH">Auto Loan-Fixed</item>
+  <item key="MV" country="BH">Int Due/OverDue-Retail Loans</item>
+  
+  <item key="CA" country="AE">Current Account without Interest</item>
+  <item key="CB" country="AE">CURRENT A/CS - NON-INT</item>
+  <item key="CC" country="AE">SHABAB-Student Current Account</item>
+  <item key="CS" country="AE">C/A Overdraft Against Salary</item>
+  <item key="DA" country="AE">Fixed Term Deposit (Customer)</item>
+  <item key="DC" country="AE">Call Deposits</item>
+  <item key="DH" country="AE">Variable Term Deposit (Customers)</item>
+  <item key="EA" country="AE">Savings Account</item>
+  <item key="EE" country="AE">Watani Super</item>
+  <item key="FI" country="AE">Murabaha Customer Deposits</item>
+  <item key="LE" country="AE">Real Estate Loan</item>
+  <item key="LF" country="AE">Fleet Financing</item>
+  <item key="LG" country="AE">Loans Against Trust Receipts</item>
+  <item key="LJ" country="AE">Corporate Loan - Fixed</item>
+  <item key="LK" country="AE">Real Estate Loan</item>
+  <item key="LL" country="AE">Retail Loan - House Loan</item>
+  <item key="LM" country="AE">Retail Loan - Staff House Loan</item>
+  <item key="LN" country="AE">RL - House Loans Under Construction</item>
+  <item key="LP" country="AE">RL-Staff House Loan Under Construct</item>
+  <item key="LS" country="AE">Syndicate Loan</item>
+  <item key="LT" country="AE">Retail Loan - Car Loans</item>
+  <item key="LU" country="AE">Retail Loan - Staff Car Loan</item>
+  <item key="LV" country="AE">Retail Loan - Personal Loans</item>
+  <item key="LW" country="AE">Retail Loan - Staff Personal Loan</item>
+  <item key="LX" country="AE">Credit Cards</item>
+  <item key="LY" country="AE">Staff Credit Card</item>
+  <item key="MM" country="AE">Wakala Financing</item>
+  <item key="RL" country="AE">Loan Commitments</item>
+  <item key="RM" country="AE">Other Commitments</item>
+  <item key="RX" country="AE">Customer Postdated Chq Contingent</item>
+</AccountTypes>

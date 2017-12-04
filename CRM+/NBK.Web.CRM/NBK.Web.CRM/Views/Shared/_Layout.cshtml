@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>CRM | @ViewBag.Title</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <!-- Add local styles, mostly for plugins css file -->
+    @if (IsSectionDefined("Styles"))
+        {@RenderSection("Styles", required: false)}
+     
+    <link href="@Url.Content("~/Scripts/plugins/jquery-ui/jquery-ui.css")" rel="stylesheet" type="text/css" />
+
+    <!-- Primary Inspinia style -->     
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/font-awesome/css")
+    @Styles.Render("~/font-awesome/css")
+    
+</head>
+<body class="md-skin" ng-app="crmApp">
+
+    <div id="wrapper" class="@Html.PageClass()">
+        @Html.Hidden("url_path", Url.Content("~/") + ViewContext.RouteData.Values["controller"].ToString())
+        @Html.Hidden("base_url", Url.Content("~/"))
+        @Html.Hidden("user_id", this.Session["UserID"])
+     
+
+        <!-- Navigation -->
+        @Html.Partial("_Navigation")
+
+        <!-- Page wraper -->
+        <div id="page-wrapper" class="gray-bg @ViewBag.SpecialClass">
+
+            <!-- Top Navbar -->
+            @Html.Partial("_TopNavbar")
+
+            <!-- Main view  -->
+            @RenderBody()
+
+            <!-- Footer -->
+            @Html.Partial("_Footer")
+
+        </div>
+        <!-- End page wrapper-->
+        <!-- Right Sidebar -->
+        @Html.Partial("_RightSidebar")
+
+    </div>
+    <!-- End wrapper-->
+    <!-- Section for main scripts render -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/controllers")
+    @Scripts.Render("~/plugins/slimScroll")
+    @Scripts.Render("~/bundles/inspinia")
+    @Scripts.Render("~/plugins/pnotify")
+    @Scripts.Render("~/plugins/sweetalert")
+    <script src=@Url.Content("~/signalr/hubs")></script>
+
+    <!-- Skin config script - only for demo purpose-->
+    @Scripts.Render("~/bundles/skinConfig")
+
+    <!-- Handler for local scripts -->
+    @RenderSection("scripts", required: false)
+</body>
+
+
+</html>
+<script type="text/javascript">
+       $.pnotify.defaults.styling = "jqueryui";
+       $.pnotify.defaults.type = "notice";
+       $.pnotify.defaults.animation = "fade";
+       
+       function sendNotification(key, customerNo, userID) {
+           sR.server.send(key, customerNo, userID);
+       }
+
+       // Declare a proxy to reference the hub.
+       var sR = $.connection.updateHub;
+
+      // Create a function that the hub can call to broadcast messages.
+       sR.client.broadcastMessage = function (key, customerNo, userID) {
+         // clear cache
+         var _key = key + customerNo;
+         sessionStorage.removeItem(_key);
+
+         if (userID != $("#user_id").val()) {
+             $.pnotify({
+                 pnotify_title: 'Customer updated',
+                 pnotify_text: "Customer " + customerNo + " has been updated by " + userID + ". Cache is refreshed.",
+                 position_animate_speed: 500,
+                 delay: 8000,
+                 type: "notice"
+             });
+         }
+      };
+           
+      $.connection.hub.start().done(function () {
+      });
+
+
+
+ 
+        //});
+</script>

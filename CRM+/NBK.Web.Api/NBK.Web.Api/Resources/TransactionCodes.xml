@@ -1,0 +1,913 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TransactionCodes>
+  <item code="010" country="JO">A/C Debit</item>
+  <item code="015" country="JO">Cheque Deposit</item>
+  <item code="018" country="JO">Outport Contra</item>
+  <item code="020" country="JO">Transfer - Debit</item>
+  <item code="030" country="JO">Debit Standing Order</item>
+  <item code="039" country="JO">Cash Withdrawal</item>
+  <item code="040" country="JO">Cash In</item>
+  <item code="041" country="JO">Currency Notes Bought</item>
+  <item code="042" country="JO">Currency Cheque Bought</item>
+  <item code="043" country="JO">Cross Currency Withdrawal</item>
+  <item code="060" country="JO">Post Dated Cheque</item>
+  <item code="062" country="JO">Outport Chq Deposit</item>
+  <item code="064" country="JO">PostDated Outport</item>
+  <item code="066" country="JO">PostDated Chq Cancel</item>
+  <item code="068" country="JO">PostDated Chq Due</item>
+  <item code="070" country="JO">PostDated Chq Dep</item>
+  <item code="075" country="JO">PostDated Contra</item>
+  <item code="080" country="JO">Outport Cheque</item>
+  <item code="093" country="JO">Returned Cheque</item>
+  <item code="094" country="JO">Returned Outport Chq</item>
+  <item code="095" country="JO">Reversal - Debit</item>
+  <item code="096" country="JO">Debit with Tr.Advice</item>
+  <item code="097" country="JO">Adjustment - Debit</item>
+  <item code="100" country="JO">Debit Interest</item>
+  <item code="101" country="JO">Loan Payment</item>
+  <item code="102" country="JO">Loan Maturity</item>
+  <item code="110" country="JO">DIVIDEND</item>
+  <item code="111" country="JO">Deposit Receipt</item>
+  <item code="120" country="JO">ADJUSTMENT</item>
+  <item code="130" country="JO">JONET FEES</item>
+  <item code="131" country="JO">Loan RePayment</item>
+  <item code="135" country="JO">commitment fees</item>
+  <item code="140" country="JO">Loan Drawdown</item>
+  <item code="141" country="JO">FX Operation - Debit</item>
+  <item code="150" country="JO">TRF-Br Settlement</item>
+  <item code="164" country="JO">Other Charges</item>
+  <item code="180" country="JO">Principal write-off</item>
+  <item code="190" country="JO">REVERSAL</item>
+  <item code="195" country="JO">SVD REVERSAL</item>
+  <item code="199" country="JO">FX Receipt</item>
+  <item code="200" country="JO">FWD FX REVERSAL - SALE</item>
+  <item code="203" country="JO">House Cheque</item>
+  <item code="205" country="JO">Clearing Check</item>
+  <item code="206" country="JO">Cheque Cashed</item>
+  <item code="207" country="JO">Counter Cheque</item>
+  <item code="208" country="JO">Returned Cheque</item>
+  <item code="209" country="JO">Cancelled Cheque</item>
+  <item code="220" country="JO">INT.RATE SWAP/DEPO FUND</item>
+  <item code="225" country="JO">INT. RATE SWAP/DEPO REPAY</item>
+  <item code="230" country="JO">Treasury Bonds-Capital Dr</item>
+  <item code="231" country="JO">Account Service Charge</item>
+  <item code="232" country="JO">Post Dated Cheque charge</item>
+  <item code="233" country="JO">Cheque Book Charge</item>
+  <item code="234" country="JO">Hold Mail Charge</item>
+  <item code="235" country="JO">Purchase Cheque Charge</item>
+  <item code="236" country="JO">Cheque Collection Charge</item>
+  <item code="237" country="JO">Standing Order Charge</item>
+  <item code="238" country="JO">Unpaid Cheque Charge</item>
+  <item code="239" country="JO">Certfified Cheque Charge</item>
+  <item code="240" country="JO">INT. RATE SWAP LOAN</item>
+  <item code="241" country="JO">Cheque/Cash Withdrawal Charge</item>
+  <item code="242" country="JO">Closing Relationship Charge</item>
+  <item code="243" country="JO">Inward Clearing Charge</item>
+  <item code="244" country="JO">FD Renewal Charge</item>
+  <item code="245" country="JO">INT. RATE SWAP LOAN REPAY</item>
+  <item code="246" country="JO">Incoming Transfer Charge</item>
+  <item code="247" country="JO">Draft Charge</item>
+  <item code="248" country="JO">Traveller Cheque Charge</item>
+  <item code="249" country="JO">Telex / Swift Charge</item>
+  <item code="250" country="JO">FIN. FUTURE PURCHASE</item>
+  <item code="251" country="JO">Direct Debit</item>
+  <item code="255" country="JO">FINANCIAL FUTURE SALE FUN</item>
+  <item code="275" country="JO">Returned Cheque Charge</item>
+  <item code="278" country="JO">Fiscal Stamp Commission</item>
+  <item code="283" country="JO">Other Charges</item>
+  <item code="295" country="JO">COMMER. LOAN COMMITMENT</item>
+  <item code="297" country="JO">Stop Payment Charge</item>
+  <item code="300" country="JO">NEG. INST. PURCHASE</item>
+  <item code="305" country="JO">NEG. INST. PURCH. MAT.</item>
+  <item code="310" country="JO">LOCAL BILL REDISC.</item>
+  <item code="315" country="JO">LOCAL BILL REDISC. MAT.</item>
+  <item code="320" country="JO">N.I/L. FACE VAL. SETT</item>
+  <item code="325" country="JO">NEG INST. SALE</item>
+  <item code="330" country="JO">ROUNDING DIFFERENCE</item>
+  <item code="331" country="JO">Loan</item>
+  <item code="335" country="JO">C/D ISSUE REPAYMENT</item>
+  <item code="340" country="JO">NEG. INST. PREMIUM/DISCNT</item>
+  <item code="341" country="JO">Loan Increase</item>
+  <item code="345" country="JO">C/D ISSUE FUNDING</item>
+  <item code="350" country="JO">MEMORANDUM DEBIT</item>
+  <item code="360" country="JO">Deposit Maturity</item>
+  <item code="370" country="JO">Loan</item>
+  <item code="371" country="JO">Loan Repayment</item>
+  <item code="372" country="JO">Loan Increase</item>
+  <item code="375" country="JO">Loan Repayment</item>
+  <item code="377" country="JO">Deposit Decrease</item>
+  <item code="380" country="JO">FX Purchase - Start</item>
+  <item code="390" country="JO">FX Sale - Maturity</item>
+  <item code="399" country="JO">System Debit</item>
+  <item code="400" country="JO">PLACEMENT/LOAN</item>
+  <item code="401" country="JO">Exchange Delivery</item>
+  <item code="405" country="JO">PLACEMENT/LOAN REPAY.</item>
+  <item code="406" country="JO">Transfer</item>
+  <item code="407" country="JO">Consolidated P and L</item>
+  <item code="408" country="JO">Interest Receivable</item>
+  <item code="410" country="JO">Branch Settlement - Due From</item>
+  <item code="411" country="JO">SUSP ASSET</item>
+  <item code="412" country="JO">Suspense Debtors</item>
+  <item code="416" country="JO">Discount Paid in Advance</item>
+  <item code="417" country="JO">Contingent Asset</item>
+  <item code="418" country="JO">Contingent Liability</item>
+  <item code="420" country="JO">Acceptance/Deposit Fundng</item>
+  <item code="421" country="JO">PURCHASE FORGONE INT..</item>
+  <item code="422" country="JO">Interest Paid</item>
+  <item code="425" country="JO">Penalty interest</item>
+  <item code="426" country="JO">A.T.M. Cash Withdrawal</item>
+  <item code="427" country="JO">VISA/JONET Transaction</item>
+  <item code="428" country="JO">Point Of Sale</item>
+  <item code="429" country="JO">ATM CASH TRANSFER</item>
+  <item code="430" country="JO">ATM CASH TRANSFER</item>
+  <item code="431" country="JO">ATM CASH TRANSFER</item>
+  <item code="432" country="JO">ATM CASH TRANSACTION</item>
+  <item code="433" country="JO">ATM CASH TRANSACTION</item>
+  <item code="434" country="JO">ATM CASH TRANSACTION</item>
+  <item code="435" country="JO">ATM CASH TRANSFER</item>
+  <item code="436" country="JO">ATM CASH TRANSFER</item>
+  <item code="437" country="JO">ATM CASH TRANSFER</item>
+  <item code="438" country="JO">Deal debit</item>
+  <item code="439" country="JO">Deal debit - tfr</item>
+  <item code="440" country="JO">Treasury Bond-Sale Revers</item>
+  <item code="470" country="JO">Foreign Exchange Purchase</item>
+  <item code="480" country="JO">FX PURCH. SETTLEMENT</item>
+  <item code="510" country="JO">A/C Credit</item>
+  <item code="515" country="JO">Cheque Deposit</item>
+  <item code="518" country="JO">Outport Contra</item>
+  <item code="520" country="JO">Transfer - Credit</item>
+  <item code="530" country="JO">Credit Standing Order</item>
+  <item code="539" country="JO">Cash Deposit</item>
+  <item code="540" country="JO">Cash Out</item>
+  <item code="541" country="JO">Currency Notes Sold</item>
+  <item code="542" country="JO">Currency Cheque Sold</item>
+  <item code="543" country="JO">Cross Currency Deposit</item>
+  <item code="560" country="JO">Post Dated Cheque</item>
+  <item code="562" country="JO">Outport Chq Deposit</item>
+  <item code="564" country="JO">PostDated Outport</item>
+  <item code="566" country="JO">PostDated Chq Cancel</item>
+  <item code="568" country="JO">PostDated Chq Due</item>
+  <item code="570" country="JO">PostDated Chq Dep</item>
+  <item code="575" country="JO">PostDated Contra</item>
+  <item code="580" country="JO">Outport Cheque</item>
+  <item code="593" country="JO">Returned Cheque</item>
+  <item code="594" country="JO">Returned Outport Chq</item>
+  <item code="595" country="JO">Reversal - Credit</item>
+  <item code="596" country="JO">Credit with Tr.Advice</item>
+  <item code="597" country="JO">Adjustment - Credit</item>
+  <item code="600" country="JO">Credit Interest</item>
+  <item code="602" country="JO">Loan Start</item>
+  <item code="605" country="JO">Loan Increase - Funding</item>
+  <item code="610" country="JO">DIVIDEND</item>
+  <item code="611" country="JO">Deposit Repayment</item>
+  <item code="620" country="JO">ADJUSTMENT</item>
+  <item code="630" country="JO">JONET FEES</item>
+  <item code="631" country="JO">Loan Drawdown</item>
+  <item code="635" country="JO">commitment fees</item>
+  <item code="640" country="JO">Loan Drawdown (Maturity)</item>
+  <item code="641" country="JO">FX Operation - Credit</item>
+  <item code="650" country="JO">TRF-Br. Settlement</item>
+  <item code="664" country="JO">Charge Contra</item>
+  <item code="680" country="JO">Principal write-off</item>
+  <item code="690" country="JO">REVERSAL</item>
+  <item code="695" country="JO">REAL SVD POSTING</item>
+  <item code="699" country="JO">FX Payment</item>
+  <item code="700" country="JO">FWD FX REVERSAL - PUR</item>
+  <item code="703" country="JO">House Cheque</item>
+  <item code="705" country="JO">Deposit - Value Today</item>
+  <item code="706" country="JO">Deposit - 1 day Value</item>
+  <item code="707" country="JO">Deposit - 2 day Value</item>
+  <item code="709" country="JO">Cheque Deposit</item>
+  <item code="720" country="JO">INT. RATE SWAP DEPO.</item>
+  <item code="725" country="JO">INT RATE SWAP/DEPO REPAY</item>
+  <item code="730" country="JO">Treasury Bonds-Capital Cr</item>
+  <item code="740" country="JO">INT. RATE SWAP LOAN FUND.</item>
+  <item code="745" country="JO">INT. RATE SWAP LOAN REPAY</item>
+  <item code="750" country="JO">FINANCIAL FUTURE SALE</item>
+  <item code="751" country="JO">Direct Credit</item>
+  <item code="755" country="JO">FINANCIAL FUTURE PUR.FUND</item>
+  <item code="775" country="JO">Returned Cheque Fee</item>
+  <item code="783" country="JO">Other Charges</item>
+  <item code="795" country="JO">COMMER. LOAN COMMITMENT</item>
+  <item code="800" country="JO">NEG INST. PURCH. FUND.</item>
+  <item code="805" country="JO">NEG INST. PURCHASE REV.</item>
+  <item code="810" country="JO">LOCAL BILL REDISC. FND</item>
+  <item code="815" country="JO">LOCAL BILL REDISC. REV.</item>
+  <item code="820" country="JO">N.I/L.B FACE VAL. SETT</item>
+  <item code="825" country="JO">NEG INST. SALE</item>
+  <item code="830" country="JO">ROUNDING DIFFERENCE</item>
+  <item code="831" country="JO">Loan Maturity</item>
+  <item code="835" country="JO">C/D ISSUED</item>
+  <item code="840" country="JO">NEG INST. PREMIUM/DISCNT.</item>
+  <item code="841" country="JO">Loan Decrease</item>
+  <item code="842" country="JO">Loan Repayment</item>
+  <item code="845" country="JO">C/D ISSUED REPAYMENT</item>
+  <item code="850" country="JO">MEMORANDUM CREDIT</item>
+  <item code="860" country="JO">Deposit Taken</item>
+  <item code="870" country="JO">Loan Repayment</item>
+  <item code="871" country="JO">Loan Repayment</item>
+  <item code="875" country="JO">Loan Funding</item>
+  <item code="877" country="JO">Deposit Increase</item>
+  <item code="880" country="JO">FX Purchase - Maturity</item>
+  <item code="890" country="JO">FX Sale - Start</item>
+  <item code="899" country="JO">System Credit</item>
+  <item code="900" country="JO">Placement / Loan Funding</item>
+  <item code="901" country="JO">Exchange Delivery</item>
+  <item code="905" country="JO">PLACEMENT/LOAN REPAYMENT</item>
+  <item code="906" country="JO">Transfer</item>
+  <item code="907" country="JO">Consolidated P and L</item>
+  <item code="910" country="JO">Branch Settlement - Due To</item>
+  <item code="911" country="JO">SUSP LIABILITY</item>
+  <item code="916" country="JO">Discount Received in Advance</item>
+  <item code="917" country="JO">Contingent Asset</item>
+  <item code="918" country="JO">Contingent Liability</item>
+  <item code="920" country="JO">ACCEPT./DEPOSIT</item>
+  <item code="921" country="JO">PURCHASE FORGONE INT..</item>
+  <item code="922" country="JO">Interest Received</item>
+  <item code="925" country="JO">Penalty interest</item>
+  <item code="926" country="JO">A.T.M. Cash Withdrawal</item>
+  <item code="927" country="JO">VISA/JONET Transaction</item>
+  <item code="928" country="JO">Point Of Sale</item>
+  <item code="929" country="JO">ATM CASH TRANSFER</item>
+  <item code="930" country="JO">ATM CASH TRANSFER</item>
+  <item code="931" country="JO">ATM CASH TRANSFER</item>
+  <item code="932" country="JO">ATM CASH TRANSACTION</item>
+  <item code="933" country="JO">ATM CASH TRANSACTION</item>
+  <item code="934" country="JO">ATM CASH TRANSACTION</item>
+  <item code="935" country="JO">ATM CASH TRANSFER</item>
+  <item code="936" country="JO">ATM CASH TRANSFER</item>
+  <item code="937" country="JO">ATM CASH TRANSFER</item>
+  <item code="938" country="JO">Deal credit</item>
+  <item code="939" country="JO">Deal credit - tfr</item>
+  <item code="940" country="JO">Treasury Bonds - Sale</item>
+  <item code="970" country="JO">Foreign Exchange Sale</item>
+  <item code="980" country="JO">FX SALE SETTLEMENT</item>
+  <item code="277" country="JO">Early withdrawal Charge</item>
+  <item code="067" country="JO">Certified Cheque Cancel</item>
+  <item code="567" country="JO">Certified Cheque Cancel</item>
+  <item code="132" country="JO">VISA Electron Charges</item>
+  <item code="632" country="JO">VISA Electron Charges</item>
+  <item code="252" country="JO">Statement Request Charge</item>
+  <item code="133" country="JO">CHARGES</item>
+  <item code="633" country="JO">CHARGES</item>
+  <item code="455" country="JO">ATM STMT/CHQBK Chrge</item>
+  <item code="955" country="JO">ATM STMT/CHQBK Chrge</item>
+  <item code="451" country="JO">ATM CASH WDL CHARGE</item>
+  <item code="452" country="JO">ATM BAL ENQ CHARGE</item>
+  <item code="951" country="JO">ATM CASH WDL CHARGE</item>
+  <item code="952" country="JO">ATM BAL ENQ CHARGE</item>
+  <item code="253" country="JO">Postage/Courier Charge</item>
+  <item code="710" country="JO">Visa-Reversal</item>
+  <item code="210" country="JO">VJCS-Visa Interest</item>
+  <item code="211" country="JO">Visa-Overline Fee</item>
+  <item code="212" country="JO">Visa-Late Payment Fee</item>
+  <item code="260" country="JO">Visa-Card Renewal Fee-Classic</item>
+  <item code="261" country="JO">Visa-Card Renewal Fee-Gold</item>
+  <item code="262" country="JO">Visa-Card Renewal Fee-Platinum</item>
+  <item code="263" country="JO">Visa-Card Replacement Fee-Classic</item>
+  <item code="264" country="JO">Visa-Card Replacement Fee-Gold</item>
+  <item code="265" country="JO">Visa-Card Replacement Fee-Platinum</item>
+  <item code="266" country="JO">Visa-Card Personalization Fee-Clsic</item>
+  <item code="267" country="JO">Visa-Card Personalization Fee-Gold</item>
+  <item code="268" country="JO">Visa-Card Personalization Fee-Platn</item>
+  <item code="269" country="JO">Visa-Customer Installment</item>
+  <item code="769" country="JO">Visa-Customer Card A/C</item>
+  <item code="213" country="JO">Visa-Installment</item>
+  <item code="713" country="JO">Visa-Installment</item>
+  <item code="715" country="JO">Visa Credit</item>
+  <item code="022" country="JO">Transfer-Debit (Teller)</item>
+  <item code="522" country="JO">Transfer-Credit(Teller)</item>
+  <item code="415" country="JO">Visa Debit</item>
+  <item code="569" country="JO">Visa-Customer Installment (Cr)</item>
+  <item code="214" country="JO">Visa-Credit Card Purchases</item>
+  <item code="215" country="JO">Visa-ATM/Cash Withdrawal</item>
+  <item code="216" country="JO">Visa-Intl Card W/D COMM</item>
+  <item code="217" country="JO">Visa-Credit Purchase Representment</item>
+  <item code="218" country="JO">Visa-Credit Representment</item>
+  <item code="219" country="JO">Visa-Cash Representment</item>
+  <item code="023" country="JO">Transfer-Debit (Teller)-No Adv</item>
+  <item code="523" country="JO">Transfer-Credit(Teller)-No Adv</item>
+  <item code="490" country="JO">DB NBKONL Standing Order</item>
+  <item code="990" country="JO">CR NBKONL Standing Order</item>
+  <item code="491" country="JO">Internet A/C transfer credit TO</item>
+  <item code="991" country="JO">Internet A/C transfer debit FROM</item>
+  <item code="492" country="JO">Internet Utility Payment</item>
+  <item code="992" country="JO">Internet Utility Payment</item>
+  <item code="493" country="JO">DB NBKONL Time Deposit</item>
+  <item code="993" country="JO">CR NBKONL Time Deposit</item>
+  <item code="494" country="JO">DB NBKONL Int Transfer</item>
+  <item code="994" country="JO">CR NBKONL Int Transfer</item>
+  <item code="495" country="JO">DB NBKONL Local Transfer</item>
+  <item code="995" country="JO">CR NBKONL Local Transfer</item>
+  <item code="496" country="JO">NBKONL Deposit Receipt</item>
+  <item code="996" country="JO">NBKONL Deposit Repayment</item>
+  <item code="497" country="JO">NBKONL Reversal Debit</item>
+  <item code="997" country="JO">NBKONL Reversal Credit</item>
+  <item code="498" country="JO">NBKONL Maturity</item>
+  <item code="998" country="JO">NBKONL Deposit Taken</item>
+  <item code="051" country="JO">NBKONL Deposit Decrease</item>
+  <item code="551" country="JO">NBKONL Deposit Increase</item>
+  <item code="052" country="JO">NBKONL Deposit Receipt Fund</item>
+  <item code="552" country="JO">NBKONL Deposit Repayment Fund</item>
+  <item code="511" country="JO">Visa Credit</item>
+  <item code="165" country="JO">Life Insurance</item>
+  <item code="166" country="JO">Fire Insurance</item>
+  <item code="221" country="JO">Visa-Insurance Fee</item>
+  <item code="721" country="JO">Visa-Insurance Fee</item>
+  <item code="222" country="JO">Visa-reversals</item>
+  <item code="722" country="JO">Visa-reversals</item>
+  <item code="223" country="JO">Visa-Cancellations</item>
+  <item code="723" country="JO">Visa-cancellations</item>
+  <item code="178" country="JO">Specific loan provisions</item>
+  <item code="181" country="JO">Interest write-off</item>
+  <item code="678" country="JO">Specific loan provisions</item>
+  <item code="681" country="JO">Interest write-off</item>
+  <item code="254" country="JO">Internet STMT/SRVC Request Charge</item>
+  <item code="256" country="JO">Internet Cheque Book Charge</item>
+  <item code="754" country="JO">Internet STMT/SRVC Request Charge</item>
+  <item code="756" country="JO">Internet Cheque Book Charge</item>
+
+  <item code="010" country="BH">A/C Debit</item>
+  <item code="011" country="BH">A/C Debit-Advice</item>
+  <item code="012" country="BH">A/C Debit-NO Advice</item>
+  <item code="015" country="BH">Cheque Deposit</item>
+  <item code="018" country="BH">Outport Contra</item>
+  <item code="020" country="BH">Transfer - Debit</item>
+  <item code="030" country="BH">Debit Standing Order</item>
+  <item code="039" country="BH">Cash Withdrawal</item>
+  <item code="040" country="BH">Cash In</item>
+  <item code="041" country="BH">Currency Notes Bought</item>
+  <item code="042" country="BH">Currency Cheque Bought</item>
+  <item code="043" country="BH">Cross Currency Withdrawal</item>
+  <item code="051" country="BH">NBKONL Deposit Decrease</item>
+  <item code="052" country="BH">NBKONL Deposit Receipt Fund</item>
+  <item code="060" country="BH">Post Dated Cheque</item>
+  <item code="062" country="BH">Outport Chq Deposit</item>
+  <item code="064" country="BH">PostDated Outport</item>
+  <item code="066" country="BH">PostDated Chq Cancel</item>
+  <item code="067" country="BH">Certified Cheque Cancel</item>
+  <item code="068" country="BH">PostDated Chq Due</item>
+  <item code="070" country="BH">PostDated Chq Dep</item>
+  <item code="075" country="BH">PostDated Contra</item>
+  <item code="080" country="BH">Outport Cheque</item>
+  <item code="093" country="BH">Returned Cheque</item>
+  <item code="094" country="BH">Returned Outport Chq</item>
+  <item code="095" country="BH">Reversal - Debit</item>
+  <item code="096" country="BH">Debit with Tr.Advice</item>
+  <item code="097" country="BH">Adjustment - Debit</item>
+  <item code="100" country="BH">Debit Interest</item>
+  <item code="101" country="BH">Loan Payment</item>
+  <item code="102" country="BH">Loan Maturity</item>
+  <item code="110" country="BH">DIVIDEND</item>
+  <item code="111" country="BH">Deposit Receipt</item>
+  <item code="113" country="BH">MM IRP Purch FxR - Deposit Receipt</item>
+  <item code="114" country="BH">MM IRS Sale FlR - Loan Receipt</item>
+  <item code="120" country="BH">ADJUSTMENT</item>
+  <item code="130" country="BH">CHARGES</item>
+  <item code="131" country="BH">Loan Payment</item>
+  <item code="132" country="BH">VISA Electron Charges</item>
+  <item code="135" country="BH">commitment fees</item>
+  <item code="141" country="BH">FX Operation - Debit</item>
+  <item code="150" country="BH">Transfer</item>
+  <item code="151" country="BH">TRF-BRANCH SETTLEMENT</item>
+  <item code="155" country="BH">Discounted Bills Matures</item>
+  <item code="164" country="BH">Other Charges</item>
+  <item code="178" country="BH">Specific loan provisions</item>
+  <item code="180" country="BH">Cancellation</item>
+  <item code="181" country="BH">Interest write-off</item>
+  <item code="182" country="BH">Principal write-off</item>
+  <item code="190" country="BH">REVERSAL</item>
+  <item code="195" country="BH">SVD REVERSAL</item>
+  <item code="199" country="BH">FX Receipt</item>
+  <item code="203" country="BH">House Cheque</item>
+  <item code="205" country="BH">Clearing Check</item>
+  <item code="206" country="BH">Cheque Cashed</item>
+  <item code="207" country="BH">Counter Cheque</item>
+  <item code="208" country="BH">Returned Cheque</item>
+  <item code="209" country="BH">Cancelled Cheque</item>
+  <item code="220" country="BH">INT.RATE SWAP/DEPO FUND</item>
+  <item code="225" country="BH">INT. RATE SWAP/DEPO REPAY</item>
+  <item code="228" country="BH">Islamic Suqooqs</item>
+  <item code="230" country="BH">Treasury Bonds-Capital Dr</item>
+  <item code="231" country="BH">Account Service Charge</item>
+  <item code="232" country="BH">Post Dated Cheque charge</item>
+  <item code="249" country="BH">Telex / Swift Charge</item>
+  <item code="250" country="BH">MM FXD BOND/FIN FUTURE - PURCHASE</item>
+  <item code="251" country="BH">Direct Debit</item>
+  <item code="252" country="BH">Statement Request Charge</item>
+  <item code="254" country="BH">Internet STMT/SRVC Request Charge</item>
+  <item code="255" country="BH">MM FXD BOND/FIN FUTURE - SALE FUND</item>
+  <item code="256" country="BH">Internet Cheque Book Charge</item>
+  <item code="269" country="BH">Visa-Debit</item>
+  <item code="275" country="BH">Returned Cheque Charge</item>
+  <item code="276" country="BH">Loan Insurance Charges</item>
+  <item code="277" country="BH">Early withdrawal Charge</item>
+  <item code="278" country="BH">Fiscal Stamp Commission</item>
+  <item code="279" country="BH">Commission-LC/LG</item>
+  <item code="283" country="BH">Other Charges</item>
+  <item code="284" country="BH">Loan Administration Charges</item>
+  <item code="295" country="BH">COMMER. LOAN COMMITMENT</item>
+  <item code="297" country="BH">Stop Payment Charge</item>
+  <item code="305" country="BH">NEG. INST. PURCH. MAT.</item>
+  <item code="315" country="BH">LOCAL BILL REDISC. MAT.</item>
+  <item code="320" country="BH">N.I/L. FACE VAL. SETT</item>
+  <item code="325" country="BH">NEG INST. SALE</item>
+  <item code="330" country="BH">ROUNDING DIFFERENCE</item>
+  <item code="331" country="BH">Loan</item>
+  <item code="340" country="BH">NEG. INST. PREMIUM/DISCNT</item>
+  <item code="341" country="BH">Loan Increase</item>
+  <item code="343" country="BH">MM IRS Sale FlR - Loan Disbursed</item>
+  <item code="345" country="BH">C/D ISSUE FUNDING</item>
+  <item code="346" country="BH">IRS Principal Increase</item>
+  <item code="347" country="BH">IRS Principal Decrease</item>
+  <item code="350" country="BH">MEMORANDUM DEBIT</item>
+  <item code="360" country="BH">Deposit Maturity</item>
+  <item code="362" country="BH">MM IRP Purch - Deposit Maturity</item>
+  <item code="370" country="BH">Loan</item>
+  <item code="371" country="BH">Loan Repayment</item>
+  <item code="372" country="BH">Loan Increase</item>
+  <item code="375" country="BH">Loan Repayment</item>
+  <item code="377" country="BH">Deposit Decrease</item>
+  <item code="380" country="BH">FX Purchase - Start</item>
+  <item code="390" country="BH">FX Sale - Maturity</item>
+  <item code="399" country="BH">System Debit</item>
+  <item code="400" country="BH">PLACEMENT/LOAN</item>
+  <item code="401" country="BH">Exchange Delivery</item>
+  <item code="402" country="BH">Reverse Murahaba - Debit</item>
+  <item code="405" country="BH">PLACEMENT/LOAN REPAY.</item>
+  <item code="406" country="BH">Transfer</item>
+  <item code="407" country="BH">Consolidated P&amp;L</item>
+  <item code="408" country="BH">Interest Receivable</item>
+  <item code="409" country="BH">Reverse Murahaba - Repayment - Dr.</item>
+  <item code="410" country="BH">Branch Settlement - Due From</item>
+  <item code="411" country="BH">SUSP ASSET</item>
+  <item code="412" country="BH">Suspense Debtors</item>
+  <item code="416" country="BH">Discount Paid in Advance</item>
+  <item code="417" country="BH">Contingent Asset</item>
+  <item code="418" country="BH">Contingent Liability</item>
+  <item code="420" country="BH">Acceptance/Deposit Fundng</item>
+  <item code="421" country="BH">PURCHASE FORGONE INT..</item>
+  <item code="422" country="BH">Interest Paid</item>
+  <item code="425" country="BH">Penalty interest</item>
+  <item code="426" country="BH">ATM/POS Transaction</item>
+  <item code="427" country="BH">VISA Electron Transaction</item>
+  <item code="428" country="BH">Point Of Sale (POS) Transaction</item>
+  <item code="429" country="BH">ATM CASH TRANSFER</item>
+  <item code="430" country="BH">ATM CASH TRANSFER</item>
+  <item code="431" country="BH">ATM CASH TRANSFER</item>
+  <item code="432" country="BH">ATM CASH TRANSACTION</item>
+  <item code="433" country="BH">ATM CASH TRANSACTION</item>
+  <item code="434" country="BH">ATM CASH TRANSACTION</item>
+  <item code="435" country="BH">ATM CASH TRANSFER</item>
+  <item code="436" country="BH">ATM CASH TRANSFER</item>
+  <item code="437" country="BH">ATM CASH TRANSFER</item>
+  <item code="438" country="BH">Deal debit</item>
+  <item code="439" country="BH">Deal debit - tfr</item>
+  <item code="440" country="BH">Treasury Bond-Sale Revers</item>
+  <item code="442" country="BH">Islamic Suqooqs - We Receive</item>
+  <item code="451" country="BH">ATM CashWthdrawlChrg</item>
+  <item code="452" country="BH">ATM Bal Enqry Charge</item>
+  <item code="455" country="BH">ATM Stmt/Chqbk Chrge</item>
+  <item code="480" country="BH">FX PURCH. SETTLEMENT</item>
+  <item code="490" country="BH">NBKONL Standing Order Debit</item>
+  <item code="491" country="BH">Internet A/C transfr credit TO</item>
+  <item code="492" country="BH">Internet Utility Payment</item>
+  <item code="493" country="BH">NBKONL Time Deposit Debit</item>
+  <item code="494" country="BH">NBKONL Int Transfer Debit</item>
+  <item code="495" country="BH">NBKONL Local Transfer Debit</item>
+  <item code="496" country="BH">NBKONL Deposit Receipt</item>
+  <item code="497" country="BH">NBKONL Reversal Debit</item>
+  <item code="498" country="BH">NBLONL Maturityy</item>
+  <item code="510" country="BH">A/C Credit</item>
+  <item code="511" country="BH">A/C Credit-Advice</item>
+  <item code="512" country="BH">A/C Credit-NO Advice</item>
+  <item code="515" country="BH">Cheque Deposit</item>
+  <item code="518" country="BH">Outport Contra</item>
+  <item code="520" country="BH">Transfer - Credit</item>
+  <item code="530" country="BH">Credit Standing Order</item>
+  <item code="539" country="BH">Cash Deposit</item>
+  <item code="540" country="BH">Cash Out</item>
+  <item code="541" country="BH">Currency Notes Sold</item>
+  <item code="542" country="BH">Currency Cheque Sold</item>
+  <item code="543" country="BH">Cross Currency Deposit</item>
+  <item code="551" country="BH">NBKONL Deposit Increase</item>
+  <item code="552" country="BH">NBKONL Deposit Repayment Fund</item>
+  <item code="560" country="BH">Post Dated Cheque</item>
+  <item code="562" country="BH">Outport Chq Deposit</item>
+  <item code="564" country="BH">PostDated Outport</item>
+  <item code="566" country="BH">PostDated Chq Cancel</item>
+  <item code="567" country="BH">Certified Cheque Cancel</item>
+  <item code="568" country="BH">PostDated Chq Due</item>
+  <item code="570" country="BH">PostDated Chq Dep</item>
+  <item code="575" country="BH">PostDated Contra</item>
+  <item code="580" country="BH">Outport Cheque</item>
+  <item code="593" country="BH">Returned Cheque</item>
+  <item code="594" country="BH">Returned Outport Chq</item>
+  <item code="595" country="BH">Reversal - Credit</item>
+  <item code="596" country="BH">Credit with Tr.Advice</item>
+  <item code="597" country="BH">Adjustment - Credit</item>
+  <item code="600" country="BH">Credit Interest</item>
+  <item code="602" country="BH">Loan Start</item>
+  <item code="605" country="BH">Loan Increase - Funding</item>
+  <item code="610" country="BH">DIVIDEND</item>
+  <item code="611" country="BH">Deposit Repayment</item>
+  <item code="613" country="BH">MM IRP Purch FxR - Depo Repayment</item>
+  <item code="614" country="BH">MM IRS Sale FlR - Loan Repayment</item>
+  <item code="620" country="BH">ADJUSTMENT</item>
+  <item code="630" country="BH">CHARGES</item>
+  <item code="631" country="BH">Loan Drawdown</item>
+  <item code="632" country="BH">VISA Electron Charges</item>
+  <item code="635" country="BH">commitment fees</item>
+  <item code="641" country="BH">FX Operation - Credit</item>
+  <item code="650" country="BH">TRANSFER</item>
+  <item code="651" country="BH">TRF-BRANCH SETTLEMENT</item>
+  <item code="655" country="BH">Discounted Bills Proceeds</item>
+  <item code="664" country="BH">Charge Contra</item>
+  <item code="676" country="BH">Loan Insurance Charges - Contra</item>
+  <item code="678" country="BH">Specific loan provisions</item>
+  <item code="680" country="BH">Cancellation</item>
+  <item code="681" country="BH">Interest write-off</item>
+  <item code="682" country="BH">Principal write-off</item>
+  <item code="684" country="BH">Loan Administration Charge - Contra</item>
+  <item code="690" country="BH">REVERSAL</item>
+  <item code="695" country="BH">REAL SVD POSTING</item>
+  <item code="699" country="BH">FX Payment</item>
+  <item code="703" country="BH">House Cheque</item>
+  <item code="705" country="BH">Deposit - Value Today</item>
+  <item code="706" country="BH">Deposit - 1 day Value</item>
+  <item code="707" country="BH">Deposit - 2 day Value</item>
+  <item code="709" country="BH">Cheque Deposit</item>
+  <item code="720" country="BH">INT. RATE SWAP DEPO.</item>
+  <item code="725" country="BH">INT RATE SWAP/DEPO REPAY</item>
+  <item code="728" country="BH">Islamic Suqooqs - Credit</item>
+  <item code="730" country="BH">Treasury Bonds-Capital Cr</item>
+  <item code="731" country="BH">Account Service Charge</item>
+  <item code="740" country="BH">INT. RATE SWAP LOAN FUND.</item>
+  <item code="745" country="BH">INT. RATE SWAP LOAN REPAY</item>
+  <item code="750" country="BH">MM FIXED BOND/FIN FUTURE - SALE</item>
+  <item code="751" country="BH">Direct Credit</item>
+  <item code="754" country="BH">Internet STMT/SRVC Request Charge</item>
+  <item code="755" country="BH">MM FXD BOND/FIN FUTURE - PURCH FUND</item>
+  <item code="756" country="BH">Internet Cheque Book Charge</item>
+  <item code="769" country="BH">Visa-Credit</item>
+  <item code="775" country="BH">Returned Cheque Fee</item>
+  <item code="795" country="BH">COMMER. LOAN COMMITMENT</item>
+  <item code="800" country="BH">NEG INST. PURCH. FUND.</item>
+  <item code="810" country="BH">LOCAL BILL REDISC. FND</item>
+  <item code="820" country="BH">N.I/L.B FACE VAL. SETT</item>
+  <item code="825" country="BH">NEG INST. SALE</item>
+  <item code="830" country="BH">ROUNDING DIFFERENCE</item>
+  <item code="831" country="BH">Loan Maturity</item>
+  <item code="840" country="BH">NEG INST. PREMIUM/DISCNT.</item>
+  <item code="841" country="BH">Loan Decrease</item>
+  <item code="842" country="BH">Loan Repayment</item>
+  <item code="843" country="BH">IRS Sale rFlR - Loan Decrease</item>
+  <item code="845" country="BH">C/D ISSUED REPAYMENT</item>
+  <item code="846" country="BH">IRS Principal Increase</item>
+  <item code="847" country="BH">IRS Principal Decrease</item>
+  <item code="850" country="BH">MEMORANDUM CREDIT</item>
+  <item code="860" country="BH">Deposit Taken</item>
+  <item code="862" country="BH">MM IRP Purch FxR - Deposit Taken</item>
+  <item code="870" country="BH">Loan Repayment</item>
+  <item code="871" country="BH">Loan Repayment</item>
+  <item code="875" country="BH">Loan Funding</item>
+  <item code="877" country="BH">Deposit Increase</item>
+  <item code="880" country="BH">FX Purchase - Maturity</item>
+  <item code="890" country="BH">FX Sale - Start</item>
+  <item code="899" country="BH">System Credit</item>
+  <item code="900" country="BH">Placement / Loan Funding</item>
+  <item code="901" country="BH">Exchange Delivery</item>
+  <item code="902" country="BH">Reverse Murahaba - Credit</item>
+  <item code="905" country="BH">PLACEMENT/LOAN REPAYMENT</item>
+  <item code="906" country="BH">Transfer</item>
+  <item code="907" country="BH">Consolidated P&amp;L</item>
+  <item code="909" country="BH">Reverse Murahaba - Repayment - Cr.</item>
+  <item code="910" country="BH">Branch Settlement - Due To</item>
+  <item code="911" country="BH">SUSP LIABILITY</item>
+  <item code="916" country="BH">Discount Received in Advance</item>
+  <item code="917" country="BH">Contingent Asset</item>
+  <item code="918" country="BH">Contingent Liability</item>
+  <item code="920" country="BH">ACCEPT./DEPOSIT</item>
+  <item code="921" country="BH">PURCHASE FORGONE INT..</item>
+  <item code="922" country="BH">Interest Received</item>
+  <item code="924" country="BH">PDC Discounted</item>
+  <item code="925" country="BH">Penalty interest</item>
+  <item code="926" country="BH">ATM CASH TRANSACTION</item>
+  <item code="927" country="BH">VISA Electron Transaction</item>
+  <item code="928" country="BH">ATM CASH TRANSACTION</item>
+  <item code="929" country="BH">ATM CASH TRANSFER</item>
+  <item code="930" country="BH">ATM CASH TRANSFER</item>
+  <item code="931" country="BH">ATM CASH TRANSFER</item>
+  <item code="932" country="BH">ATM CASH TRANSACTION</item>
+  <item code="933" country="BH">ATM CASH TRANSACTION</item>
+  <item code="934" country="BH">ATM CASH TRANSACTION</item>
+  <item code="935" country="BH">ATM CASH TRANSFER</item>
+  <item code="936" country="BH">ATM CASH TRANSFER</item>
+  <item code="937" country="BH">ATM CASH TRANSFER</item>
+  <item code="938" country="BH">Deal credit</item>
+  <item code="939" country="BH">Deal credit - tfr</item>
+  <item code="940" country="BH">Treasury Bonds - Sale</item>
+  <item code="942" country="BH">Islamic Suqooqs - We Pay</item>
+  <item code="951" country="BH">ATM CSH WDL CHARGE</item>
+  <item code="952" country="BH">ATM BAL ENQ CHARGE</item>
+  <item code="955" country="BH">ATM STMT/CHQBJ CHRGE</item>
+  <item code="980" country="BH">FX SALE SETTLEMENT</item>
+  <item code="990" country="BH">NBKONL Standing Order Credit</item>
+  <item code="991" country="BH">Internet A/C transfr debit FROM</item>
+  <item code="992" country="BH">Internet Utility Payment</item>
+  <item code="993" country="BH">NBKONL Time Deposit Credit</item>
+  <item code="994" country="BH">NBKONL Int Transfer Credit</item>
+  <item code="995" country="BH">NBKONL Local Transfer Credit</item>
+  <item code="996" country="BH">NBKONL Deposit Repayment</item>
+  <item code="997" country="BH">NBKONL Reversal Credit</item>
+  <item code="998" country="BH">NBKONL Deposit Taken</item>
+
+  <item code="010" country="AE">Debit</item>
+  <item code="015" country="AE">Cheque Deposit</item>
+  <item code="018" country="AE">Outport Contra</item>
+  <item code="020" country="AE">Transfer - Debit</item>
+  <item code="025" country="AE">Margin Money</item>
+  <item code="030" country="AE">Debit Standing Order</item>
+  <item code="031" country="AE">Debit Balance Orderr</item>
+  <item code="038" country="AE">Cash Withdrawal</item>
+  <item code="039" country="AE">Cash Withdrawal</item>
+  <item code="040" country="AE">Cash In</item>
+  <item code="041" country="AE">Manager Cheque</item>
+  <item code="042" country="AE">Currency Cheque Bought</item>
+  <item code="050" country="AE">Cash Letter Sent</item>
+  <item code="060" country="AE">Post Dated Cheque</item>
+  <item code="062" country="AE">Outport Chq Deposit</item>
+  <item code="064" country="AE">PostDated Outport</item>
+  <item code="066" country="AE">PostDated Chq Cancel</item>
+  <item code="068" country="AE">PostDated Chq Due</item>
+  <item code="070" country="AE">PostDated Chq Dep</item>
+  <item code="075" country="AE">PostDated Contra</item>
+  <item code="080" country="AE">Outport Cheque</item>
+  <item code="090" country="AE">Contingent/Memo Contra</item>
+  <item code="091" country="AE">WRITTEN OFF ACCOUNT BALANCES</item>
+  <item code="093" country="AE">Returned Cheque</item>
+  <item code="094" country="AE">Returned Outport Chq</item>
+  <item code="095" country="AE">Reversal - Debit</item>
+  <item code="096" country="AE">SWAP REVERSAL - Debit</item>
+  <item code="097" country="AE">Adjustment - Debit</item>
+  <item code="098" country="AE">REVERSAL - PLACEMENT</item>
+  <item code="099" country="AE">Reversal Bonds - Debit</item>
+  <item code="100" country="AE">Loan Maturity</item>
+  <item code="101" country="AE">Bonds - Maturity</item>
+  <item code="102" country="AE">Sukuk Maturity</item>
+  <item code="103" country="AE">Treasury Bill - Maturity</item>
+  <item code="104" country="AE">Wakala Maturity</item>
+  <item code="105" country="AE">Discounted Bill - Maturity</item>
+  <item code="110" country="AE">Deposit Receipt</item>
+  <item code="111" country="AE">Murabaha Deposit Receipt</item>
+  <item code="113" country="AE">IRP Deposit Receipt</item>
+  <item code="114" country="AE">IRS Loan Payment</item>
+  <item code="115" country="AE">IRP Deposit Decrease</item>
+  <item code="116" country="AE">IRS Principal Increase</item>
+  <item code="120" country="AE">Placement Receipt</item>
+  <item code="130" country="AE">Loan Payment - Automatic</item>
+  <item code="131" country="AE">Loan Payment - Manual</item>
+  <item code="132" country="AE">VISA Electron Charges</item>
+  <item code="140" country="AE">FX Receipt</item>
+  <item code="178" country="AE">Specific loan provisions</item>
+  <item code="180" country="AE">Principal write-off</item>
+  <item code="181" country="AE">Interest write-off</item>
+  <item code="200" country="AE">Interest</item>
+  <item code="203" country="AE">House Cheque</item>
+  <item code="205" country="AE">Cheque Drawn (Paid)</item>
+  <item code="206" country="AE">Cheque Cashed</item>
+  <item code="207" country="AE">Counter Cheque</item>
+  <item code="210" country="AE">Collection Charged</item>
+  <item code="211" country="AE">Personal Loan Charge</item>
+  <item code="212" country="AE">Insurance Recovered</item>
+  <item code="213" country="AE">Min. Balance Charges</item>
+  <item code="214" country="AE">Cheque Book Charges</item>
+  <item code="215" country="AE">Account Service Charge</item>
+  <item code="216" country="AE">SPECIAL CLEARING Charges</item>
+  <item code="217" country="AE">Standing Order Charge</item>
+  <item code="218" country="AE">ACCOUNT CLOSING Charges</item>
+  <item code="219" country="AE">ACCOUNT DORMANCY FEE</item>
+  <item code="220" country="AE">Telegraphic Transfer</item>
+  <item code="221" country="AE">Telegraphic Transfer</item>
+  <item code="222" country="AE">Mail Transfer</item>
+  <item code="223" country="AE">DUPLICATE STATEMENT FEE</item>
+  <item code="224" country="AE">STANDING ORDER FEE</item>
+  <item code="225" country="AE">Payment agst bills-LC etc</item>
+  <item code="226" country="AE">DEBIT CARD REPLACEMENT FEE</item>
+  <item code="227" country="AE">Reimbursement Claim-TF</item>
+  <item code="229" country="AE">MISC. FEE</item>
+  <item code="230" country="AE">Swift Payment</item>
+  <item code="240" country="AE">Direct Debit</item>
+  <item code="241" country="AE">CERTIFIED INST. ISSUANCE CHARGE</item>
+  <item code="245" country="AE">Draft Issuance Fee</item>
+  <item code="246" country="AE">FCY Cash Deposit charge</item>
+  <item code="247" country="AE">Public Issue BC-DD charge</item>
+  <item code="248" country="AE">Inter Account Transfer Txn fee</item>
+  <item code="249" country="AE">Inter Branch Cash Withdrawal fee</item>
+  <item code="250" country="AE">Savings Withdrawl</item>
+  <item code="254" country="AE">Internet STMT/SRVC Request Charge</item>
+  <item code="256" country="AE">Internet Cheque Book Charge</item>
+  <item code="259" country="AE">Collection Commission - Remittances</item>
+  <item code="260" country="AE">Commission/Fee</item>
+  <item code="261" country="AE">Guarantee Fee</item>
+  <item code="262" country="AE">FX Commission</item>
+  <item code="263" country="AE">LC Commission</item>
+  <item code="264" country="AE">LC Issued Commission</item>
+  <item code="265" country="AE">LC Advised Commission</item>
+  <item code="266" country="AE">LC Amendment Commission</item>
+  <item code="267" country="AE">Documentary Collect Comm</item>
+  <item code="268" country="AE">Acceptance Fee</item>
+  <item code="269" country="AE">Postage Charge</item>
+  <item code="270" country="AE">Stamp Duty</item>
+  <item code="271" country="AE">Cable / Swift / Telex Charge</item>
+  <item code="272" country="AE">Brokerage Charge</item>
+  <item code="273" country="AE">Bill Negotiation Comm</item>
+  <item code="274" country="AE">Overdraft Fee</item>
+  <item code="275" country="AE">Returned Cheque Fee</item>
+  <item code="276" country="AE">Commitment Fee</item>
+  <item code="277" country="AE">Safe Custody Fee</item>
+  <item code="278" country="AE">Portfolio Fee</item>
+  <item code="279" country="AE">Travellers Cheque Fee</item>
+  <item code="280" country="AE">ARRANGEMENT FEE</item>
+  <item code="281" country="AE">Reimbursement Commission</item>
+  <item code="282" country="AE">T/F Misc. Fee</item>
+  <item code="283" country="AE">Negotiaion Charges</item>
+  <item code="284" country="AE">Repayment Holiday fee</item>
+  <item code="285" country="AE">Central Bank Transfer Charge</item>
+  <item code="286" country="AE">Transfer Charge</item>
+  <item code="287" country="AE">Correspondent Charge</item>
+  <item code="290" country="AE">Letter of Credit Issued</item>
+  <item code="295" country="AE">Loan Commitment</item>
+  <item code="296" country="AE">Visa-Debit</item>
+  <item code="336" country="AE">Bond Reverse Repurchase</item>
+  <item code="372" country="AE">IRS Loan</item>
+  <item code="382" country="AE">INTERNAL SWAP - START</item>
+  <item code="385" country="AE">SHARES</item>
+  <item code="400" country="AE">System Debit</item>
+  <item code="401" country="AE">Exchange Delivery</item>
+  <item code="402" country="AE">Forward FX Sale -Start</item>
+  <item code="403" country="AE">Forward FX Purchase - Mat</item>
+  <item code="404" country="AE">Swap Delivery</item>
+  <item code="406" country="AE">Transfer</item>
+  <item code="407" country="AE">Consolidated P&amp;L</item>
+  <item code="408" country="AE">Interest Receivable</item>
+  <item code="410" country="AE">Branch Settle - Due From</item>
+  <item code="411" country="AE">Suspense Asset</item>
+  <item code="412" country="AE">Suspense Debtors</item>
+  <item code="413" country="AE">Interest Expense-Separate</item>
+  <item code="414" country="AE">Fwd Revaluation Profit</item>
+  <item code="415" country="AE">FX Reversal</item>
+  <item code="416" country="AE">Discount Paid in Advance</item>
+  <item code="417" country="AE">Contingent Asset</item>
+  <item code="418" country="AE">Contingent Liability</item>
+  <item code="419" country="AE">Loan Commitment</item>
+  <item code="420" country="AE">Interest</item>
+  <item code="421" country="AE">Prepaid Interest</item>
+  <item code="422" country="AE">Chips Pay - Debit</item>
+  <item code="423" country="AE">Chips Receive - Debit</item>
+  <item code="425" country="AE">Penalty interest</item>
+  <item code="426" country="AE">ATM CASH TRANSACTION</item>
+  <item code="427" country="AE">VISA Electron Transaction</item>
+  <item code="428" country="AE">ATM CASH TRANSACTION</item>
+  <item code="429" country="AE">ATM CASH TRANSFER</item>
+  <item code="430" country="AE">ATM CASH TRANSFER</item>
+  <item code="431" country="AE">ATM CASH TRANSFER</item>
+  <item code="432" country="AE">ATM CASH TRANSACTION</item>
+  <item code="433" country="AE">ATM CASH TRANSACTION</item>
+  <item code="434" country="AE">ATM CASH TRANSACTION</item>
+  <item code="435" country="AE">ATM CASH TRANSFER</item>
+  <item code="436" country="AE">ATM CASH TRANSFER</item>
+  <item code="437" country="AE">ATM CASH TRANSFER</item>
+  <item code="438" country="AE">Cashier deal debit</item>
+  <item code="439" country="AE">Cashier deal debit - tfr</item>
+  <item code="440" country="AE">FX SWAP Reversal</item>
+  <item code="451" country="AE">ATM CSH WDL CHARGE</item>
+  <item code="452" country="AE">ATM BAL ENQ CHARGE</item>
+  <item code="455" country="AE">Statmnt/CheqBookChrg</item>
+  <item code="476" country="AE">Bonds principal decrease - funding</item>
+  <item code="477" country="AE">Bonds principal increase - deal</item>
+  <item code="491" country="AE">Internet A/C transfer credit TO</item>
+  <item code="492" country="AE">Internet Utility Payment</item>
+  <item code="510" country="AE">Credit</item>
+  <item code="515" country="AE">Cheque Deposit</item>
+  <item code="518" country="AE">Outport Contra</item>
+  <item code="520" country="AE">Transfer - Credit</item>
+  <item code="524" country="AE">Margin Money</item>
+  <item code="525" country="AE">Salary</item>
+  <item code="530" country="AE">Credit Standing Order</item>
+  <item code="531" country="AE">Credit Balance Orderr</item>
+  <item code="538" country="AE">Cash Deposit</item>
+  <item code="539" country="AE">Cash Withdrawal</item>
+  <item code="540" country="AE">Cash Out</item>
+  <item code="541" country="AE">Manager Cheque</item>
+  <item code="542" country="AE">Currency Cheque Sold</item>
+  <item code="550" country="AE">Cash Letter Paid</item>
+  <item code="560" country="AE">Post Dated Cheque</item>
+  <item code="562" country="AE">Outport Chq Deposit</item>
+  <item code="564" country="AE">PostDated Outport</item>
+  <item code="566" country="AE">PostDated Chq Cancel</item>
+  <item code="568" country="AE">PostDated Chq Due</item>
+  <item code="570" country="AE">PostDated Chq Dep</item>
+  <item code="575" country="AE">PostDated Contra</item>
+  <item code="580" country="AE">Outport Cheque</item>
+  <item code="590" country="AE">Contingent/Memo Contra</item>
+  <item code="591" country="AE">WRITTEN OFF ACCOUNT-CONTRA</item>
+  <item code="592" country="AE">RECOVERY IN WRITTEN OFF ACCOUNTS</item>
+  <item code="593" country="AE">Returned Cheque</item>
+  <item code="594" country="AE">Returned Outport Chq</item>
+  <item code="595" country="AE">Reversal - Credit</item>
+  <item code="596" country="AE">SWAP REVERSAL - Credit</item>
+  <item code="597" country="AE">Adjustment - Credit</item>
+  <item code="598" country="AE">REVERSAL - PLACEMENT</item>
+  <item code="599" country="AE">Reversal Bonds - Credit</item>
+  <item code="600" country="AE">Loan Start</item>
+  <item code="601" country="AE">Bonds - Start</item>
+  <item code="602" country="AE">Sukuk Start</item>
+  <item code="603" country="AE">Treasury Bill - Start</item>
+  <item code="604" country="AE">Wakala start</item>
+  <item code="605" country="AE">Proceeds of Discounted Bill</item>
+  <item code="610" country="AE">Deposit Repayment</item>
+  <item code="611" country="AE">Murabaha Deposit Repayment</item>
+  <item code="613" country="AE">IRP Deposit Repayment</item>
+  <item code="614" country="AE">IRS Loan Start</item>
+  <item code="615" country="AE">IRP Deposit Increase</item>
+  <item code="616" country="AE">IRS Principal Decrease</item>
+  <item code="620" country="AE">Placement Repayment</item>
+  <item code="630" country="AE">Loan Drawdown</item>
+  <item code="632" country="AE">VISA Electron Charges</item>
+  <item code="640" country="AE">FX Payment</item>
+  <item code="678" country="AE">Specific loan provisions</item>
+  <item code="680" country="AE">Principal write-off</item>
+  <item code="681" country="AE">Interest write-off</item>
+  <item code="700" country="AE">Interest</item>
+  <item code="703" country="AE">House Cheque</item>
+  <item code="705" country="AE">Deposit - Value Today</item>
+  <item code="706" country="AE">Deposit - 1 day Value</item>
+  <item code="707" country="AE">Deposit-1day Value</item>
+  <item code="710" country="AE">Collection Received</item>
+  <item code="720" country="AE">Telegraphic Transfer Rec</item>
+  <item code="722" country="AE">Mail Transfer Received</item>
+  <item code="725" country="AE">Payment Received</item>
+  <item code="727" country="AE">Reversal-Reimbursement Claim-TF</item>
+  <item code="730" country="AE">Swift Receipt</item>
+  <item code="740" country="AE">Direct Credit</item>
+  <item code="750" country="AE">Savings Deposit</item>
+  <item code="754" country="AE">Internet STMT/SRVC Request Charge</item>
+  <item code="756" country="AE">Internet Cheque Book Charge</item>
+  <item code="760" country="AE">Commission/Fee Credit</item>
+  <item code="785" country="AE">Central Bank Transfer Charge</item>
+  <item code="786" country="AE">Transfer Charge</item>
+  <item code="787" country="AE">Correspondent Charge</item>
+  <item code="790" country="AE">Letter of Credit Drawn</item>
+  <item code="795" country="AE">Loan commitment Drawn</item>
+  <item code="796" country="AE">Visa-Credit</item>
+  <item code="836" country="AE">Bond - Repurchase</item>
+  <item code="872" country="AE">IRP Deposit taken</item>
+  <item code="876" country="AE">Bonds principal decrease - deal</item>
+  <item code="877" country="AE">Bonds principal increase - funding</item>
+  <item code="882" country="AE">INTERNAL SWAP - START</item>
+  <item code="885" country="AE">SHARES</item>
+  <item code="900" country="AE">System Credit</item>
+  <item code="901" country="AE">Exchange Delivery</item>
+  <item code="902" country="AE">Fwd FX Purchase - Start</item>
+  <item code="903" country="AE">Fwd FX Sale - Maturity</item>
+  <item code="904" country="AE">Swap Delivery</item>
+  <item code="906" country="AE">Transfer</item>
+  <item code="907" country="AE">Consolidated P&amp;L</item>
+  <item code="908" country="AE">Interest Payable</item>
+  <item code="910" country="AE">Branch Settle - Due To</item>
+  <item code="911" country="AE">Suspense Liability</item>
+  <item code="912" country="AE">Suspense Creditors</item>
+  <item code="913" country="AE">Interest Income -Separate</item>
+  <item code="914" country="AE">Fwd Revaluation Loss</item>
+  <item code="915" country="AE">FX Reversal</item>
+  <item code="916" country="AE">Discount Rec in Advance</item>
+  <item code="917" country="AE">Contingent Asset</item>
+  <item code="918" country="AE">Contingent Liability</item>
+  <item code="919" country="AE">Loan Commitment</item>
+  <item code="920" country="AE">Interest</item>
+  <item code="921" country="AE">Prepaid Interest</item>
+  <item code="922" country="AE">Chips Pay - Credit</item>
+  <item code="923" country="AE">Chips Receive - Credit</item>
+  <item code="925" country="AE">Penalty interest</item>
+  <item code="926" country="AE">ATM CASH TRANSACTION</item>
+  <item code="927" country="AE">VISA Electron Transaction</item>
+  <item code="928" country="AE">ATM CASH TRANSACTION</item>
+  <item code="929" country="AE">ATM CASH TRANSFER</item>
+  <item code="930" country="AE">ATM CASH TRANSFER</item>
+  <item code="931" country="AE">ATM CASH TRANSFER</item>
+  <item code="932" country="AE">ATM CASH TRANSACTION</item>
+  <item code="933" country="AE">ATM CASH TRANSACTION</item>
+  <item code="934" country="AE">ATM CASH TRANSACTION</item>
+  <item code="935" country="AE">ATM CASH TRANSFER</item>
+  <item code="936" country="AE">ATM CASH TRANSFER</item>
+  <item code="937" country="AE">ATM CASH TRANSFER</item>
+  <item code="938" country="AE">Cashier deal credit</item>
+  <item code="939" country="AE">Cashier deal credit - tfr</item>
+  <item code="940" country="AE">FX SWAP Reversal</item>
+  <item code="951" country="AE">ATM CSH WDL CHARGE</item>
+  <item code="952" country="AE">ATM BAL ENQ CHARGE</item>
+  <item code="955" country="AE">Statmnt/CheqBookChrg</item>
+  <item code="991" country="AE">Internet A/C transfer credit TO</item>
+  <item code="992" country="AE">Internet Utility Payment</item>
+</TransactionCodes>

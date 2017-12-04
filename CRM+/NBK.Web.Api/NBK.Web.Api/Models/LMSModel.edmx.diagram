@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ac09ed716758432987108ce1db3df6a8" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="LMSModel.Area" Width="1.5" PointX="7.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.AreaBranch" Width="1.5" PointX="10" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.AreaManager" Width="1.5" PointX="10" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.Campaign" Width="1.5" PointX="12.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.CampaignContact" Width="1.5" PointX="15" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.CampaignLead_History" Width="1.625" PointX="10.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.Channel" Width="1.5" PointX="12.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.Contact" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.Contact_History" Width="1.5" PointX="5.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.ContactDefinition" Width="1.5" PointX="7.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.EmailExclusionList" Width="1.5" PointX="14.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.FunctionRole" Width="1.5" PointX="13" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.FunctionRoleDef" Width="1.5" PointX="10.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.IndividualCustomer" Width="1.5" PointX="14.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.IndividualCustomer_History" Width="1.5" PointX="16.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.InstantLead" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.InstantLead_History" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.InstantLeadChannel" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.InstantLeadData" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.InstantLeadData_History" Width="1.5" PointX="7.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.InstantLeadField" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.InstantLeadMap" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.InstantLeadNASRole" Width="1.5" PointX="18.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.InstantLeadTransferChannel" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.InstantLeadType" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.LeadTransferHistory" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.Notification" Width="1.5" PointX="18.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.Survey" Width="1.5" PointX="7.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.SurveyAnswer" Width="1.5" PointX="12.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.SurveyAnswer_History" Width="1.5" PointX="18.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.SurveyQuestion" Width="1.5" PointX="10" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.sysdiagram" Width="1.5" PointX="18.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.Team" Width="1.5" PointX="5.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LMSModel.TeamMember" Width="1.5" PointX="8" PointY="11" IsExpanded="true" />
+        <AssociationConnector Association="LMSModel.FK_AreaBranch_Area" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_AreaManager_Area" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_CampaignContact_Campaign" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_FunctionRole_FunctionRoleDef" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_InstantLead_InstantLeadType" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_InstantLeadData_InstantLead" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_LeadTransferHistory_InstantLead" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_InstantLeadChannel_InstantLeadType" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_InstantLeadField_InstantLeadType" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_InstantLeadMap_InstantLeadType" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_InstantLeadTransferChannel_InstantLeadType" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_SurveyQuestion_Survey" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_SurveyAnswer_SurveyQuestion" ManuallyRouted="false" />
+        <AssociationConnector Association="LMSModel.FK_TeamMember_Team" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="LMSModel.CampaignLead" Width="1.5" PointX="21" PointY="8" />
+        <AssociationConnector Association="LMSModel.FK_Lead_Campaign" />
+        <AssociationConnector Association="LMSModel.FK_Lead_Channel" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
