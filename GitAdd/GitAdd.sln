@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitAdd", "GitAdd\GitAdd.csproj", "{096CD4E1-7FBD-4B1A-9C8D-B747E8F2D9BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitApi", "GitApi\GitApi.csproj", "{AD740837-C2E7-4DC3-8FEF-3D5DBA0F9584}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{096CD4E1-7FBD-4B1A-9C8D-B747E8F2D9BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{096CD4E1-7FBD-4B1A-9C8D-B747E8F2D9BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{096CD4E1-7FBD-4B1A-9C8D-B747E8F2D9BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{096CD4E1-7FBD-4B1A-9C8D-B747E8F2D9BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD740837-C2E7-4DC3-8FEF-3D5DBA0F9584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD740837-C2E7-4DC3-8FEF-3D5DBA0F9584}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD740837-C2E7-4DC3-8FEF-3D5DBA0F9584}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD740837-C2E7-4DC3-8FEF-3D5DBA0F9584}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C57E6B76-E1D5-4DAA-B0FC-D8F8A51158D0}
+	EndGlobalSection
+EndGlobal
